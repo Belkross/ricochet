@@ -1,20 +1,35 @@
 import React, { useState } from "react";
 import GlobalFeatures from "./components/GlobalFeatures.js";
 import initializeSocketIo from "./config/initializeSocketIo.js";
-import Typography from "@mui/material/Typography";
+import LoadingScreen from "./components/LoadingScreen/index.js";
+
+interface AppState {
+	state: string;
+	username: string | null;
+}
+
+export interface AppStateProperties {
+	state?: string;
+	username?: string | null;
+}
 
 initializeSocketIo();
+const initialAppState: AppState = { state: "connectingToSocketIo", username: null };
 
 export default function App() {
-	const [app, setApp] = useState({ state: "loading", username: null });
+	const [app, setApp] = useState(initialAppState);
+	const changeAppState = (newProperties: AppStateProperties) => setApp({ ...app, ...newProperties });
 
 	let appInterface;
 	switch (app.state) {
-		case "loading":
-			appInterface = <Typography variant="h1">Loading</Typography>;
+		case "connectingToSocketIo":
+		case "loadingApp":
+			appInterface = <LoadingScreen appState={app.state} changeAppState={changeAppState} />;
 			break;
 		case "logging":
 			appInterface = <div>Logging</div>;
+			break;
+		case "logged":
 			break;
 		default:
 			appInterface = null;
