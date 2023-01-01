@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GlobalFeatures from "./components/GlobalFeatures.js";
 import initializeSocketIo from "./config/initializeSocketIo.js";
-import LoadingScreen from "./components/LoadingScreen/index.js";
+import AppLoadingInterface from "./components/AppLoadingInterface/index.js";
 
 interface AppState {
 	state: string;
@@ -24,7 +24,7 @@ export default function App() {
 	switch (app.state) {
 		case "connectingToSocketIo":
 		case "loadingApp":
-			appInterface = <LoadingScreen appState={app.state} changeAppState={changeAppState} />;
+			appInterface = <AppLoadingInterface appState={app.state} changeAppState={changeAppState} />;
 			break;
 		case "logging":
 			appInterface = <div>Logging</div>;
