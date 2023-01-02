@@ -85,6 +85,3 @@ export default function addThemeComponents(theme: Theme): Theme {
 		},
 	});
 }
-
-/* light mode, components must have a dark color with a light background
-darkmode, light color with a dark background  */
