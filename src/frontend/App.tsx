@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GlobalFeatures from "./components/GlobalFeatures.js";
 import initializeSocketIo from "./config/initializeSocketIo.js";
-import AppLoadingInterface from "./components/AppLoadingInterface/index.js";
+import LoadingInterface from "./components/LoadingInterface/index.js";
 
 interface AppState {
 	state: string;
@@ -18,13 +18,13 @@ const initialAppState: AppState = { state: "connectingToSocketIo", username: nul
 
 export default function App() {
 	const [app, setApp] = useState(initialAppState);
-	const changeAppState = (newProperties: AppStateProperties) => setApp({ ...app, ...newProperties });
+	const changeAppState = (newProperties: AppStateProperties): void => setApp({ ...app, ...newProperties });
 
 	let appInterface;
 	switch (app.state) {
 		case "connectingToSocketIo":
 		case "loadingApp":
-			appInterface = <AppLoadingInterface appState={app.state} changeAppState={changeAppState} />;
+			appInterface = <LoadingInterface appState={app.state} changeAppState={changeAppState} />;
 			break;
 		case "logging":
 			appInterface = <div>Logging</div>;

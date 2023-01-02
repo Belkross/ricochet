@@ -11,7 +11,7 @@ interface LoadingScreenProps {
 	changeAppState: (properties: AppStateProperties) => void;
 }
 
-export default function AppLoadingInterface({ appState, changeAppState }: LoadingScreenProps) {
+export default function LoadingInterface({ appState, changeAppState }: LoadingScreenProps) {
 	useSubscribeSocketEvent("connectedToSocketIo", () => endConnectionToSocketIo(changeAppState), []);
 
 	let statusMessage;
