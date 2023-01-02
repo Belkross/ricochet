@@ -13,7 +13,7 @@ interface LoadingInterfaceProps {
 
 export default function LoadingInterface({ appState, changeAppState }: LoadingInterfaceProps) {
 	const effectParameters = {
-		eventName: "connectedTosocketIo",
+		eventName: "connectedToSocketIo",
 		action: () => endConnectionToSocketIo(changeAppState),
 		effectDependencies: [],
 	};
