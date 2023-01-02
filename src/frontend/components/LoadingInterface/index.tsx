@@ -6,12 +6,12 @@ import { AppStateProperties } from "../../App.js";
 import useSubscribeSocketEvent from "../../customHooks/useSubscribeToSocketEvent.js";
 import endConnectionToSocketIo from "./endConnectionToSocketIo.js";
 
-interface LoadingScreenProps {
+interface LoadingInterfaceProps {
 	appState: string;
 	changeAppState: (properties: AppStateProperties) => void;
 }
 
-export default function LoadingInterface({ appState, changeAppState }: LoadingScreenProps) {
+export default function LoadingInterface({ appState, changeAppState }: LoadingInterfaceProps) {
 	const effectParameters = {
 		eventName: "connectedTosocketIo",
 		action: () => endConnectionToSocketIo(changeAppState),
