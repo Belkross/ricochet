@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from "react";
-import localStorageKeys from "../../config/localStorageKeys.js";
-import getInitialThemeMode from "./getInitialThemeMode.js";
+import localStorageKeys from "../../config/local-storage-keys.js";
+import getInitialThemeMode from "./get-initial-theme-mode.js";
 
 interface ThemeModeProps {
 	children: ReactNode;

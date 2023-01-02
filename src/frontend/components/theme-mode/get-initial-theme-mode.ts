@@ -1,4 +1,4 @@
-import { SetOfTheme } from "./index.js";
+import { SetOfTheme } from "./theme-mode.js";
 
 const THEME_MODES = ["light", "dark"];
 

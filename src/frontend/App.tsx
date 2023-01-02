@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import GlobalFeatures from "./components/GlobalFeatures.js";
-import initializeSocketIo from "./config/initializeSocketIo.js";
-import LoadingInterface from "./components/LoadingInterface/index.js";
+import GlobalFeatures from "./components/global-features.js";
+import initializeSocketIo from "./config/initialize-socket-io.js";
+import LoadingInterface from "./components/loading-interface/loading-interface.js";
 
 export type SetOfState = "connectingToSocketIo" | "loadingApp" | "logging" | "logged";
 

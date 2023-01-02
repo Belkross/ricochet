@@ -3,8 +3,8 @@ import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { AppStateProperties, SetOfState } from "../../App.js";
-import useSubscribeSocketEvent from "../../customHooks/useSubscribeToSocketEvent.js";
-import endConnectionToSocketIo from "./endConnectionToSocketIo.js";
+import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
+import endConnectionToSocketIo from "./end-connection-to-socket-io.js";
 
 interface LoadingInterfaceProps {
 	appState: SetOfState;

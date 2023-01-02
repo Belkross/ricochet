@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import MuiTheming from "./MuiTheming.js";
-import ThemeMode from "./ThemeMode/index.js";
+import MuiTheming from "./mui-theming.js";
+import ThemeMode from "./theme-mode/theme-mode.js";
 
 interface GlobalFeaturesProps {
 	children: ReactNode;

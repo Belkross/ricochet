@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import createMuiTheme from "../theme/createMuiTheme.js";
-import { ThemeModeContext } from "./ThemeMode/index.js";
-import { SetOfTheme } from "./ThemeMode/index.js";
+import createMuiTheme from "../theme/create-mui-theme.js";
+import { ThemeModeContext } from "./theme-mode/theme-mode.js";
+import { SetOfTheme } from "./theme-mode/theme-mode.js";
 
 type MuiThemingProps = {
 	children: ReactNode;

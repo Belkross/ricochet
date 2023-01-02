@@ -1,11 +1,10 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { SetOfTheme } from "../components/ThemeMode/index.js";
+import { SetOfTheme } from "../components/theme-mode/theme-mode.js";
 import breakpoints from "./breakpoints.js";
 import shape from "./shapes.js";
 import { palettes } from "./palettes.js";
 import addThemeComponents from "./components.js";
 import addThemeTypographies from "./typographies.js";
-
 
 export default function createMuiTheme(mode: SetOfTheme) {
 	let theme = createTheme({

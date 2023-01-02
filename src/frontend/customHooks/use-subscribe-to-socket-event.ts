@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { socket } from "../config/initializeSocketIo.js";
+import { socket } from "../config/initialize-socket-io.js";
 
 interface customHookParameters {
 	eventName: string;
