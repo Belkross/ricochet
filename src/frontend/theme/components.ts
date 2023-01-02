@@ -33,14 +33,6 @@ export default function addThemeComponents(theme: Theme): Theme {
 					},
 				},
 			},
-			MuiToolbar: {
-				styleOverrides: {
-					root: {
-						borderBottom: `1px solid ${theme.palette.primary.dark}`,
-						backgroundColor: theme.palette.background.paper,
-					},
-				},
-			},
 			MuiDrawer: {
 				defaultProps: {},
 				styleOverrides: {

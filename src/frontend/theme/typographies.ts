@@ -11,7 +11,7 @@ export default function addThemeTypographies(theme: Theme): Theme {
 		typography: {
 			h1: {
 				fontFamily: titleFont,
-				fontSize: 30,
+				fontSize: 40,
 				lineHeight: 1,
 				fontWeight: 400,
 				letterSpacing: -0.5,

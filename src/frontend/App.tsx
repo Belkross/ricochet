@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GlobalFeatures from "./components/global-features.js";
 import initializeSocketIo from "./config/initialize-socket-io.js";
 import LoadingInterface from "./components/loading-interface/loading-interface.js";
+import Layout from "./components/layout.js";
 
 export type SetOfState = "connectingToSocketIo" | "loadingApp" | "logging" | "logged";
 
@@ -37,5 +38,9 @@ export default function App() {
 			appInterface = null;
 	}
 
-	return <GlobalFeatures>{appInterface}</GlobalFeatures>;
+	return (
+		<GlobalFeatures>
+			<Layout appState={app.state}>{appInterface}</Layout>
+		</GlobalFeatures>
+	);
 }
