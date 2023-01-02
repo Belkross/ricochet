@@ -12,7 +12,12 @@ interface LoadingScreenProps {
 }
 
 export default function LoadingInterface({ appState, changeAppState }: LoadingScreenProps) {
-	useSubscribeSocketEvent("connectedToSocketIo", () => endConnectionToSocketIo(changeAppState), []);
+	const effectParameters = {
+		eventName: "connectedTosocketIo",
+		action: () => endConnectionToSocketIo(changeAppState),
+		effectDependencies: [],
+	};
+	useSubscribeSocketEvent(effectParameters);
 
 	let statusMessage;
 	switch (appState) {

@@ -1,10 +1,16 @@
 import { useEffect } from "react";
 import { socket } from "../config/initializeSocketIo.js";
 
-export default function useSubscribeSocketEvent(eventName: string, instructions: any, dependencies: any) {
-	useEffect((): any => {
-		socket.on(eventName, (...args) => instructions(...args));
+interface customHookParameters {
+	eventName: string;
+	action: (...parameters: any[]) => void;
+	effectDependencies: any[] | undefined;
+}
 
-		return () => socket.off(eventName);
-	}, dependencies);
+export default function useSubscribeSocketEvent(params: customHookParameters): void {
+	useEffect((): any => {
+		socket.on(params.eventName, (...serverParams: any[]) => params.action(...serverParams));
+
+		return () => socket.off(params.eventName);
+	}, params.effectDependencies);
 }
