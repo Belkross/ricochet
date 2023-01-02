@@ -2,12 +2,12 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { AppStateProperties } from "../../App.js";
+import { AppStateProperties, SetOfState } from "../../App.js";
 import useSubscribeSocketEvent from "../../customHooks/useSubscribeToSocketEvent.js";
 import endConnectionToSocketIo from "./endConnectionToSocketIo.js";
 
 interface LoadingInterfaceProps {
-	appState: string;
+	appState: SetOfState;
 	changeAppState: (properties: AppStateProperties) => void;
 }
 

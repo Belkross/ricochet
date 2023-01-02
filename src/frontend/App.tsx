@@ -3,13 +3,15 @@ import GlobalFeatures from "./components/GlobalFeatures.js";
 import initializeSocketIo from "./config/initializeSocketIo.js";
 import LoadingInterface from "./components/LoadingInterface/index.js";
 
+export type SetOfState = "connectingToSocketIo" | "loadingApp" | "logging" | "logged";
+
 interface AppState {
-	state: string;
+	state: SetOfState;
 	username: string | null;
 }
 
 export interface AppStateProperties {
-	state?: string;
+	state?: SetOfState;
 	username?: string | null;
 }
 
