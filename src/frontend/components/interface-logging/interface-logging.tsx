@@ -3,11 +3,11 @@ import { AppStateChanger } from "../../types.js";
 import WebsiteIntroduction from "../website-introduction.js";
 import FormLogging from "./form-logging.js";
 
-interface LoggingInterfaceProps {
+interface InterfaceLoggingProps {
 	changeAppState: AppStateChanger;
 }
 
-export default function LoggingInterface({ changeAppState }: LoggingInterfaceProps) {
+export default function InterfaceLogging({ changeAppState }: InterfaceLoggingProps) {
 	return (
 		<React.Fragment>
 			<WebsiteIntroduction />
