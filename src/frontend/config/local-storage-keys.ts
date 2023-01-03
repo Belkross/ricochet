@@ -1,4 +1,5 @@
 const localStorageKeys = {
+	username: "username",
 	themeMode: "themeMode",
 };
 

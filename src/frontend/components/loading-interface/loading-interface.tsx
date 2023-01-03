@@ -2,13 +2,14 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { AppStateProperties, SetOfState } from "../../App.js";
 import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
 import endConnectionToSocketIo from "./end-connection-to-socket-io.js";
+import WebsiteIntroduction from "../website-introduction.js";
+import { AppStateChanger, SetOfState } from "../../types.js";
 
 interface LoadingInterfaceProps {
 	appState: SetOfState;
-	changeAppState: (properties: AppStateProperties) => void;
+	changeAppState: AppStateChanger;
 }
 
 export default function LoadingInterface({ appState, changeAppState }: LoadingInterfaceProps) {
@@ -33,6 +34,7 @@ export default function LoadingInterface({ appState, changeAppState }: LoadingIn
 
 	return (
 		<Stack sx={style_container}>
+			<WebsiteIntroduction />
 			<CircularProgress sx={style_circularProgress} />
 			<Typography>{statusMessage}</Typography>
 		</Stack>

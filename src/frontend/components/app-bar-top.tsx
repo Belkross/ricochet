@@ -5,11 +5,11 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Breakpoint, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { SetOfState } from "../App.js";
 import ButtonChat from "./button-chat.js";
 import ButtonConnectedPlayers from "./button-connected-players.js";
 import ButtonThemeMode from "./button-theme-mode.js";
 import ButtonRules from "./button-rules/button-rules.js";
+import { SetOfState } from "../types.js";
 
 interface AppBarTopProps {
 	appState: SetOfState;

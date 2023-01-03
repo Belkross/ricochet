@@ -1,15 +1,18 @@
-import React, { ReactNode } from "react";
-import MuiTheming from "./mui-theming.js";
-import ThemeMode from "./theme-mode/theme-mode.js";
+import React, { ReactElement } from "react";
+import ProviderGameState from "./provider-game-state.js";
+import ProviderMuiTheming from "./provider-mui-theming.js";
+import ProviderThemeMode from "./provider-theme-mode/provider-theme-mode.js";
 
 interface GlobalFeaturesProps {
-	children: ReactNode;
+	children: ReactElement;
 }
 
 export default function GlobalFeatures({ children }: GlobalFeaturesProps) {
 	return (
-		<ThemeMode>
-			<MuiTheming>{children}</MuiTheming>
-		</ThemeMode>
+		<ProviderThemeMode>
+			<ProviderMuiTheming>
+				<ProviderGameState>{children}</ProviderGameState>
+			</ProviderMuiTheming>
+		</ProviderThemeMode>
 	);
 }

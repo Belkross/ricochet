@@ -1,9 +1,9 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactElement, useState } from "react";
 import localStorageKeys from "../../config/local-storage-keys.js";
 import getInitialThemeMode from "./get-initial-theme-mode.js";
 
-interface ThemeModeProps {
-	children: ReactNode;
+interface ProviderThemeModeProps {
+	children: ReactElement;
 }
 
 export type SetOfTheme = "light" | "dark";
@@ -14,7 +14,7 @@ const initialThemeMode = getInitialThemeMode(localStorageKeys.themeMode, default
 export const ThemeModeContext = createContext(defaultThemeMode);
 export const ToggleThemeModeContext = createContext(() => {});
 
-export default function ThemeMode({ children }: ThemeModeProps) {
+export default function ProviderThemeMode({ children }: ProviderThemeModeProps) {
 	const [themeMode, setThemeMode] = useState(initialThemeMode);
 
 	const toggleThemeMode = () => {

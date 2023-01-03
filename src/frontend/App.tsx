@@ -3,25 +3,15 @@ import GlobalFeatures from "./components/global-features.js";
 import initializeSocketIo from "./config/initialize-socket-io.js";
 import LoadingInterface from "./components/loading-interface/loading-interface.js";
 import Layout from "./components/layout.js";
-
-export type SetOfState = "connectingToSocketIo" | "loadingApp" | "logging" | "logged";
-
-interface AppState {
-	state: SetOfState;
-	username: string | null;
-}
-
-export interface AppStateProperties {
-	state?: SetOfState;
-	username?: string | null;
-}
+import LoggingInterface from "./components/logging-interface/logging-interface.js";
+import { AppState, AppStateChanger } from "./types.js";
 
 initializeSocketIo();
 const initialAppState: AppState = { state: "connectingToSocketIo", username: null };
 
 export default function App() {
 	const [app, setApp] = useState(initialAppState);
-	const changeAppState = (newProperties: AppStateProperties): void => setApp({ ...app, ...newProperties });
+	const changeAppState: AppStateChanger = (newProperties) => setApp({ ...app, ...newProperties });
 
 	let appInterface;
 	switch (app.state) {
@@ -30,7 +20,7 @@ export default function App() {
 			appInterface = <LoadingInterface appState={app.state} changeAppState={changeAppState} />;
 			break;
 		case "logging":
-			appInterface = <div>Logging</div>;
+			appInterface = <LoggingInterface changeAppState={changeAppState} />;
 			break;
 		case "logged":
 			break;

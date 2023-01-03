@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
-import { ThemeModeContext, ToggleThemeModeContext } from "./theme-mode/theme-mode.js";
+import { ThemeModeContext, ToggleThemeModeContext } from "./provider-theme-mode/provider-theme-mode.js";
 
 export default function ButtonThemeMode() {
 	const themeMode = useContext(ThemeModeContext);

@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { SetOfTheme } from "../components/theme-mode/theme-mode.js";
+import { SetOfTheme } from "../components/provider-theme-mode/provider-theme-mode.js";
 import breakpoints from "./breakpoints.js";
 import shape from "./shapes.js";
 import { palettes } from "./palettes.js";

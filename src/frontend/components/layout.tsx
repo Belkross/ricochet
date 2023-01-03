@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Container from "@mui/material/Container";
-import { SetOfState } from "../App.js";
 import AppBarTop from "./app-bar-top.js";
+import { SetOfState } from "../types.js";
 
 interface LayoutProps {
 	children: ReactNode;

@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-export default function useTemporaryElement(initialState: boolean): [boolean, () => void, () => void] {
+type functionReturn = [boolean, () => void, () => void];
+
+export default function useTemporaryElement(initialState: boolean): functionReturn {
 	const [elementDisplay, setElementDisplay] = useState(initialState);
 
 	const displayElement = () => setElementDisplay(true);
