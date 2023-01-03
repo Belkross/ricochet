@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
-import { ThemeModeContext, ToggleThemeModeContext } from "./provider-theme-mode/provider-theme-mode.js";
+import { useThemeMode, useToggleThemeMode } from "./provider-theme-mode/provider-theme-mode.js";
 
 export default function ButtonThemeMode() {
-	const themeMode = useContext(ThemeModeContext);
-	const toggleThemeMode = useContext(ToggleThemeModeContext);
+	const themeMode = useThemeMode();
+	const toggleThemeMode = useToggleThemeMode();
 	const icon = themeMode === "dark" ? <DarkModeIcon /> : <LightModeIcon />;
 
 	const handleClick = () => toggleThemeMode();

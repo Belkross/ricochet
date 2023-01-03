@@ -1,4 +1,4 @@
-import React, { createContext, ReactElement, useState } from "react";
+import React, { createContext, ReactElement, useContext, useState } from "react";
 import localStorageKeys from "../../config/local-storage-keys.js";
 import getInitialThemeMode from "./get-initial-theme-mode.js";
 
@@ -8,16 +8,18 @@ interface ProviderThemeModeProps {
 
 export type SetOfTheme = "light" | "dark";
 
-const defaultThemeMode = "dark";
+const defaultThemeMode: SetOfTheme = "dark";
 const initialThemeMode = getInitialThemeMode(localStorageKeys.themeMode, defaultThemeMode);
 
-export const ThemeModeContext = createContext(defaultThemeMode);
-export const ToggleThemeModeContext = createContext(() => {});
+const ThemeModeContext = createContext(defaultThemeMode as SetOfTheme);
+const ToggleThemeModeContext = createContext(() => {});
+export const useThemeMode = (): SetOfTheme => useContext(ThemeModeContext);
+export const useToggleThemeMode = (): (() => void) => useContext(ToggleThemeModeContext);
 
 export default function ProviderThemeMode({ children }: ProviderThemeModeProps) {
 	const [themeMode, setThemeMode] = useState(initialThemeMode);
 
-	const toggleThemeMode = () => {
+	const toggleThemeMode = (): void => {
 		const newState = themeMode === "dark" ? "light" : "dark";
 		setThemeMode(newState);
 		localStorage.setItem(localStorageKeys.themeMode, newState);
