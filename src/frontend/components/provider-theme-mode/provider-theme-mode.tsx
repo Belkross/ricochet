@@ -11,7 +11,7 @@ export type SetOfTheme = "light" | "dark";
 const defaultThemeMode: SetOfTheme = "dark";
 const initialThemeMode = getInitialThemeMode(localStorageKeys.themeMode, defaultThemeMode);
 
-const ThemeModeContext = createContext(defaultThemeMode as SetOfTheme);
+const ThemeModeContext = createContext<SetOfTheme>(defaultThemeMode);
 export const useThemeMode = () => useContext(ThemeModeContext);
 
 const ToggleThemeModeContext = createContext(() => {});
