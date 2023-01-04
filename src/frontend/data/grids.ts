@@ -1,4 +1,17 @@
-export const grids = {
+interface GridData {
+	dialogue: string[];
+	grid: string[];
+	id: number;
+	winConditions: string;
+	instruction: string;
+	help: string;
+}
+
+interface Grids {
+	[index: number]: GridData;
+}
+
+export const grids: Grids = {
 	1: {
 		dialogue: ["Bon ben… on part en mission.", "Avec toute l’équipe ?", "Ben oui… pas avec le pape !"],
 		grid: [
@@ -2265,7 +2278,7 @@ export const grids = {
 		id: 67,
 		dialogue: ["Ah… un envoûtement ! Rude.", "Oui, elle est à l’hôpital psychiatrique. Partez sur le champ et faites-la parler !", "Ok bon. Rien de bien sorcier. Ça devrait le faire."],
 		winConditions: "Rébus de 5 mots. Départ : Clair - Sèche",
-		instructions:
+		instruction:
 			"Pour cette grille, commencez directement avec les galets 2. Les galets 3 forment un début de phrase rébus que vous devez compléter avec les galets 4. Les galets 7 forment un rébus qui vous amène aux galets 8 associés.",
 		help: "Si le rébus final vous paraît un peu surprenant, lisez le dialogue de l’énigme 8 pour mieux le comprendre.",
 		grid: [
@@ -2304,7 +2317,7 @@ export const grids = {
 			"C’est-à-dire ?",
 		],
 		winConditions: "Rébus de 5 mots. Départ : Gifle - Action",
-		instructions: "Pour cette grille commencez directement avec les galets 2. Les galets 7 associés vous amènent aux galets 8.",
+		instruction: "Pour cette grille commencez directement avec les galets 2. Les galets 7 associés vous amènent aux galets 8.",
 		help: "L’indice donné par les galets 11 est un rébus. Pensez cinéma.",
 		grid: [
 			"minute",
@@ -2338,7 +2351,7 @@ export const grids = {
 		id: 69,
 		dialogue: ["Ben dites donc… la confiance règne !", "Bien cheffe. On y va. Euh… ça sent une drôle d’odeur non ?", "Je crois que c’est vous là, regardez…"],
 		winConditions: "Rébus de 5 mots. Départ : Bob - Fous",
-		instructions: "Pour cette grille commencez directement avec les galets 2. Les galets 4 associés vous amènent aux galets 5.",
+		instruction: "Pour cette grille commencez directement avec les galets 2. Les galets 4 associés vous amènent aux galets 5.",
 		help: "Le rébus final est écrit comme on parle !",
 		grid: [
 			"rote",
@@ -2375,7 +2388,7 @@ export const grids = {
 			"Qu’est-ce qui s’est passé ?",
 		],
 		winConditions: "Rébus de 5 mots. Départ : Nom - Zidane",
-		instructions: "Pour cette grille commencez directement avec les galets 2. Les galets 8 forment un rébus qui vous amène aux galets 9 associés (définition).",
+		instruction: "Pour cette grille commencez directement avec les galets 2. Les galets 8 forment un rébus qui vous amène aux galets 9 associés (définition).",
 		help: "Bonne chance !",
 		grid: [
 			"hisser",
