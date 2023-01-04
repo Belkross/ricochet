@@ -11,7 +11,7 @@ import localStorageKeys from "../../config/local-storage-keys.js";
 import { AppStateChanger } from "../../types.js";
 import { socket } from "../../config/initialize-socket-io.js";
 import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
-import { useSetGameState } from "../provider-game-state.js";
+import { useUpdateGameState } from "../provider-game-state/provider-game-state.js";
 
 interface FormLoggingProps {
 	changeAppState: AppStateChanger;
@@ -21,13 +21,13 @@ const initialUsername = getInitialUsername(localStorageKeys.username);
 
 export default function FormLogging({ changeAppState }: FormLoggingProps) {
 	const [input, onInputChange] = useValidTextInput(initialUsername, checkUsernameValidity);
-	const setGameState = useSetGameState();
+	const updateGameState = useUpdateGameState();
 
 	const effectParameters: subscribeSocketEventParams = {
 		eventName: "loggedIn",
 		action: (username, gameState) => {
 			changeAppState({ state: "logged", username });
-			setGameState({ ...gameState });
+			updateGameState(gameState);
 		},
 		effectDependencies: [],
 	};

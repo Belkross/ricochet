@@ -13,10 +13,10 @@ interface AppStateProperties {
 
 export type AppStateChanger = (newProperties: AppStateProperties) => void;
 
-export type GameState = null | {
+export type GameState = {
 	chatMessages: Array<{ author: string; date: Date; content: string }>;
 	lastConnections: Array<{ username: string; date: Date }>;
-	messageMaxLength: number;
+	messageMaxLength: 140;
 	selectedGrid: number;
 	spot1: number;
 	spot2: number;

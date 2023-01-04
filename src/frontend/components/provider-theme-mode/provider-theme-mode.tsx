@@ -12,9 +12,10 @@ const defaultThemeMode: SetOfTheme = "dark";
 const initialThemeMode = getInitialThemeMode(localStorageKeys.themeMode, defaultThemeMode);
 
 const ThemeModeContext = createContext(defaultThemeMode as SetOfTheme);
+export const useThemeMode = () => useContext(ThemeModeContext);
+
 const ToggleThemeModeContext = createContext(() => {});
-export const useThemeMode = (): SetOfTheme => useContext(ThemeModeContext);
-export const useToggleThemeMode = (): (() => void) => useContext(ToggleThemeModeContext);
+export const useToggleThemeMode = () => useContext(ToggleThemeModeContext);
 
 export default function ProviderThemeMode({ children }: ProviderThemeModeProps) {
 	const [themeMode, setThemeMode] = useState(initialThemeMode);
