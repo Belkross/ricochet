@@ -7,12 +7,12 @@ import endConnectionToSocketIo from "./end-connection-to-socket-io.js";
 import WebsiteIntroduction from "../website-introduction.js";
 import { AppStateChanger, SetOfState } from "../../types.js";
 
-interface InterfaceLoadingProps {
+type Props = {
 	appState: SetOfState;
 	changeAppState: AppStateChanger;
-}
+};
 
-export default function InterfaceLoading({ appState, changeAppState }: InterfaceLoadingProps) {
+export default function InterfaceLoading({ appState, changeAppState }: Props) {
 	const effectParameters = {
 		eventName: "connectedToSocketIo",
 		action: () => endConnectionToSocketIo(changeAppState),

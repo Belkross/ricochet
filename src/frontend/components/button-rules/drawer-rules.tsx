@@ -9,12 +9,12 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import Divider from "@mui/material/Divider";
 import CustomLink from "../custom-link.js";
 
-interface DrawerRulesProps {
+type Props = {
 	display: boolean;
 	close: () => void;
-}
+};
 
-export default function DrawerRules({ display, close }: DrawerRulesProps) {
+export default function DrawerRules({ display, close }: Props) {
 	return (
 		<Drawer variant="temporary" anchor="left" open={display} onClose={close} PaperProps={{ sx: style_paper }}>
 			<Accordion>

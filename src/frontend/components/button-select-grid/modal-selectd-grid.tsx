@@ -16,12 +16,12 @@ import { useGameState } from "../provider-game-state/provider-game-state.js";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme, Breakpoint } from "@mui/material/styles";
 
-interface ModalSelectGridProps {
+type Props = {
 	displayState: boolean;
 	closeModal: () => void;
-}
+};
 
-export default function ModalSelectGrid({ displayState, closeModal }: ModalSelectGridProps) {
+export default function ModalSelectGrid({ displayState, closeModal }: Props) {
 	const gameState = useGameState();
 	const [input, onInputChange] = useValidTextInput(gameState.selectedGrid.toString(), checkGridIdValidity);
 	const [cleanGridPreference, setCleanGridPreference] = useState(false);

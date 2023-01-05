@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "@mui/material/Link";
 
-interface CustomLinkProps {
+type Props = {
 	href: string;
 	anchor: string;
-}
+};
 
-export default function CustomLink({ href, anchor }: CustomLinkProps) {
+export default function CustomLink({ href, anchor }: Props) {
 	return (
 		<Link href={href} target="_blank" rel="noopener" underline="hover" sx={style_link}>
 			{anchor}

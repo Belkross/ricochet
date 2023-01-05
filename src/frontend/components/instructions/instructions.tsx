@@ -4,11 +4,11 @@ import Typed from "typed.js";
 import { grids } from "../../data/grids.js";
 import getTypedOptions from "./get-typed-options.js";
 
-interface InstructionsProps {
+type Props = {
 	id: number;
-}
+};
 
-export default function Instructions({ id }: InstructionsProps) {
+export default function Instructions({ id }: Props) {
 	const element = useRef<HTMLParagraphElement>(null);
 	const typed = useRef<Typed | null>(null);
 

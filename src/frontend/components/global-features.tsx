@@ -3,11 +3,11 @@ import ProviderGameState from "./provider-game-state/provider-game-state.js";
 import ProviderMuiTheming from "./provider-mui-theming.js";
 import ProviderThemeMode from "./provider-theme-mode/provider-theme-mode.js";
 
-interface GlobalFeaturesProps {
+type Props = {
 	children: ReactElement;
-}
+};
 
-export default function GlobalFeatures({ children }: GlobalFeaturesProps) {
+export default function GlobalFeatures({ children }: Props) {
 	return (
 		<ProviderThemeMode>
 			<ProviderMuiTheming>

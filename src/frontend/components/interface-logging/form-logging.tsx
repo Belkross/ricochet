@@ -13,13 +13,13 @@ import { socket } from "../../config/initialize-socket-io.js";
 import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import { useUpdateGameState } from "../provider-game-state/provider-game-state.js";
 
-interface FormLoggingProps {
+type Props = {
 	changeAppState: AppStateChanger;
-}
+};
 
 const initialUsername = getInitialUsername(localStorageKeys.username);
 
-export default function FormLogging({ changeAppState }: FormLoggingProps) {
+export default function FormLogging({ changeAppState }: Props) {
 	const [input, onInputChange] = useValidTextInput(initialUsername, checkUsernameValidity);
 	const updateGameState = useUpdateGameState();
 

@@ -3,12 +3,12 @@ import Container from "@mui/material/Container";
 import AppBarTop from "./app-bar-top.js";
 import { SetOfState } from "../types.js";
 
-interface LayoutProps {
+type Props = {
 	children: ReactNode;
 	appState: SetOfState;
-}
+};
 
-export default function Layout({ children, appState }: LayoutProps) {
+export default function Layout({ children, appState }: Props) {
 	return (
 		<React.Fragment>
 			<AppBarTop appState={appState} />

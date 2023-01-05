@@ -5,11 +5,11 @@ import createMuiTheme from "../theme/create-mui-theme.js";
 import { useThemeMode } from "./provider-theme-mode/provider-theme-mode.js";
 import { SetOfTheme } from "./provider-theme-mode/provider-theme-mode.js";
 
-type ProviderMuiThemingProps = {
+type Props = {
 	children: ReactElement;
 };
 
-export default function ProviderMuiTheming({ children }: ProviderMuiThemingProps) {
+export default function ProviderMuiTheming({ children }: Props) {
 	const themeMode = useThemeMode();
 
 	return (

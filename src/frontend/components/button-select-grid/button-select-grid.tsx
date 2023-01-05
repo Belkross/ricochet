@@ -6,11 +6,11 @@ import EditIcon from "@mui/icons-material/Edit";
 import useTemporaryElement from "../../customHooks/use-temporary-element.js";
 import ModalSelectGrid from "./modal-selectd-grid.js";
 
-interface ButtonSelectGridProps {
+type Props = {
 	id: number;
-}
+};
 
-export default function ButtonSelectGrid({ id }: ButtonSelectGridProps) {
+export default function ButtonSelectGrid({ id }: Props) {
 	const modal = useTemporaryElement(false);
 
 	return (

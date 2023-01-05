@@ -11,11 +11,11 @@ import ButtonThemeMode from "./button-theme-mode.js";
 import ButtonRules from "./button-rules/button-rules.js";
 import { SetOfState } from "../types.js";
 
-interface AppBarTopProps {
+type Props = {
 	appState: SetOfState;
-}
+};
 
-export default function AppBarTop({ appState }: AppBarTopProps) {
+export default function AppBarTop({ appState }: Props) {
 	const screenIsVerySmall = useMediaQuery(useTheme().breakpoints.up("thin" as Breakpoint));
 	const userIsLogged = appState === "logged" ? true : false;
 

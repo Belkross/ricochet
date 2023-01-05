@@ -9,11 +9,11 @@ export const useGameState = () => useContext(GameStateContext);
 const SetGameStateContext = createContext((state: GameState) => {});
 export const useUpdateGameState = () => useContext(SetGameStateContext);
 
-interface ProviderGameStateProps {
+type Props = {
 	children: ReactElement;
-}
+};
 
-export default function ProviderGameState({ children }: ProviderGameStateProps) {
+export default function ProviderGameState({ children }: Props) {
 	const [gameState, setGameState] = useState(defaultGameState);
 
 	const effectParameters: subscribeSocketEventParams = {
