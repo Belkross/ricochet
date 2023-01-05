@@ -5,14 +5,14 @@ import useTemporaryElement from "../../customHooks/use-temporary-element.js";
 import DrawerRules from "./drawer-rules.js";
 
 export default function ButtonRules() {
-	const [drawerDisplay, openDrawer, closeDrawer] = useTemporaryElement(false);
+	const drawer = useTemporaryElement(false);
 
 	return (
 		<React.Fragment>
-			<Button onClick={openDrawer} startIcon={<RuleIcon />}>
+			<Button onClick={drawer.display} startIcon={<RuleIcon />}>
 				Règles
 			</Button>
-			<DrawerRules display={drawerDisplay} close={closeDrawer} />
+			<DrawerRules display={drawer.displayed} close={drawer.remove} />
 		</React.Fragment>
 	);
 }

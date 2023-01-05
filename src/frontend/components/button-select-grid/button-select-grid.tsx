@@ -11,17 +11,17 @@ interface ButtonSelectGridProps {
 }
 
 export default function ButtonSelectGrid({ id }: ButtonSelectGridProps) {
-	const [modalDisplay, openModal, closeModal] = useTemporaryElement(false);
+	const modal = useTemporaryElement(false);
 
 	return (
 		<React.Fragment>
 			<Stack sx={style_stack}>
-				<IconButton size="small" onClick={openModal}>
+				<IconButton size="small" onClick={modal.display}>
 					<EditIcon />
 				</IconButton>
 				<Typography>{`Grille n°${id}`}</Typography>
 			</Stack>
-			<ModalSelectGrid displayState={modalDisplay} closeModal={closeModal} />
+			<ModalSelectGrid displayState={modal.displayed} closeModal={modal.remove} />
 		</React.Fragment>
 	);
 }
