@@ -31,6 +31,7 @@ export default function DrawerRules({ display, close }: DrawerRulesProps) {
 					<Typography>Grilles 1-30: À la poursuite du Comte courant</Typography>
 					<Typography>Grilles 31-60: Le profil de l’Homme sans visage (niveau expert)</Typography>
 					<Typography>Grilles 61-90: Quand Satan brouille l’écoute (réservé aux +18ans)</Typography>
+					<Typography>Grilles 91 et plus: Grilles faites par la communauté</Typography>
 				</AccordionDetails>
 				<AccordionActions>
 					<CustomLink href="https://www.flipflapeditions.fr/" anchor="Site officiel" />
