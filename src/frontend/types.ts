@@ -15,8 +15,10 @@ export type AppStateChanger = (newProperties: AppStateProperties) => void;
 
 export type Pebble = number | null;
 
+export type ChatMessage = { author: string; date: Date; content: string };
+
 export type GameState = {
-	chatMessages: Array<{ author: string; date: Date; content: string }>;
+	chatMessages: Array<ChatMessage>;
 	lastConnections: Array<{ username: string; date: Date }>;
 	messageMaxLength: 140;
 	selectedGrid: number;
@@ -46,3 +48,9 @@ export type GameState = {
 	spot24: Pebble;
 	spot25: Pebble;
 };
+
+export type ChatInputState = {
+	value: string,
+	validity: boolean,
+	characterRemaining: number
+}

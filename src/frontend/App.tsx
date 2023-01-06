@@ -32,7 +32,7 @@ export default function App() {
 
 	return (
 		<GlobalFeatures>
-			<Layout appState={app.state}>{appInterface}</Layout>
+			<Layout appState={app}>{appInterface}</Layout>
 		</GlobalFeatures>
 	);
 }

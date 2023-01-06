@@ -5,27 +5,27 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Breakpoint, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ButtonChat from "./button-chat.js";
-import ButtonConnectedPlayers from "./button-last-connected-players/button-last-connected-players.js";
+import ButtonChat from "./button-chat/button-chat.js";
 import ButtonThemeMode from "./button-theme-mode.js";
 import ButtonRules from "./button-rules/button-rules.js";
-import { SetOfState } from "../types.js";
+import { AppState } from "../types.js";
+import ButtonLastConnectedPlayers from "./button-last-connected-players/button-last-connected-players.js";
 
 type Props = {
-	appState: SetOfState;
+	appState: AppState;
 };
 
 export default function AppBarTop({ appState }: Props) {
 	const screenIsVerySmall = useMediaQuery(useTheme().breakpoints.up("thin" as Breakpoint));
-	const userIsLogged = appState === "logged" ? true : false;
+	const userIsLogged = appState.state === "logged" ? true : false;
 
 	return (
 		<AppBar position="sticky" sx={style_container}>
 			<Toolbar sx={style_toolbar}>
 				{screenIsVerySmall && <Typography variant="h1">Ricochet</Typography>}
 				<Stack sx={style_stack}>
-					{userIsLogged && <ButtonChat />}
-					{userIsLogged && <ButtonConnectedPlayers />}
+					{userIsLogged && <ButtonChat clientUsername={appState.username} />}
+					{userIsLogged && <ButtonLastConnectedPlayers />}
 					<ButtonThemeMode />
 					<ButtonRules />
 				</Stack>

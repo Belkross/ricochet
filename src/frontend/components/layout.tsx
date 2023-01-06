@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 import Container from "@mui/material/Container";
 import AppBarTop from "./app-bar-top.js";
-import { SetOfState } from "../types.js";
+import { AppState } from "../types.js";
 
 type Props = {
 	children: ReactNode;
-	appState: SetOfState;
+	appState: AppState;
 };
 
 export default function Layout({ children, appState }: Props) {
