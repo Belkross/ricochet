@@ -5,7 +5,7 @@ import Close from "@mui/icons-material/Close";
 import createAlert, { Alert, AlertSeverity } from "./alerts";
 import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import { SnackbarCloseReason } from "@mui/material";
-const ALERT_DISPLAY_DURATION = 60000;
+const ALERT_DISPLAY_DURATION = 6000;
 
 //Each time we need to remove an alert from the screen, we set display to false and THEN the transition will reset the alert content
 //TODO: for an unknown reason, anchorOrigin props and snackbar width bug when the component benefits from Mui’s theme context
