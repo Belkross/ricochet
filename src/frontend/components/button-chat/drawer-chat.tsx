@@ -56,7 +56,6 @@ export default function DrawerChat({ displayed, close, notify, clientUsername }:
 			characterRemaining: getChatMessageCharacterRemaining(event.target.value, gameState.messageMaxLength),
 		});
 	};
-
 	const handleSubmit = () => submitHandler(input, setInput, clientUsername);
 	const handleKeyDown = (event: KeyboardEvent) => keyDownHandler(event, handleSubmit);
 
