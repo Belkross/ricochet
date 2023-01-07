@@ -27,7 +27,7 @@ export default function ModalSelectGrid({ displayState, closeModal }: Props) {
 	const [cleanGridPreference, setCleanGridPreference] = useState(false);
 	const fullScreen = useMediaQuery(useTheme().breakpoints.down("thin" as Breakpoint));
 
-	const handleCheckboxChange = () => setCleanGridPreference(cleanGridPreference ? false : true);
+	const handleCheckboxChange = () => setCleanGridPreference((prevState) => !prevState);
 
 	const handleSubmit = () => {
 		if (input.validity) {
