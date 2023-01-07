@@ -1,10 +1,10 @@
 import React, { KeyboardEvent, useRef, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import { useGameState } from "../provider-game-state/provider-game-state.js";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { useGameState } from "../provider-game-state/provider-game-state.js";
 import checkChatMessageValidity, { MESSAGE_MAX_LENGTH } from "./check-chat-message-validity.js";
 import getChatMessageCharacterRemaining from "./get-chat-message-character-remaining.js";
 import { ChatInputState, ChatMessage } from "../../types.js";
@@ -15,8 +15,9 @@ import ButtonCloseChat from "./button-close-chat.js";
 import playChatSoundNotification from "./playChatSoundNotification.js";
 import keyDownHandler from "./key-down-handler.js";
 import submitHandler from "./submit-handler.js";
+import addMessageToChat from "./add-message-to-chat.js";
+import checkIfInputShouldBeIgnored from "./check-input-should-be-ignored.js";
 
-const MAX_MEMORIZED_MESSAGE = 60;
 const initialMessage: ChatMessage = { author: "Ricochet", content: "Bienvenue sur le chat.", date: new Date() };
 export const initialInputState: ChatInputState = { value: "", validity: false, characterRemaining: MESSAGE_MAX_LENGTH };
 
@@ -28,22 +29,17 @@ type Props = {
 };
 
 export default function DrawerChat({ displayed, close, notify, clientUsername }: Props) {
-	const gameState = useGameState();
 	const [input, setInput] = useState(initialInputState);
 	const [messages, setMessages] = useState([initialMessage]);
+	const gameState = useGameState();
 	const ulElement = useRef<HTMLUListElement | null>(null);
 
 	//Effects
 	const effectArgs: subscribeSocketEventParams = {
 		eventName: "newChatMessage",
 		action: (newMessage: ChatMessage) => {
-			const tooMuchMessageMemorized = messages.length >= MAX_MEMORIZED_MESSAGE;
-
-			if (tooMuchMessageMemorized) setMessages([...messages.slice(1, MAX_MEMORIZED_MESSAGE), newMessage]);
-			else setMessages([...messages, newMessage]);
-
+			addMessageToChat(newMessage, messages, setMessages);
 			if (!displayed) notify();
-
 			playChatSoundNotification();
 		},
 		effectDependencies: [messages, displayed],
@@ -53,15 +49,11 @@ export default function DrawerChat({ displayed, close, notify, clientUsername }:
 
 	//Handling functions
 	const handleInputChange = (event: any) => {
-		const userIsUsingBackspace = event.nativeEvent.inputType !== "deleteContentBackward";
-		const noCharaterRemaining = input.characterRemaining <= 0;
-
-		if (noCharaterRemaining && userIsUsingBackspace) return;
-		const value = event.target.value;
+		if (checkIfInputShouldBeIgnored(event.nativeEvent.inputType, input.characterRemaining)) return;
 		setInput({
-			value,
-			validity: checkChatMessageValidity(value, gameState.messageMaxLength),
-			characterRemaining: getChatMessageCharacterRemaining(value, gameState.messageMaxLength),
+			value: event.target.value,
+			validity: checkChatMessageValidity(event.target.value, gameState.messageMaxLength),
+			characterRemaining: getChatMessageCharacterRemaining(event.target.value, gameState.messageMaxLength),
 		});
 	};
 
