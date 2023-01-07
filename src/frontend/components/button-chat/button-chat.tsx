@@ -18,9 +18,9 @@ export default function ButtonChat({ clientUsername }: Props) {
 	const toggleDrawer = () => {
 		if (drawer.displayed) {
 			drawer.remove();
-			setBadgeNotification(0);
 		} else {
 			drawer.display();
+			setBadgeNotification(0);
 		}
 	};
 
