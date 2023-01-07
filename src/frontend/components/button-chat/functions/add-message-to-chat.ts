@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { ChatMessage } from "../../types.js";
+import { ChatMessage } from "../../../types.js";
 
 const MAX_MEMORIZED_MESSAGE = 60;
 

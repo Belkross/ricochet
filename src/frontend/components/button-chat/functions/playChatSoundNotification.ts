@@ -1,4 +1,4 @@
-import messageSound from "../../tracks/message-pop.mp3";
+import messageSound from "../../../tracks/message-pop.mp3";
 
 const soundAlert = new Audio(messageSound);
 
