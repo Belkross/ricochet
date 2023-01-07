@@ -1,11 +1,14 @@
 import { NUMBER_OF_GRIDS } from "../../data/grids.js";
 
-export default function checkGridIdValidity(input: string): boolean {
-	const inputIsTwoDigitNumber = /^[0-9]{1,2}$/.test(input);
+export default function checkGridIdValidity(id: string): boolean {
+	const idIsTwoDigitNumber = /^[0-9]{1,2}$/.test(id);
+	const idRespectRange = checkIdRespectRange(id);
 
-	const id = parseInt(input, 10);
-	const idRespectRange = id >= 1 && id <= NUMBER_OF_GRIDS;
+	return idIsTwoDigitNumber && idRespectRange;
+}
 
-	if (inputIsTwoDigitNumber && idRespectRange) return true;
-	else return false;
+function checkIdRespectRange(id: string) {
+	const parsedId = parseInt(id, 10);
+
+	return parsedId >= 1 && parsedId <= NUMBER_OF_GRIDS;
 }
