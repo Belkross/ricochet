@@ -2,7 +2,7 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
+import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import endConnectionToSocketIo from "./end-connection-to-socket-io.js";
 import WebsiteIntroduction from "../website-introduction.js";
 import { AppStateChanger, SetOfState } from "../../types.js";
@@ -13,12 +13,12 @@ type Props = {
 };
 
 export default function InterfaceLoading({ appState, changeAppState }: Props) {
-	const effectParameters = {
+	const effectArguments: subscribeSocketEventParams = {
 		eventName: "connectedToSocketIo",
 		action: () => endConnectionToSocketIo(changeAppState),
 		effectDependencies: [],
 	};
-	useSubscribeSocketEvent(effectParameters);
+	useSubscribeSocketEvent(effectArguments);
 
 	let statusMessage;
 	switch (appState) {
