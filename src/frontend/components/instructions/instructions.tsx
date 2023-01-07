@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Typography from "@mui/material/Typography";
-import Typed from "typed.js";
 import { grids } from "../../data/grids.js";
-import getTypedOptions from "./get-typed-options.js";
+import useTypingDialogueEffect from "./use-typing-dialogue-effect.js";
 
 type Props = {
 	id: number;
@@ -10,17 +9,8 @@ type Props = {
 
 export default function Instructions({ id }: Props) {
 	const element = useRef<HTMLParagraphElement>(null);
-	const typed = useRef<Typed | null>(null);
-
-	useEffect(() => {
-		if (element.current) {
-			typed.current = new Typed(element.current, getTypedOptions(id));
-
-			return () => {
-				if (typed.current) typed.current.destroy();
-			};
-		}
-	}, [id]);
+	
+	useTypingDialogueEffect(element, id);
 
 	return (
 		<React.Fragment>
