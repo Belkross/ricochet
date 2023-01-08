@@ -1,59 +1,44 @@
-import React, { useEffect, useState, SyntheticEvent } from "react";
+import React, { SyntheticEvent } from "react";
 import IconButton from "@mui/material/IconButton";
 import Snackbar from "@mui/material/Snackbar";
 import Close from "@mui/icons-material/Close";
-import createAlert, { Alert, AlertSeverity } from "./alerts";
-import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
+import { AlertSeverity } from "./alerts";
+import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
 import { SnackbarCloseReason } from "@mui/material";
+import createAlert from "./functions/create-alert.js";
+import useSnackbarState from "./functions/use-snackbar-state.js";
+import useAlertQueueManager from "./functions/use-alert-queue-manager.js";
+
 const ALERT_DISPLAY_DURATION = 6000;
 
-//Each time we need to remove an alert from the screen, we set display to false and THEN the transition will reset the alert content
-//TODO: for an unknown reason, anchorOrigin props and snackbar width bug when the component benefits from Mui’s theme context
 export default function AlertFeature() {
-	const [alertQueue, setAlertQueue] = useState<Array<Alert>>([]);
-	const [snackbarDisplay, setSnackbarDisplay] = useState(false);
-	const [snackbarAlert, setSnackbarAlert] = useState(createAlert("default"));
-
-	const effectArgs: subscribeSocketEventParams = {
+	const snackbar = useSnackbarState();
+	useAlertQueueManager(snackbar);
+	useSubscribeSocketEvent({
 		eventName: "alertMessage",
-		action: (alertId) => setAlertQueue([...alertQueue, createAlert(alertId)]),
-		effectDependencies: [alertQueue],
-	};
-	useSubscribeSocketEvent(effectArgs);
-
-	useEffect(() => {
-		const needToDisplayAnAlert = alertQueue.length && snackbarAlert.message === "";
-		const needToReplaceActiveAlert = alertQueue.length && snackbarDisplay && snackbarAlert.message;
-
-		if (needToDisplayAnAlert) {
-			const nextAlertInQueue = alertQueue[0];
-			setSnackbarDisplay(true);
-			setSnackbarAlert(nextAlertInQueue);
-			setAlertQueue((prev) => prev.slice(1));
-		} else if (needToReplaceActiveAlert) {
-			setSnackbarDisplay(false);
-		}
-	}, [alertQueue, snackbarDisplay, snackbarAlert]);
+		action: (alertId) => snackbar.setAlertQueue([...snackbar.alertQueue, createAlert(alertId)]),
+		effectDependencies: [snackbar.alertQueue],
+	});
 
 	const handleClose = (event: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
 		if (reason === "clickaway") return;
-		setSnackbarDisplay(false);
+		snackbar.setDisplay(false);
 	};
 
-	const handleExited = () => setSnackbarAlert(createAlert("default"));
+	const handleExited = () => snackbar.setCurrentAlert(createAlert("defaultEmpty"));
 
 	return (
 		<Snackbar
-			key={snackbarAlert.key}
+			key={snackbar.currentAlert.key}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-			open={snackbarDisplay} //when this props switch from true to false, it trigger a transition
-			message={snackbarAlert.message}
+			open={snackbar.display} //when this props switch from true to false, it trigger a transition
+			message={snackbar.currentAlert.message}
 			autoHideDuration={ALERT_DISPLAY_DURATION}
 			onClose={handleClose}
 			TransitionProps={{ onExited: handleExited }} //when the transition end
-			ContentProps={{ sx: style_snackbar(snackbarAlert.severity) }}
+			ContentProps={{ sx: style_snackbar(snackbar.currentAlert.severity) }}
 			action={
-				<IconButton size="small" onClick={handleClose} sx={style_buttonClose(snackbarAlert.severity)}>
+				<IconButton size="small" onClick={handleClose} sx={style_buttonClose(snackbar.currentAlert.severity)}>
 					<Close />
 				</IconButton>
 			}
