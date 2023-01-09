@@ -4,16 +4,14 @@ import List from "@mui/material/List";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { ChatMessage } from "../../types.js";
-import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
 import useChatAutoScrollDown from "./functions/use-chat-auto-scroll-down.js";
 import MessageList from "./message-list.js";
 import ButtonCloseChat from "./button-close-chat.js";
-import handleNewMessage from "./functions/handle-new-message.js";
 import handleChatMessageSubmition from "./functions/handle-chat-message-submition.js";
 import handleChatKeyDown from "./functions/handle-chat-keydown.js";
 import handleChatInputChange from "./functions/handle-chat-input-change.js";
 import useChatState from "./functions/use-chat-state.js";
+import useSubscribeEventChatMessage from "./functions/use-subscribe-event-chat-message.js";
 
 export type DrawerChatProps = {
 	displayed: boolean;
@@ -26,16 +24,12 @@ export default function DrawerChat(props: DrawerChatProps) {
 	const chat = useChatState(props);
 	const ulElement = useRef<HTMLUListElement | null>(null);
 
-	useChatAutoScrollDown(chat.messages, ulElement);
-	useSubscribeSocketEvent({
-		eventName: "newChatMessage",
-		action: (newMessage: ChatMessage) => handleNewMessage(newMessage, chat),
-		effectDependencies: [chat.messages, chat.displayed],
-	});
-
 	const handleInputChange = (event: any) => handleChatInputChange(event, chat);
 	const handleSubmit = () => handleChatMessageSubmition(chat);
 	const handleKeyDown = (event: KeyboardEvent) => handleChatKeyDown(event, chat);
+
+	useChatAutoScrollDown(chat.messages, ulElement);
+	useSubscribeEventChatMessage("newChatMessage", chat);
 
 	return (
 		<Drawer variant="persistent" anchor="left" open={chat.displayed} PaperProps={{ sx: style_container }} onClose={close}>
