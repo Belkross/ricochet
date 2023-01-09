@@ -48,9 +48,3 @@ export type GameState = {
 	spot24: Pebble;
 	spot25: Pebble;
 };
-
-export type ChatInputState = {
-	value: string,
-	validity: boolean,
-	characterRemaining: number
-}

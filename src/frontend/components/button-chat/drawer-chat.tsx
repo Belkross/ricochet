@@ -1,85 +1,63 @@
-import React, { KeyboardEvent, useRef, useState } from "react";
+import React, { KeyboardEvent, useRef } from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { useGameState } from "../provider-game-state/provider-game-state.js";
-import checkChatMessageValidity, { MESSAGE_MAX_LENGTH } from "./functions/check-chat-message-validity.js";
-import getChatMessageCharacterRemaining from "./functions/get-chat-message-character-remaining.js";
-import { ChatInputState, ChatMessage } from "../../types.js";
-import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
-import useChatAutoScrollDown from "./use-chat-auto-scroll-down.js";
+import { ChatMessage } from "../../types.js";
+import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
+import useChatAutoScrollDown from "./functions/use-chat-auto-scroll-down.js";
 import MessageList from "./message-list.js";
 import ButtonCloseChat from "./button-close-chat.js";
-import playChatSoundNotification from "./functions/playChatSoundNotification.js";
-import keyDownHandler from "./functions/key-down-handler.js";
-import submitHandler from "./functions/submit-handler.js";
-import addMessageToChat from "./functions/add-message-to-chat.js";
-import checkIfInputShouldBeIgnored from "./functions/check-input-should-be-ignored.js";
+import handleNewMessage from "./functions/handle-new-message.js";
+import handleChatMessageSubmition from "./functions/handle-chat-message-submition.js";
+import handleChatKeyDown from "./functions/handle-chat-keydown.js";
+import handleChatInputChange from "./functions/handle-chat-input-change.js";
+import useChatState from "./functions/use-chat-state.js";
 
-const initialMessage: ChatMessage = { author: "Ricochet", content: "Bienvenue sur le chat.", date: new Date() };
-export const initialInputState: ChatInputState = { value: "", validity: false, characterRemaining: MESSAGE_MAX_LENGTH };
-
-type Props = {
+export type DrawerChatProps = {
 	displayed: boolean;
 	clientUsername: string | null;
 	close: () => void;
 	notify: () => void;
 };
 
-export default function DrawerChat({ displayed, close, notify, clientUsername }: Props) {
-	const [input, setInput] = useState(initialInputState);
-	const [messages, setMessages] = useState([initialMessage]);
-	const gameState = useGameState();
+export default function DrawerChat(props: DrawerChatProps) {
+	const chat = useChatState(props);
 	const ulElement = useRef<HTMLUListElement | null>(null);
 
-	//Effects
-	const effectArgs: subscribeSocketEventParams = {
+	useChatAutoScrollDown(chat.messages, ulElement);
+	useSubscribeSocketEvent({
 		eventName: "newChatMessage",
-		action: (newMessage: ChatMessage) => {
-			addMessageToChat(newMessage, messages, setMessages);
-			if (!displayed) notify();
-			playChatSoundNotification();
-		},
-		effectDependencies: [messages, displayed],
-	};
-	useSubscribeSocketEvent(effectArgs);
-	useChatAutoScrollDown(messages, ulElement);
+		action: (newMessage: ChatMessage) => handleNewMessage(newMessage, chat),
+		effectDependencies: [chat.messages, chat.displayed],
+	});
 
-	//Handling functions
-	const handleInputChange = (event: any) => {
-		if (checkIfInputShouldBeIgnored(event.nativeEvent.inputType, input.characterRemaining)) return;
-		setInput({
-			value: event.target.value,
-			validity: checkChatMessageValidity(event.target.value, gameState.messageMaxLength),
-			characterRemaining: getChatMessageCharacterRemaining(event.target.value, gameState.messageMaxLength),
-		});
-	};
-	const handleSubmit = () => submitHandler(input, setInput, clientUsername);
-	const handleKeyDown = (event: KeyboardEvent) => keyDownHandler(event, handleSubmit);
+	const handleInputChange = (event: any) => handleChatInputChange(event, chat);
+	const handleSubmit = () => handleChatMessageSubmition(chat);
+	const handleKeyDown = (event: KeyboardEvent) => handleChatKeyDown(event, chat);
 
 	return (
-		<Drawer variant="persistent" anchor="left" open={displayed} PaperProps={{ sx: style_container }} onClose={close}>
-			<ButtonCloseChat close={close} />
+		<Drawer variant="persistent" anchor="left" open={chat.displayed} PaperProps={{ sx: style_container }} onClose={close}>
+			<ButtonCloseChat close={chat.close} />
 
 			<List ref={ulElement} dense sx={style_messageList}>
-				<MessageList messages={messages} />
+				<MessageList messages={chat.messages} />
 			</List>
 
 			<Stack sx={style_stackInputs}>
 				<TextField
-					value={input.value}
+					value={chat.input.value}
 					onChange={handleInputChange}
 					onKeyDown={handleKeyDown}
 					placeholder="Envoyer un message"
 					autoFocus
 					multiline
 					fullWidth
-					helperText={`Caractères restant: ${input.characterRemaining}`}
+					helperText={`Caractères restant: ${chat.input.characterRemaining}`}
 					maxRows={4}
 				/>
-				<Button onClick={handleSubmit} disabled={!input.validity}>
+				<Button onClick={handleSubmit} disabled={!chat.input.validity}>
 					Envoyer
 				</Button>
 			</Stack>
