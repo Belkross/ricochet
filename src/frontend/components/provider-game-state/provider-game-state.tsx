@@ -1,5 +1,5 @@
 import React, { createContext, ReactElement, useContext, useState } from "react";
-import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
+import useSubscribeSocketEvent, { SubscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import { GameState } from "../../types.js";
 import { defaultGameState } from "./default-game-state.js";
 
@@ -16,7 +16,7 @@ type Props = {
 export default function ProviderGameState({ children }: Props) {
 	const [gameState, setGameState] = useState(defaultGameState);
 
-	const effectParameters: subscribeSocketEventParams = {
+	const effectParameters: SubscribeSocketEventParams = {
 		eventName: "gameStateHasChanged",
 		action: (newGameState) => setGameState({ ...newGameState }),
 		effectDependencies: [],

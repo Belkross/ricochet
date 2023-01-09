@@ -4,13 +4,13 @@ import Icon from "@mui/icons-material/Groups";
 import useTemporaryElement from "../../customHooks/use-temporary-element.js";
 import Badge from "@mui/material/Badge";
 import DrawerLastConnectedPlayers from "./drawer-last-connected-players.js";
-import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
+import useSubscribeSocketEvent, { SubscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 
 export default function ButtonLastConnectedPlayers() {
 	const drawer = useTemporaryElement(false);
 	const [badgeNotification, setBadgeNotification] = useState(0);
 
-	const effectArgs: subscribeSocketEventParams = {
+	const effectArgs: SubscribeSocketEventParams = {
 		eventName: "notifyNewConnection",
 		action: () => {
 			if (drawer.displayed === false) setBadgeNotification((prev) => prev + 1);

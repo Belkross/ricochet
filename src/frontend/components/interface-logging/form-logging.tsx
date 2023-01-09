@@ -10,7 +10,7 @@ import getInitialUsername from "./get-initial-username.js";
 import localStorageKeys from "../../config/local-storage-keys.js";
 import { AppStateChanger } from "../../types.js";
 import { socket } from "../../config/initialize-socket-io.js";
-import useSubscribeSocketEvent, { subscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
+import useSubscribeSocketEvent, { SubscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import { useUpdateGameState } from "../provider-game-state/provider-game-state.js";
 
 type Props = {
@@ -23,7 +23,7 @@ export default function FormLogging({ changeAppState }: Props) {
 	const [input, onInputChange] = useValidTextInput(initialUsername, checkUsernameValidity);
 	const updateGameState = useUpdateGameState();
 
-	const effectParameters: subscribeSocketEventParams = {
+	const effectParameters: SubscribeSocketEventParams = {
 		eventName: "loggedIn",
 		action: (username, gameState) => {
 			changeAppState({ state: "logged", username });
