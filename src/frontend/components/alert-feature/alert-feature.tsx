@@ -3,29 +3,25 @@ import IconButton from "@mui/material/IconButton";
 import Snackbar from "@mui/material/Snackbar";
 import Close from "@mui/icons-material/Close";
 import { AlertSeverity } from "./alerts";
-import useSubscribeSocketEvent from "../../customHooks/use-subscribe-to-socket-event.js";
 import { SnackbarCloseReason } from "@mui/material";
 import createAlert from "./functions/create-alert.js";
 import useSnackbarState from "./functions/use-snackbar-state.js";
 import useAlertQueueManager from "./functions/use-alert-queue-manager.js";
+import useSubscribeEventAlert from "./functions/use-subscribe-event-alert.js";
 
 const ALERT_DISPLAY_DURATION = 6000;
 
 export default function AlertFeature() {
 	const snackbar = useSnackbarState();
-	useAlertQueueManager(snackbar);
-	useSubscribeSocketEvent({
-		eventName: "alertMessage",
-		action: (alertId) => snackbar.setAlertQueue([...snackbar.alertQueue, createAlert(alertId)]),
-		effectDependencies: [snackbar.alertQueue],
-	});
 
 	const handleClose = (event: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
 		if (reason === "clickaway") return;
 		snackbar.setDisplay(false);
 	};
-
 	const handleExited = () => snackbar.setCurrentAlert(createAlert("defaultEmpty"));
+
+	useAlertQueueManager(snackbar);
+	useSubscribeEventAlert("alertMessage", snackbar);
 
 	return (
 		<Snackbar
