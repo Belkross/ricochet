@@ -9,7 +9,7 @@ import ButtonChat from "./button-chat/button-chat.js";
 import ButtonThemeMode from "./button-theme-mode.js";
 import ButtonRules from "./button-rules/button-rules.js";
 import { AppState } from "../types.js";
-import ButtonLastConnectedPlayers from "./button-last-connected-players/button-last-connected-players.js";
+import ButtonLastLoggedPlayers from "./button-last-connected-players/button-last-logged-players.js";
 
 type Props = {
 	appState: AppState;
@@ -25,7 +25,7 @@ export default function AppBarTop({ appState }: Props) {
 				{screenIsVerySmall && <Typography variant="h1">Ricochet</Typography>}
 				<Stack sx={style_stack}>
 					{userIsLogged && <ButtonChat clientUsername={appState.username} />}
-					{userIsLogged && <ButtonLastConnectedPlayers />}
+					{userIsLogged && <ButtonLastLoggedPlayers />}
 					<ButtonThemeMode />
 					<ButtonRules />
 				</Stack>

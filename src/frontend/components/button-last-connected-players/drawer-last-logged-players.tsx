@@ -15,6 +15,7 @@ export default function DrawerLastConnectedPlayers({ displayed, close }: Props) 
 			<Typography variant="h2" sx={style_title}>
 				Derniers visiteurs
 			</Typography>
+			
 			<List dense>
 				<ConnectionsList />
 			</List>
