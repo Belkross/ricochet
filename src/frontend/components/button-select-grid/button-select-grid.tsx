@@ -21,7 +21,8 @@ export default function ButtonSelectGrid({ id }: Props) {
 				</IconButton>
 				<Typography>{`Grille n°${id}`}</Typography>
 			</Stack>
-			<ModalSelectGrid displayState={modal.displayed} closeModal={modal.remove} />
+
+			<ModalSelectGrid displayed={modal.displayed} closeModal={modal.remove} />
 		</React.Fragment>
 	);
 }

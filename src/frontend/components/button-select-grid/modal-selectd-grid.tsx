@@ -17,11 +17,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme, Breakpoint } from "@mui/material/styles";
 
 type Props = {
-	displayState: boolean;
+	displayed: boolean;
 	closeModal: () => void;
 };
 
-export default function ModalSelectGrid({ displayState, closeModal }: Props) {
+export default function ModalSelectGrid({ displayed, closeModal }: Props) {
 	const gameState = useGameState();
 	const [input, onInputChange] = useValidTextInput(gameState.selectedGrid.toString(), checkGridIdValidity);
 	const [cleanGridPreference, setCleanGridPreference] = useState(false);
@@ -44,7 +44,7 @@ export default function ModalSelectGrid({ displayState, closeModal }: Props) {
 	};
 
 	return (
-		<Dialog open={displayState} onClose={closeModal} sx={style_dialog} fullScreen={fullScreen} maxWidth={false}>
+		<Dialog open={displayed} onClose={closeModal} sx={style_dialog} fullScreen={fullScreen} maxWidth={false}>
 			<DialogTitle>Changer de grille</DialogTitle>
 
 			<DialogContent>
