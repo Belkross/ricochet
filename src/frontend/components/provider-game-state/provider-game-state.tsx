@@ -1,13 +1,13 @@
 import React, { createContext, ReactElement, useContext, useState } from "react";
-import useSubscribeSocketEvent, { SubscribeSocketEventParams } from "../../customHooks/use-subscribe-to-socket-event.js";
 import { GameState } from "../../types.js";
 import { defaultGameState } from "./default-game-state.js";
+import useSubscribeEventGameStateChange from "./use-subscribe-event-game-state-change.js";
 
 const GameStateContext = createContext(defaultGameState);
 export const useGameState = () => useContext(GameStateContext);
 
-const SetGameStateContext = createContext((state: GameState) => {});
-export const useUpdateGameState = () => useContext(SetGameStateContext);
+const UpdateGameStateContext = createContext((state: GameState) => {});
+export const useUpdateGameState = () => useContext(UpdateGameStateContext);
 
 type Props = {
 	children: ReactElement;
@@ -16,20 +16,15 @@ type Props = {
 export default function ProviderGameState({ children }: Props) {
 	const [gameState, setGameState] = useState(defaultGameState);
 
-	const effectParameters: SubscribeSocketEventParams = {
-		eventName: "gameStateHasChanged",
-		action: (newGameState) => setGameState({ ...newGameState }),
-		effectDependencies: [],
-	};
-	useSubscribeSocketEvent(effectParameters);
-
 	const updateGameState = (state: GameState): void => {
 		setGameState({ ...state });
 	};
 
+	useSubscribeEventGameStateChange("gameStateHasChanged", setGameState);
+
 	return (
 		<GameStateContext.Provider value={gameState}>
-			<SetGameStateContext.Provider value={updateGameState}>{children}</SetGameStateContext.Provider>
+			<UpdateGameStateContext.Provider value={updateGameState}>{children}</UpdateGameStateContext.Provider>
 		</GameStateContext.Provider>
 	);
 }
