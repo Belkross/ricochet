@@ -12,11 +12,11 @@ import handleChatKeyDown from "./functions/handle-chat-keydown.js";
 import handleChatInputChange from "./functions/handle-chat-input-change.js";
 import useChatState from "./functions/use-chat-state.js";
 import useSubscribeEventChatMessage from "./functions/use-subscribe-event-chat-message.js";
+import { TemporaryElementState } from "../../customHooks/use-temporary-element.js";
 
 export type DrawerChatProps = {
-	displayed: boolean;
+	drawer: TemporaryElementState;
 	clientUsername: string | null;
-	close: () => void;
 	notify: () => void;
 };
 
@@ -32,8 +32,8 @@ export default function DrawerChat(props: DrawerChatProps) {
 	useSubscribeEventChatMessage("newChatMessage", chat);
 
 	return (
-		<Drawer variant="persistent" anchor="left" open={chat.displayed} PaperProps={{ sx: style_container }} onClose={close}>
-			<ButtonCloseChat close={chat.close} />
+		<Drawer variant="persistent" anchor="left" open={chat.drawer.displayed} PaperProps={{ sx: style_container }} onClose={close}>
+			<ButtonCloseChat close={chat.drawer.remove} />
 
 			<List ref={ulElement} dense sx={style_messageList}>
 				<MessageList messages={chat.messages} />

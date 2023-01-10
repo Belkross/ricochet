@@ -30,7 +30,7 @@ export default function ButtonChat({ clientUsername }: Props) {
 				<ChatIcon />
 			</IconButton>
 
-			<DrawerChat displayed={drawer.displayed} close={drawer.remove} notify={notifyMessage} clientUsername={clientUsername} />
+			<DrawerChat drawer={drawer} notify={notifyMessage} clientUsername={clientUsername} />
 		</Badge>
 	);
 }
