@@ -2,7 +2,7 @@ import { io, Socket } from "socket.io-client";
 
 export let socket: Socket;
 
-export default function initializeSocketIo(): void {
+export default function initializeSocketIo() {
 	const environment = process.env.NODE_ENV;
 
 	let serverUrl;

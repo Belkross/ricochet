@@ -1,11 +1,12 @@
 import { ChangeEvent, useState } from "react";
 
-type FunctionReturn = [{ value: string; validity: boolean }, (event: ChangeEvent<HTMLInputElement>) => void];
+type InputData = { value: string; validity: boolean };
+type InputChanger = (event: ChangeEvent<HTMLInputElement>) => void;
 
-export default function useValidTextInput(initialValue: string, function_checkValidity: (input: string) => boolean): FunctionReturn {
+export default function useValidTextInput(initialValue: string, function_checkValidity: (input: string) => boolean): [InputData, InputChanger] {
 	const [input, setInput] = useState({ value: initialValue, validity: function_checkValidity(initialValue) });
 
-	const onInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+	const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
 
 		setInput({
