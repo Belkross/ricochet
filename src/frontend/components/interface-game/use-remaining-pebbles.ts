@@ -1,4 +1,3 @@
-import { GameState } from "../../types.js";
 import { useGameState } from "../provider-game-state/provider-game-state.js";
 
 export class PebbleInventory {
@@ -15,12 +14,12 @@ export class PebbleInventory {
 	11 = 2;
 }
 
-export default function getRemainingPebbles(): PebbleInventory {
+export default function useRemainingPebbles(): PebbleInventory {
 	const gameState = useGameState();
 	const remainingPebbles = new PebbleInventory();
 
 	for (let wordId = 1; wordId <= 25; wordId++) {
-		const playedPebble = gameState[`spot${wordId}` as keyof GameState];
+		const playedPebble = gameState.wordSpots[wordId];
 		if (playedPebble) remainingPebbles[playedPebble as keyof PebbleInventory]--;
 	}
 

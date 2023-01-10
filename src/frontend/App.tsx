@@ -5,7 +5,7 @@ import InterfaceLoading from "./components/interface-loading/interface-loading.j
 import Layout from "./components/layout.js";
 import { AppState, AppStateChanger } from "./types.js";
 import InterfaceLogging from "./components/interface-logging/interface-logging.js";
-import InterfaceGame from "./components/interface-game.js";
+import InterfaceGame from "./components/interface-game/interface-game.js";
 
 initializeSocketIo();
 const initialAppState: AppState = { state: "connectingToSocketIo", username: null };

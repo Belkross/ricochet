@@ -3,8 +3,8 @@ import { createTheme } from "@mui/material/styles";
 import "@fontsource/roboto";
 import "@fontsource/bona-nova";
 
-const titleFont = "Bona Nova, serif";
-const mainFont = "Roboto, sans-serif";
+export const titleFont = "Bona Nova, serif";
+export const mainFont = "Roboto, sans-serif";
 
 export default function addThemeTypographies(theme: Theme): Theme {
 	return createTheme(theme, {
