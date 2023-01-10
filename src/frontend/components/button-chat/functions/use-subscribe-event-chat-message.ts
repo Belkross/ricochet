@@ -9,5 +9,5 @@ export default function useSubscribeEventChatMessage(eventName: string, chat: Ch
 		socket.on(eventName, (newMessage: ChatMessage) => handleNewMessage(newMessage, chat));
 
 		return () => socket.off(eventName);
-	}, [chat.messages, chat.displayed]);
+	}, [chat.messages, chat.drawer.displayed]);
 }

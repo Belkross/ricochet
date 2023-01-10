@@ -6,7 +6,7 @@ const MAX_MEMORIZED_MESSAGE = 60;
 
 export default function handleNewMessage(message: ChatMessage, chat: ChatState) {
 	addMessageToChat(message, chat);
-	if (!chat.displayed) chat.notify();
+	if (!chat.drawer.displayed) chat.notify();
 	playChatSoundNotification();
 }
 

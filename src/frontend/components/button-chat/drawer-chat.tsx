@@ -48,7 +48,7 @@ export default function DrawerChat(props: DrawerChatProps) {
 					autoFocus
 					multiline
 					fullWidth
-					helperText={`Caractères restant: ${chat.input.characterRemaining}`}
+					helperText={`Caractères restants: ${chat.input.characterRemaining}`}
 					maxRows={4}
 				/>
 				<Button onClick={handleSubmit} disabled={!chat.input.validity}>
