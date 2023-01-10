@@ -20,8 +20,8 @@ type Props = {
 export default function ProviderThemeMode({ children }: Props) {
 	const [themeMode, setThemeMode] = useState(initialThemeMode);
 
-	const toggleThemeMode = (): void => {
-		const newState = themeMode === "dark" ? "light" : "dark";
+	const toggleThemeMode = () => {
+		const newState: SetOfTheme = themeMode === "dark" ? "light" : "dark";
 		setThemeMode(newState);
 		localStorage.setItem(localStorageKeys.themeMode, newState);
 	};
