@@ -7,6 +7,7 @@ import { useThemeMode, useToggleThemeMode } from "./provider-theme-mode/provider
 export default function ButtonThemeMode() {
 	const themeMode = useThemeMode();
 	const toggleThemeMode = useToggleThemeMode();
+	
 	const icon = themeMode === "dark" ? <DarkModeIcon /> : <LightModeIcon />;
 
 	const handleClick = () => toggleThemeMode();

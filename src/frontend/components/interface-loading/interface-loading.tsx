@@ -12,8 +12,6 @@ type Props = {
 };
 
 export default function InterfaceLoading({ appState, changeAppState }: Props) {
-	useSubscribeEventSocketIoConnection("connectedToSocketIo", changeAppState);
-
 	let statusMessage;
 	switch (appState) {
 		case "connectingToSocketIo":
@@ -25,6 +23,8 @@ export default function InterfaceLoading({ appState, changeAppState }: Props) {
 		default:
 			statusMessage = "Erreur";
 	}
+	
+	useSubscribeEventSocketIoConnection("connectedToSocketIo", changeAppState);
 
 	return (
 		<Stack sx={style_container}>

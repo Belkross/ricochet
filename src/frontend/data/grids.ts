@@ -1,15 +1,15 @@
-interface GridData {
+type GridData = {
 	dialogue: string[];
 	grid: string[];
 	id: number;
 	winConditions: string;
 	instruction: string;
 	help: string;
-}
+};
 
-interface Grids {
+type Grids = {
 	[index: number]: GridData;
-}
+};
 
 export const grids: Grids = {
 	1: {
