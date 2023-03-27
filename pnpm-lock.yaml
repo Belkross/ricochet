@@ -6,6 +6,7 @@ specifiers:
   '@fontsource/bona-nova': ^4.5.10
   '@fontsource/courier-prime': ^4.5.9
   '@fontsource/roboto': ^4.5.8
+  '@mui/icons-material': ^5.11.11
   '@mui/material': ^5.11.14
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
@@ -28,6 +29,7 @@ dependencies:
   '@fontsource/bona-nova': 4.5.10
   '@fontsource/courier-prime': 4.5.9
   '@fontsource/roboto': 4.5.8
+  '@mui/icons-material': 5.11.11_oukiqkomdonkpy3lx3zzu42idy
   '@mui/material': 5.11.14_fnqbmkzq76f7s3wszy2zei75o4
   eslint-plugin-react-hooks: 4.6.0_eslint@8.36.0
   eslint-plugin-sonarjs: 0.19.0_eslint@8.36.0
@@ -499,6 +501,23 @@ packages:
 
   /@mui/core-downloads-tracker/5.11.14:
     resolution: {integrity: sha512-rfc08z6+3Fif+Gopx2/qmk+MEQlwYeA+gOcSK048BHkTty/ol/boHuVeL2BNC/cf9OVRjJLYHtVb/DeW791LSQ==}
+    dev: false
+
+  /@mui/icons-material/5.11.11_oukiqkomdonkpy3lx3zzu42idy:
+    resolution: {integrity: sha512-Eell3ADmQVE8HOpt/LZ3zIma8JSvPh3XgnhwZLT0k5HRqZcd6F/QDHc7xsWtgz09t+UEFvOYJXjtrwKmLdwwpw==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@mui/material': 5.11.14_fnqbmkzq76f7s3wszy2zei75o4
+      '@types/react': 18.0.29
+      react: 18.2.0
     dev: false
 
   /@mui/material/5.11.14_fnqbmkzq76f7s3wszy2zei75o4:

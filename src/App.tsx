@@ -1,9 +1,11 @@
 import { useMemo, useState } from "react"
+import { InterfaceGame } from "./components/interface-game.js"
 import { InterfaceHome } from "./components/interface-home.js"
 import { ProviderMuiTheming } from "./components/provider-mui-theming.js"
 
 const initialAppState: AppState = {
-  status: "home",
+  status: "game",
+  gridId: 1,
 }
 
 export default function App() {
@@ -16,7 +18,7 @@ export default function App() {
       appInterface = <InterfaceHome setAppState={cachedSetAppState} />
       break
     case "game":
-      appInterface = <h1>Game</h1>
+      appInterface = <InterfaceGame appState={appState} setAppState={cachedSetAppState} />
       break
     default:
       appInterface = <p>app interface status error</p>
