@@ -26,7 +26,7 @@
   },
   "overrides": [
     {
-      "files": "src/front-end/App.tsx",
+      "files": "src/App.tsx",
       "rules": {
         "unicorn/filename-case": "off"
       }
