@@ -9,6 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/bona-nova": "^4.5.10",
+    "@fontsource/courier-prime": "^4.5.9",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/material": "^5.11.14",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "^0.19.0",
     "eslint-plugin-unicorn": "^46.0.0",

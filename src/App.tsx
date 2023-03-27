@@ -1,3 +1,9 @@
+import { ProviderMuiTheming } from "./components/provider-mui-theming.js"
+
 export default function App() {
-	return <h1>Ricochet</h1>
+  return (
+    <ProviderMuiTheming>
+      <h1>Ricochet</h1>
+    </ProviderMuiTheming>
+  )
 }
