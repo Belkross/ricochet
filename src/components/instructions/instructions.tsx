@@ -4,10 +4,11 @@ import { grids } from "../../assets/grids.js"
 import { useTypingAnimation } from "./use-typing-animation.js"
 
 type Props = {
-  id: number
+  appState: AppState
 }
 
-export default function Instructions({ id }: Props) {
+export function Instructions({ appState }: Props) {
+  const { selectedGrid: id } = appState
   const element = useRef<HTMLParagraphElement>(null)
 
   useTypingAnimation(element, id)

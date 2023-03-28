@@ -2,7 +2,9 @@ type ThemeMode = "light" | "dark"
 
 type AppState = {
   status: "home" | "game"
-  gridId: number
+  selectedGrid: number
+  selectedPebble: number
+  wordSpots: number[]
 }
 
 type FlowlessFunction = () => void

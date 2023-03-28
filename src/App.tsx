@@ -5,7 +5,9 @@ import { ProviderMuiTheming } from "./components/provider-mui-theming.js"
 
 const initialAppState: AppState = {
   status: "game",
-  gridId: 1,
+  selectedGrid: 1,
+  selectedPebble: NaN,
+  wordSpots: Array(25).fill(NaN),
 }
 
 export default function App() {
