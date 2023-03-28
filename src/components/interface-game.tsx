@@ -2,6 +2,7 @@ import { Container } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
 import { GridSelection } from "./grid-selection.js"
 import { Instructions } from "./instructions/instructions.js"
+import { Pebbles } from "./pebbles.js"
 import { WordsGrid } from "./words-grid.js"
 
 type Props = {
@@ -15,6 +16,7 @@ export function InterfaceGame({ appState, setAppState }: Props) {
       <GridSelection appState={appState} setAppState={setAppState} />
       <Instructions appState={appState} />
       <WordsGrid appState={appState} setAppState={setAppState} />
+      <Pebbles appState={appState} setAppState={setAppState} />
     </Container>
   )
 }
