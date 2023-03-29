@@ -22,14 +22,11 @@ export function createMuiComponents(theme: Theme): ThemeOptions {
             borderColor: theme.palette.primary.main,
             backgroundColor: theme.palette.primary.main,
             boxShadow: theme.shadows[2],
-            "&:disabled": {
-              backgroundColor: theme.palette.action.disabledBackground,
-              borderColor: theme.palette.action.disabledBackground,
-            },
-            "&:focus": {
-              backgroundColor: "inherit",
+            ":disabled": {
+              borderColor: theme.palette.action.disabled,
             },
           },
+          
         },
       },
       MuiButton: {
@@ -53,11 +50,11 @@ export function createMuiComponents(theme: Theme): ThemeOptions {
             color: theme.palette.text.primary,
             width: "max-content",
             height: "max-content",
-            "&:disabled": {
+            ":disabled": {
               backgroundColor: theme.palette.action.disabledBackground,
               borderColor: theme.palette.action.disabled,
             },
-            "&:focus": {
+            ":focus": {
               backgroundColor: "inherit",
             },
           },
