@@ -4,7 +4,7 @@ const smoothWhiteText = "rgba(255, 255, 255, .85)"
 const smoothBlackText = "rgba(0, 0, 0, .85)"
 
 const darkModePalette = {
-  primary: { main: deepPurple[400] },
+  primary: { main: "#7d61af" },
   text: {
     primary: smoothWhiteText,
     opposite: smoothBlackText,
@@ -16,8 +16,8 @@ const darkModePalette = {
     dialogue: purple[200],
   },
   background: {
-    default: "#0b042a",
-    paper: "#37226c",
+    default: "#1c1734",
+    paper: "#45356e",
     navBar: "#2e1c5b",
     border: "#244d77",
     words: smoothWhiteText,
