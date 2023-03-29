@@ -8,7 +8,8 @@ type Props = {
 
 export function RemainingPebbleVisual({ pebbleId, appState }: Props) {
   let remainingPebbleVisual = ""
-  let numberOfPebbleRemaining = getPebbleInventory(appState.wordSpots)[pebbleId - 1]
+  const pebbleIndex = pebbleId -1
+  let numberOfPebbleRemaining = getPebbleInventory(appState.wordSpots)[pebbleIndex]
 
   while (numberOfPebbleRemaining) {
     remainingPebbleVisual += "."

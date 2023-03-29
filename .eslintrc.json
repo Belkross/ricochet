@@ -24,6 +24,7 @@
     "unicorn/prevent-abbreviations": "off",
     "unicorn/prefer-number-properties": "off",
     "unicorn/new-for-builtins": "off",
+    "sonarjs/no-duplicate-string": "off",
     "react/react-in-jsx-scope": "off"
   },
   "overrides": [

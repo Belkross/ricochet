@@ -10,16 +10,25 @@ type Props = {
 export function WordsList({ appState, setAppState }: Props) {
   const { selectedGrid, selectedPebble, wordSpots } = appState
   const words = grids[selectedGrid].grid
-  const handleClick = (/* wordId: number */) => {
-    setAppState((prevState) => ({ ...prevState }))
+
+  const handleClick = (index: number) => {
+    const spotHasAPebble = wordSpots[index]
+    const newWordSpots = [...wordSpots]
+
+    if (selectedPebble) {
+      newWordSpots[index] = selectedPebble
+      setAppState((prevState) => ({ ...prevState, wordSpots: newWordSpots, selectedPebble: NaN }))
+    } else if (spotHasAPebble) {
+      newWordSpots[index] = NaN
+      setAppState((prevState) => ({ ...prevState, wordSpots: newWordSpots }))
+    }
   }
 
   const list_words = words.map((word, index) => {
-    const wordId = index + 1
     const playedPebble = wordSpots[index]
 
     return (
-      <Button key={wordId} sx={style_buttonWord(playedPebble, selectedPebble)} onClick={() => handleClick()}>
+      <Button key={index} sx={style_buttonWord(playedPebble, selectedPebble)} onClick={() => handleClick(index)}>
         <Typography sx={style_wordString}>{word[0].toUpperCase() + word.slice(1)}</Typography>
         <Typography>{playedPebble || "-"}</Typography>
       </Button>
@@ -50,10 +59,14 @@ const style_buttonWord = (pebbleOnWord: number, selectedPebble: number): SxProps
     borderColor: pebbleOnWord ? playedPebbleColor : "background.words",
     color: "text.words",
 
-    "&:hover": {
+    ":hover": {
       borderWidth: { xs: "1px", sm: "3px" },
-      borderColor: selectedPebble ? selectedPebbleColor : "white",
+      borderColor: selectedPebble ? selectedPebbleColor : "background.words",
       backgroundColor: pebbleOnWord ? playedPebbleColor : "white",
+    },
+
+    ":focus": {
+      backgroundColor: pebbleOnWord ? playedPebbleColor : "background.words",
     },
   }
 }

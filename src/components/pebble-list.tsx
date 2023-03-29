@@ -11,10 +11,9 @@ type Props = {
 export function PebbleList({ appState, setAppState }: Props) {
   const { selectedPebble, wordSpots } = appState
 
-  const handleClick = (id: number) => () => {
+  const handleClick = (id: number) => {
     const pebbleAlreadySelected = id === selectedPebble
     const somePebbleRemains = getPebbleInventory(wordSpots)[id - 1] > 0
-
     if (pebbleAlreadySelected) setAppState((prevState) => ({ ...prevState, selectedPebble: NaN }))
     else if (somePebbleRemains) setAppState((prevState) => ({ ...prevState, selectedPebble: id }))
   }
@@ -42,17 +41,17 @@ const style_pebble = (pebbleId: number, appState: AppState): SxProps => {
     gridColumnStart: pebbleId === 11 ? 5 : "initial",
     gridColumnEnd: pebbleId === 11 ? 7 : "initial",
 
-    minWidth: { thinest: "45px", thin: "55px", medium: "64px" },
+    minWidth: { xs: "45px", sm: "55px", md: "64px" },
     padding: "6px",
-    
+
     backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
     color: somePebbleAvailable ? "text.pebbles" : "text.pebbleEmpty",
     borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
-    borderWidth: { thinest: "1px", thin: "2px" },
+    borderWidth: { xs: "1px", sm: "2px" },
     "&:hover": {
       backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
       color: "white",
-      borderWidth: { thinest: "1px", thin: "2px" },
+      borderWidth: { xs: "1px", sm: "2px" },
       borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
     },
   }

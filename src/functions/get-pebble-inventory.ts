@@ -2,7 +2,7 @@ export function getPebbleInventory(wordSpot: number[]): number[] {
   const inventory = Array(12).fill(2)
 
   for (const spot of wordSpot) {
-    if (spot) --inventory[spot]
+    if (spot) --inventory[spot-1]
   }
 
   if (!checkOuputValidity(inventory)) console.error("output not valid")
