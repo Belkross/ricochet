@@ -22,6 +22,7 @@ const style_container: SxProps = {
   gridTemplateRows: "repeat(2, 1fr)",
   gap: { xs: 0.5, sm: 0.6 },
 
+  maxWidth: "550px",
   padding: { xs: 0.7, sm: 2 },
 
   backgroundColor: "background.paper",
