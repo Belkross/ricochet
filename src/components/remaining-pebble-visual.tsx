@@ -7,21 +7,15 @@ type Props = {
 }
 
 export function RemainingPebbleVisual({ pebbleId, appState }: Props) {
-  let remainingPebbleVisual = ""
-  const pebbleIndex = pebbleId -1
-  let numberOfPebbleRemaining = getPebbleInventory(appState.wordSpots)[pebbleIndex]
+  const pebbleIndex = pebbleId - 1
+  const numberOfPebbleRemaining = getPebbleInventory(appState.wordSpots)[pebbleIndex]
+  const content = "·".repeat(numberOfPebbleRemaining)
 
-  while (numberOfPebbleRemaining) {
-    remainingPebbleVisual += "."
-    numberOfPebbleRemaining--
-  }
-
-  return <Typography sx={style_remainingPebbleVisual}>{remainingPebbleVisual}</Typography>
+  return <Typography sx={style_typography}>{content}</Typography>
 }
 
-const style_remainingPebbleVisual: SxProps = {
-  lineHeight: 0,
-  mb: 1.2,
-  fontSize: 40,
-  letterSpacing: -0.5,
+const style_typography: SxProps = {
+  lineHeight: 0.5,
+  fontSize: 28,
+  fontWeight: 900,
 }
