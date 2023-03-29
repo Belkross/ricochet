@@ -42,7 +42,9 @@ const style_button = (pebbleId: number, appState: AppState): SxProps => {
     gridColumnEnd: pebbleId === 11 ? 7 : "initial",
 
     width: "100%",
+    height: "100%",
     minWidth: { xs: "45px", sm: "55px", md: "64px" },
+    minHeight: "55px",
     padding: "6px",
 
     backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
