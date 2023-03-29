@@ -24,7 +24,6 @@ export function GridSelection({ appState, setAppState }: Props) {
         aria-label="grille précédente"
         onClick={handleClickLeft}
         disabled={selectedGrid <= minGridId}
-        sx={style_button}
         size="small"
       >
         <ArrowLeft />
@@ -34,17 +33,12 @@ export function GridSelection({ appState, setAppState }: Props) {
         aria-label="grille suivante"
         onClick={handleClickRight}
         disabled={selectedGrid >= maxGridId}
-        sx={style_button}
         size="small"
       >
         <ArrowRight />
       </IconButton>
     </Stack>
   )
-}
-
-const style_button: SxProps = {
-  borderRadius: "100%",
 }
 
 const style_container: SxProps = {

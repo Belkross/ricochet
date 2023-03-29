@@ -3,8 +3,11 @@ export default {
   drawerMaxWidth: "700px",
 
   borderRadius: 2.5,
-  borderWidth: "3px",
-  borderStyle: "solid",
+  borderMain: {
+    borderWidth: "3px",
+    borderStyle: "solid",
+    borderColor: "background.border",
+  },
 
-  spacingBase: { xs: 2, sm: 2.5, md: 3, lg: 4 },
+  spacingBase: { xs: 2, sm: 2.5, md: 3, lg: 3.5 },
 }

@@ -19,7 +19,7 @@ const darkModePalette = {
     default: "#1c1734",
     paper: "#45356e",
     navBar: "#2e1c5b",
-    border: "#244d77",
+    border: "#7255a4",
     words: smoothWhiteText,
   },
   action: {

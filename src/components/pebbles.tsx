@@ -28,4 +28,5 @@ const style_container: SxProps = {
   backgroundColor: "background.paper",
   borderRadius: shape.borderRadius,
   boxShadow: 7,
+  ...shape.borderMain
 }
