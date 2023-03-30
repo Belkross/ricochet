@@ -26,13 +26,9 @@ const style_container: SxProps = {
 
   width: "100%",
   maxWidth: shape.gridMaxWidth,
-  padding: shape.spacingBase,
   marginBottom: shape.spacingBase,
 
-  backgroundColor: "background.paper",
-  borderRadius: shape.borderRadius,
-  boxShadow: 7,
-  ...shape.borderMain,
+  ...shape.borderedContainer,
 }
 
 const style_wordsGrid: SxProps = {

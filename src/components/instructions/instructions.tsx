@@ -1,6 +1,7 @@
 import { Stack, SxProps, Typography } from "@mui/material"
 import { useRef } from "react"
 import { grids } from "../../assets/grids.js"
+import shape from "../../theme/shape.js"
 import { useTypingAnimation } from "./use-typing-animation.js"
 
 type Props = {
@@ -26,6 +27,8 @@ export function Instructions({ appState }: Props) {
 const style_container: SxProps = {
   gap: 1,
   alignItems: "center",
+
+  ...shape.borderedContainer,
 }
 
 const style_dialogue: SxProps = {
