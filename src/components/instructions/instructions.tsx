@@ -1,7 +1,5 @@
-import { Stack, SxProps, Typography } from "@mui/material"
+import { SxProps, Typography } from "@mui/material"
 import { useRef } from "react"
-import { grids } from "../../assets/grids.js"
-import shape from "../../theme/shape.js"
 import { useTypingAnimation } from "./use-typing-animation.js"
 
 type Props = {
@@ -14,28 +12,11 @@ export function Instructions({ appState }: Props) {
 
   useTypingAnimation(element, id)
 
-  return (
-    <Stack sx={style_container}>
-      <Typography ref={element} sx={style_dialogue} />
-      <Typography>{grids[id].winConditions}</Typography>
-      <Typography>{`Instruction: ${grids[id].instruction}`}</Typography>
-      <Typography sx={style_typography}>{`Aide: ${grids[id].help}`}</Typography>
-    </Stack>
-  )
-}
-
-const style_container: SxProps = {
-  gap: 1,
-  alignItems: "center",
-
-  ...shape.borderedContainer,
+  return <Typography ref={element} sx={style_dialogue} />
 }
 
 const style_dialogue: SxProps = {
   color: "text.dialogue",
   fontFamily: "courier prime",
-}
-
-const style_typography: SxProps = {
-  marginBottom: 3,
+  marginBottom: { xs: 3, lg: 0 },
 }

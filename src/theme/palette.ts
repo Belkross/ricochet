@@ -12,8 +12,7 @@ const darkModePalette = {
     words: smoothBlackText,
     pebbles: smoothBlackText,
     pebbleEmpty: smoothWhiteText,
-    chatAuthor: orange[500],
-    dialogue: purple[200],
+    dialogue: orange[400],
   },
   background: {
     default: "#1c1734",
@@ -51,7 +50,6 @@ const lightModePalette = {
     words: smoothBlackText,
     pebbles: smoothBlackText,
     pebbleEmpty: smoothBlackText,
-    chatAuthor: orange[900],
     dialogue: purple[800],
   },
   background: {
