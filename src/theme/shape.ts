@@ -4,10 +4,10 @@ export default {
 
   borderRadius: 2.5,
   borderMain: {
-    borderWidth: "3px",
+    borderWidth: { xs: "2px", md: "3px" },
     borderStyle: "solid",
     borderColor: "background.border",
   },
 
-  spacingBase: { xs: 2, sm: 2.5, md: 3, lg: 3.5 },
+  spacingBase: { xs: 1.5, sm: 2, md: 2.5, lg: 3 },
 }

@@ -24,13 +24,14 @@ const style_container: SxProps = {
   alignItems: "center",
   gap: shape.spacingBase,
 
+  width: { xs: "100%", md: "auto" },
   padding: shape.spacingBase,
   marginBottom: shape.spacingBase,
 
   backgroundColor: "background.paper",
   borderRadius: shape.borderRadius,
   boxShadow: 7,
-  ...shape.borderMain
+  ...shape.borderMain,
 }
 
 const style_wordsGrid: SxProps = {

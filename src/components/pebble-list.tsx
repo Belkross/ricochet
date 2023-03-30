@@ -20,7 +20,7 @@ export function PebbleList({ appState, setAppState }: Props) {
 
   const list_pebbles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((pebbleId: number) => {
     return (
-      <Button key={pebbleId} sx={style_button(pebbleId, appState)} onClick={() => handleClick(pebbleId)} >
+      <Button key={pebbleId} sx={style_button(pebbleId, appState)} onClick={() => handleClick(pebbleId)}>
         <Typography>{pebbleId}</Typography>
         <RemainingPebbleVisual pebbleId={pebbleId} appState={appState} />
       </Button>
@@ -42,10 +42,9 @@ const style_button = (pebbleId: number, appState: AppState): SxProps => {
     gridColumnEnd: pebbleId === 11 ? 7 : "initial",
 
     width: "100%",
+    minWidth: { xs: "auto", md: "64px" },
     height: "100%",
-    minWidth: { xs: "45px", sm: "55px", md: "64px" },
-    minHeight: "55px",
-    padding: "6px",
+    padding: { xs: 0, sm: 0.5 },
 
     backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
     color: somePebbleAvailable ? "text.pebbles" : "text.pebbleEmpty",

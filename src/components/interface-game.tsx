@@ -1,6 +1,5 @@
 import { Container, SxProps } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
-import shape from "../theme/shape.js"
 import { Instructions } from "./instructions/instructions.js"
 import { Pebbles } from "./pebbles.js"
 import { WordsGrid } from "./words-grid.js"
@@ -26,5 +25,5 @@ const style_container: SxProps = {
   alignItems: "center",
   gap: 2,
 
-  py: shape.spacingBase,
+  py: { xs: 3, md: 5 },
 }

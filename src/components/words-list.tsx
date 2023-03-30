@@ -47,9 +47,9 @@ const style_buttonWord = (pebbleOnWord: number, selectedPebble: number): SxProps
     justifyContent: "space-between",
     gap: { xs: 0, sm: 1, md: 1.5 },
 
-    width: { xs: "55px", sm: "inherit" },
-    minWidth: { xs: "unset", sm: "64px" },
-    maxWidth: { sm: "105px", md: "inherit" },
+    width: "100%",
+    minWidth: "unset",
+    maxWidth: { sm: "inhehit", md: "inherit" },
     height: { xs: "55px", sm: "inherit" },
     padding: { xs: "1.2mm", sm: 0.8, md: 1 },
 

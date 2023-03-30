@@ -22,11 +22,12 @@ const style_container: SxProps = {
   gridTemplateRows: "repeat(2, 1fr)",
   gap: { xs: 0.5, sm: 0.6 },
 
+  width: { xs: "100%" },
   maxWidth: "550px",
-  padding: { xs: 0.7, sm: 2 },
+  padding: shape.spacingBase,
 
   backgroundColor: "background.paper",
   borderRadius: shape.borderRadius,
   boxShadow: 7,
-  ...shape.borderMain
+  ...shape.borderMain,
 }
