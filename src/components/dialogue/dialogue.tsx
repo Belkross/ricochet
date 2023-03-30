@@ -6,7 +6,7 @@ type Props = {
   appState: AppState
 }
 
-export function Instructions({ appState }: Props) {
+export function Dialogue({ appState }: Props) {
   const { selectedGrid: id } = appState
   const element = useRef<HTMLParagraphElement>(null)
 
