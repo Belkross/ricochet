@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
+import { GlobalFeatures } from "./components/global-features.js"
 import { InterfaceGame } from "./components/interface-game.js"
 import { InterfaceHome } from "./components/interface-home.js"
-import { ProviderMuiTheming } from "./components/provider-mui-theming.js"
 
 const initialAppState: AppState = {
   status: "game",
@@ -26,5 +26,5 @@ export default function App() {
       appInterface = <p>app interface status error</p>
   }
 
-  return <ProviderMuiTheming>{appInterface}</ProviderMuiTheming>
+  return <GlobalFeatures>{appInterface}</GlobalFeatures>
 }

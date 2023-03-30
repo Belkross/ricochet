@@ -1,6 +1,7 @@
 import { Container, SxProps } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
-import ButtonRules from "./button-rules.js"
+import { ButtonRules } from "./button-rules.js"
+import { ButtonThemeMode } from "./button-theme-mode.js"
 import { Instructions } from "./instructions/instructions.js"
 import { Pebbles } from "./pebbles.js"
 import { WordsGrid } from "./words-grid.js"
@@ -13,7 +14,8 @@ type Props = {
 export function InterfaceGame({ appState, setAppState }: Props) {
   return (
     <Container sx={style_container}>
-      <ButtonRules/>
+      <ButtonRules />
+      <ButtonThemeMode />
       <Instructions appState={appState} />
       <WordsGrid appState={appState} setAppState={setAppState} />
       <Pebbles appState={appState} setAppState={setAppState} />
