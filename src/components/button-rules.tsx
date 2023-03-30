@@ -13,7 +13,7 @@ import useTemporaryElement from "../functions/use-temporary-element.js"
 import CustomLink from "./custom-link.js"
 import shape from "../theme/shape.js"
 
-export default function ButtonRules() {
+export function ButtonRules() {
   const drawer = useTemporaryElement(false)
 
   return (
