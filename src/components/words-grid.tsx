@@ -21,10 +21,11 @@ export function WordsGrid({ appState, setAppState }: Props) {
 }
 
 const style_container: SxProps = {
-  alignItems: "center",
+  alignItems: "stretch",
   gap: shape.spacingBase,
 
-  width: { xs: "100%", md: "auto" },
+  width: "100%",
+  maxWidth: shape.gridMaxWidth,
   padding: shape.spacingBase,
   marginBottom: shape.spacingBase,
 
@@ -38,5 +39,5 @@ const style_wordsGrid: SxProps = {
   display: "grid",
   gridTemplateColumns: "repeat(5, 1fr)",
   gridTemplateRows: "repeat(5, 1fr)",
-  gap: { xs: 0.5 },
+  gap: 0.5,
 }

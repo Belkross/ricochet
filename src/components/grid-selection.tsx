@@ -45,4 +45,5 @@ const style_container: SxProps = {
   flexFlow: "row nowrap",
   gap: shape.spacingBase,
   alignItems: "center",
+  alignSelf: "center",
 }

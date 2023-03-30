@@ -1,6 +1,7 @@
 export default {
   appMaxWidth: "1500px",
   drawerMaxWidth: "700px",
+  gridMaxWidth: "550px",
 
   borderRadius: 2.5,
   borderMain: {

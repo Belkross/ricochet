@@ -43,13 +43,13 @@ const style_buttonWord = (pebbleOnWord: number, selectedPebble: number): SxProps
   const selectedPebbleColor = selectedPebble ? `pebbles.${selectedPebble}` : undefined
 
   return {
+    display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    gap: { xs: 0, sm: 1, md: 1.5 },
+    gap: { xs: 0, sm: 0.5 },
 
     width: "100%",
-    minWidth: "unset",
-    maxWidth: { sm: "inhehit", md: "inherit" },
+    minWidth: "unset", //a button has a min width by default
     height: { xs: "55px", sm: "inherit" },
     padding: { xs: "1.2mm", sm: 0.8, md: 1 },
 

@@ -23,7 +23,7 @@ const style_container: SxProps = {
   gap: { xs: 0.5, sm: 0.6 },
 
   width: { xs: "100%" },
-  maxWidth: "550px",
+  maxWidth: shape.gridMaxWidth,
   padding: shape.spacingBase,
 
   backgroundColor: "background.paper",
