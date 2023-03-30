@@ -36,5 +36,6 @@ const style_container: SxProps = {
 
 const style_menu: SxProps = {
   flexFlow: "row wrap",
+  justifyContent: "center",
   gap: 1
 }

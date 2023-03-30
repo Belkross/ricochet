@@ -18,5 +18,5 @@ export function Dialogue({ appState }: Props) {
 const style_dialogue: SxProps = {
   color: "text.dialogue",
   fontFamily: "courier prime",
-  marginBottom: { xs: 3, lg: 0 },
+  my: { xs: 3, lg: 0 },
 }

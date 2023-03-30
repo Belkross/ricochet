@@ -1,6 +1,6 @@
 const shape = {
   appMaxWidth: "1500px",
-  drawerMaxWidth: "700px",
+  drawerMaxWidth: "600px",
   gridMaxWidth: "550px",
 
   borderRadius: 2.5,

@@ -5,6 +5,8 @@ import {
   AccordionSummary,
   Button,
   Drawer,
+  Stack,
+  SxProps,
   Typography,
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
@@ -12,6 +14,7 @@ import RuleIcon from "@mui/icons-material/TextSnippet"
 import useTemporaryElement from "../functions/use-temporary-element.js"
 import CustomLink from "./custom-link.js"
 import shape from "../theme/shape.js"
+import { ButtonCloseElement } from "./button-close-element.js"
 
 export function ButtonRules() {
   const drawer = useTemporaryElement(false)
@@ -28,6 +31,10 @@ export function ButtonRules() {
         onClose={drawer.remove}
         PaperProps={{ sx: style_paper }}
       >
+        <Stack sx={style_header}>
+          <Typography variant="h2">Règles du jeu</Typography>
+          <ButtonCloseElement onClick={() => drawer.remove()} />
+        </Stack>
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h3">C’est quoi Ricochet ?</Typography>
@@ -131,11 +138,18 @@ export function ButtonRules() {
   )
 }
 
-const style_paper = {
+const style_paper: SxProps = {
   width: "100%",
   height: "100vh",
-  maxWidth: { md: "20cm" },
+  maxWidth: shape.drawerMaxWidth,
   padding: shape.spacingBase,
-
   backgroundColor: "background.default",
+}
+
+const style_header: SxProps = {
+  flexFlow: "row nowrap",
+  justifyContent: "space-between",
+  alignItems: "center",
+  gap: 1,
+  marginBottom: shape.spacingBase,
 }
