@@ -58,7 +58,7 @@ const style_header: SxProps = {
 
   gridColumn: "1/5",
   gridRow: "2/13",
-  justifySelf: "center",
+  justifySelf: "start",
   alignSelf: { lg: "start" },
 
   width: "100%",
@@ -75,4 +75,7 @@ const style_grids: SxProps = {
   gridRow: "1/13",
   justifySelf: "center",
   alignSelf: { lg: "center" },
+
+  width: "100%",
+  maxWidth: shape.gridMaxWidth,
 }

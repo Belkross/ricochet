@@ -33,9 +33,6 @@ export function WordsGrid({ appState, setAppState }: Props) {
 const style_container: SxProps = {
   alignItems: "stretch",
   gap: shape.spacingBase,
-
-  width: "100%",
-  maxWidth: shape.gridMaxWidth,
   marginBottom: shape.spacingBase,
 
   ...shape.borderedContainer,

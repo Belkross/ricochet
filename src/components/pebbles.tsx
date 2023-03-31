@@ -21,9 +21,5 @@ const style_container: SxProps = {
   gridTemplateColumns: "repeat(6, 1fr)",
   gridTemplateRows: "repeat(2, 1fr)",
   gap: { xs: 0.5, sm: 0.6 },
-
-  width: { xs: "100%" },
-  maxWidth: shape.gridMaxWidth,
-
   ...shape.borderedContainer,
 }
