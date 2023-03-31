@@ -6,6 +6,7 @@ import { Dialogue } from "./dialogue/dialogue.js"
 import { Pebbles } from "./pebbles.js"
 import { WordsGrid } from "./words-grid.js"
 import shape from "../theme/shape.js"
+import { Footer } from "./footer.js"
 
 type Props = {
   appState: AppState
@@ -28,6 +29,8 @@ export function InterfaceGame({ appState, setAppState }: Props) {
         <WordsGrid appState={appState} setAppState={setAppState} />
         <Pebbles appState={appState} setAppState={setAppState} />
       </Stack>
+
+      <Footer />
     </Box>
   )
 }
@@ -77,4 +80,5 @@ const style_grids: SxProps = {
 
   width: "100%",
   maxWidth: shape.gridMaxWidth,
+  marginBottom: { xs: 6, lg: "none" },
 }
