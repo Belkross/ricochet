@@ -1,6 +1,6 @@
 import { Container, Stack, SxProps } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
-import { ButtonRules } from "./button-rules.js"
+import { ButtonRules } from "./button-rules/button-rules.js"
 import { ButtonThemeMode } from "./button-theme-mode.js"
 import { Dialogue } from "./dialogue/dialogue.js"
 import { Pebbles } from "./pebbles.js"
@@ -37,5 +37,5 @@ const style_container: SxProps = {
 const style_menu: SxProps = {
   flexFlow: "row wrap",
   justifyContent: "center",
-  gap: 1
+  gap: 1,
 }
