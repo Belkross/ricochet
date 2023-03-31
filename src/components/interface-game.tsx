@@ -59,7 +59,7 @@ const style_header: SxProps = {
   gap: 2,
 
   gridColumn: "1/5",
-  gridRow: "2/13",
+  gridRow: "1/13",
   justifySelf: "start",
   alignSelf: { lg: "start" },
 
