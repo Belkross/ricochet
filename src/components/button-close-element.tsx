@@ -17,6 +17,6 @@ export function ButtonCloseElement({ onClick, sx }: Props) {
 }
 
 const style_buttonClose: SxProps = {
-  backgroundColor: "error.dark",
-  borderColor: "error.dark",
+  backgroundColor: "error.main",
+  borderColor: "error.main",
 }

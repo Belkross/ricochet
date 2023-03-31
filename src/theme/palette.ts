@@ -1,4 +1,4 @@
-import { orange, deepPurple, purple } from "@mui/material/colors"
+import { orange, deepPurple, deepOrange, red } from "@mui/material/colors"
 
 const smoothWhiteText = "rgba(255, 255, 255, .85)"
 const smoothBlackText = "rgba(0, 0, 0, .85)"
@@ -17,14 +17,14 @@ const darkModePalette = {
   background: {
     default: "#1c1734",
     paper: "#45356e",
-    navBar: "#2e1c5b",
-    border: "#7255a4",
+    border: "#7d61af",
     words: smoothWhiteText,
   },
   action: {
     hover: "rgba(255, 255, 255, 0.25)",
     disabledBackground: "rgba(0, 0, 0, 0.12)",
   },
+  error: { main: red[400] },
   pebbles: {
     1: "#e53935",
     2: "#f06292",
@@ -42,22 +42,23 @@ const darkModePalette = {
 
 const lightModePalette = {
   ...darkModePalette,
-  primary: { main: deepPurple[300] },
+  primary: { main: deepPurple[200] },
   text: {
     primary: smoothBlackText,
     opposite: smoothWhiteText,
-    link: deepPurple[800],
+    link: deepOrange[800],
     words: smoothBlackText,
     pebbles: smoothBlackText,
     pebbleEmpty: smoothBlackText,
-    dialogue: purple[800],
+    dialogue: deepOrange[900],
   },
   background: {
     default: deepPurple[50],
-    paper: deepPurple[200],
-    navBar: deepPurple[200],
+    paper: deepPurple[100],
+    border: deepPurple[200],
     words: smoothWhiteText,
   },
+  error: { main: red[300] },
   action: {
     hover: "rgba(255, 255, 255, 0.25)",
   },

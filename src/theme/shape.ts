@@ -19,6 +19,6 @@ export default {
     borderStyle: "solid",
     borderColor: "background.border",
     borderRadius: shape.borderRadius,
-    boxShadow: 12,
+    boxShadow: 6,
   },
 }
