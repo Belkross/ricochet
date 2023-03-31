@@ -25,7 +25,7 @@ export function ButtonRules() {
       </Button>
       <Drawer
         variant="temporary"
-        anchor="right"
+        anchor="left"
         open={drawer.displayed}
         onClose={drawer.remove}
         PaperProps={{ sx: style_paper }}

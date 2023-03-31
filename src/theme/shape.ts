@@ -1,5 +1,6 @@
 const shape = {
-  appMaxWidth: "1500px",
+  appMaxWidth: "950px",
+  appMaxHeight: "800px",
   drawerMaxWidth: "600px",
   gridMaxWidth: "550px",
 
