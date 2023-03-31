@@ -25,7 +25,7 @@ export function ButtonRules() {
       </Button>
       <Drawer
         variant="temporary"
-        anchor="left"
+        anchor="right"
         open={drawer.displayed}
         onClose={drawer.remove}
         PaperProps={{ sx: style_paper }}
@@ -112,6 +112,7 @@ export function ButtonRules() {
 }
 
 const style_paper: SxProps = {
+  gap: 1.5,
   width: "100%",
   height: "100vh",
   maxWidth: shape.drawerMaxWidth,

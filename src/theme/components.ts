@@ -1,8 +1,16 @@
 import { Theme, ThemeOptions } from "@mui/material"
+import shape from "./shape.js"
 
 export function createMuiComponents(theme: Theme): ThemeOptions {
   return {
     components: {
+      MuiAccordion: {
+        styleOverrides: {
+          root: {
+            borderRadius: shape.borderRadius,
+          },
+        },
+      },
       MuiDrawer: {
         styleOverrides: {
           paper: {
@@ -26,7 +34,6 @@ export function createMuiComponents(theme: Theme): ThemeOptions {
               borderColor: theme.palette.action.disabled,
             },
           },
-          
         },
       },
       MuiButton: {
