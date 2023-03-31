@@ -33,7 +33,6 @@ export function InterfaceGame({ appState, setAppState }: Props) {
 }
 
 const style_container: SxProps = {
-  marginTop: "40vh",
   display: { xs: "flex", lg: "grid" },
 
   flexFlow: "column nowrap",
