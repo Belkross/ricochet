@@ -1,13 +1,22 @@
-import { SxProps, Typography } from "@mui/material"
+import { Link, SxProps, Typography } from "@mui/material"
+import { ModalLegalNotice } from "./modal-legal-notice.js"
+import useTemporaryElement from "../functions/use-temporary-element.js"
 
 export function Footer() {
-  const copyright = `© ${new Date().getFullYear()} Ricochet`
-  const content = `${copyright} - Mentions Légales`
+  const modal = useTemporaryElement(false)
+  const copyright = `© ${new Date().getFullYear()} Ricochet - `
+  
 
   return (
-    <Typography variant="caption" sx={style_typography}>
-      {content}
-    </Typography>
+    <>
+      <Typography variant="caption" sx={style_typography}>
+        {copyright}
+        <Link sx={style_link} onClick={modal.display}>
+          Mentions Légales
+        </Link>
+      </Typography>
+      <ModalLegalNotice displayed={modal.displayed} closeModal={modal.remove} />
+    </>
   )
 }
 
@@ -16,4 +25,14 @@ const style_typography: SxProps = {
   gridRow: "11/12",
   justifySelf: "center",
   alignSelf: { lg: "center" },
+}
+
+const style_link: SxProps = {
+  color: "text.primary",
+  textDecoration: "none",
+  cursor: "pointer",
+  ":hover": {
+    textDecoration: "underline",
+    textDecorationColor: "text.primary",
+  },
 }

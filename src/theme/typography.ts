@@ -22,7 +22,7 @@ export default {
   },
   h3: {
     fontFamily: mainFont,
-    fontSize: 18,
+    fontSize: 20,
     lineHeight: 1,
     fontWeight: 400,
     letterSpacing: -0.5,
