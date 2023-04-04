@@ -44,7 +44,7 @@ export function ButtonRules() {
               expression ou une référence dans le but de découvrir le dénouement d’un court dialogue.
             </Typography>
             <Typography>
-              Ce site est une reproduction du jeu créé par Cyril Blondel et constitue un hommage à son travail. Il est
+              Ce site est une version démo du jeu créé par Cyril Blondel et constitue un hommage à son travail. Il est
               possible de se procurer la version physique du jeu sur le{" "}
               <CustomLink href="https://www.flipflapeditions.fr/" anchor="site officiel" />.
             </Typography>
