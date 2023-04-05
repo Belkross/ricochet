@@ -21,10 +21,29 @@ export function ProviderMuiTheming({ children }: Props) {
 
 const StaticGlobalStyles = (
   <GlobalStyles
-    styles={
-      {
-        // body: {}
-      }
-    }
+    styles={{
+      body: {
+        "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+          backgroundColor: "inherit",
+          width: "10px",
+        },
+        "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+          backgroundColor: "#6b6b6b",
+          minHeight: "30px",
+        },
+        "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
+          backgroundColor: "#959595",
+        },
+        "&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active": {
+          backgroundColor: "#959595",
+        },
+        "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
+          backgroundColor: "#959595",
+        },
+        "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
+          backgroundColor: "inherit",
+        },
+      },
+    }}
   />
 )
