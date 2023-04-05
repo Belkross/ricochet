@@ -1,19 +1,11 @@
-import {
-  Accordion,
-  AccordionActions,
-  AccordionDetails,
-  Button,
-  Drawer,
-  Stack,
-  SxProps,
-  Typography,
-} from "@mui/material"
+import { Accordion, AccordionActions, AccordionDetails, Button, Box, Stack, SxProps, Typography } from "@mui/material"
 import RuleIcon from "@mui/icons-material/TextSnippet"
 import useTemporaryElement from "../../functions/use-temporary-element.js"
 import CustomLink from "../custom-link.js"
 import shape from "../../theme/shape.js"
 import { ButtonCloseElement } from "../button-close-element.js"
 import { TitleAccordion } from "./title-accordion.js"
+import breakpoints from "../../theme/breakpoints.js"
 
 export function ButtonRules() {
   const drawer = useTemporaryElement(false)
@@ -23,13 +15,7 @@ export function ButtonRules() {
       <Button onClick={drawer.display} startIcon={<RuleIcon />}>
         Règles
       </Button>
-      <Drawer
-        variant="temporary"
-        anchor="left"
-        open={drawer.displayed}
-        onClose={drawer.remove}
-        PaperProps={{ sx: style_paper }}
-      >
+      <Box sx={style_paper(drawer.displayed)}>
         <Stack sx={style_header}>
           <Typography variant="h2" ml={1}>
             Règles du jeu
@@ -106,19 +92,34 @@ export function ButtonRules() {
             </Typography>
           </AccordionDetails>
         </Accordion>
-      </Drawer>
+      </Box>
     </>
   )
 }
 
-const style_paper: SxProps = {
+const style_paper = (displayed: boolean): SxProps => ({
+  position: "fixed",
+  top: 0,
+  left: displayed ? 0 : -breakpoints.lg,
+
+  flexFlow: "column nowrap",
   gap: 1.5,
+
+  transitionProperty: "left",
+  transitionDuration: "0.6s",
+
   width: "100%",
   height: "100vh",
-  maxWidth: shape.drawerMaxWidth,
+  maxWidth: { lg: "37vw", xl: "650px" },
   padding: shape.spacingBase,
   backgroundColor: "background.default",
-}
+  borderRightWidth: { xs: "2px", md: "3px" },
+  borderRightStyle: "solid",
+  borderRightColor: "background.border",
+  boxShadow: 7,
+  zIndex: 1,
+  overflowY: "scroll",
+})
 
 const style_accordionDetails: SxProps = {
   display: "flex",

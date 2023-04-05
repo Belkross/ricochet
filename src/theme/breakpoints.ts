@@ -3,5 +3,5 @@ export default {
   sm: 400,
   md: 630,
   lg: 1000,
-  xl: 1300,
+  xl: 1600,
 }
