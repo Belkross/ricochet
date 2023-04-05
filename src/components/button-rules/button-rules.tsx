@@ -56,10 +56,15 @@ export function ButtonRules() {
             <Typography>
               Pour commencer à éliminer des mots, repérez les deux mots du départ. Pour la première grille, il s’agit de
               “Lune” et “Achille”. Ensuite trouvez deux autres mots sur la grille qui s’associent bien avec eux et posez
-              la première couleur dessus (rouge). Pour poser la prochaine couleur (rose), vous devez trouver une
-              association avec chacun des mots sur lesquels vous avez posé la dernière couleur. Il faut procéder ainsi
-              jusqu’à ce que toutes les couleurs soient posées. Si les mots que vous avez éliminés sont les bons, les 3
-              mots sans couleur qu’il reste permettent de trouver la fin du dialogue.
+              la première couleur dessus (rouge).
+            </Typography>
+            <Typography>
+              Pour poser la prochaine couleur (rose), vous devez trouver une association avec chacun des mots sur
+              lesquels vous avez posé la dernière couleur.
+            </Typography>
+            <Typography>
+              Il faut procéder ainsi jusqu’à ce que toutes les couleurs soient posées. Si les mots que vous avez
+              éliminés sont les bons, les 3 mots sans couleur qu’il reste permettent de trouver la fin du dialogue.
             </Typography>
             <Typography>
               RÈGLE CONCERNANT LES ASSOCIATIONS: deux mots éliminés par une même couleur sont obligatoirement alignés.
