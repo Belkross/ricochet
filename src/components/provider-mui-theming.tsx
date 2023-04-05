@@ -23,6 +23,10 @@ const StaticGlobalStyles = (
   <GlobalStyles
     styles={{
       body: {
+        display: "flex",
+        placeItems: "center",
+        height: "100vh",
+
         "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
           backgroundColor: "inherit",
           width: "10px",
@@ -43,6 +47,10 @@ const StaticGlobalStyles = (
         "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
           backgroundColor: "inherit",
         },
+      },
+
+      "#root": {
+        width: "100%",
       },
     }}
   />
