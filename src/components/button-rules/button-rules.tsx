@@ -74,6 +74,7 @@ export function ButtonRules() {
               Les liens entre les mots sont forcément forts et évidents. Il peut s’agir de synonymes, contraires ou de
               mots faisant part d’une même expression française par exemple.
             </Typography>
+            <Typography>La onzième paire de mot, (marron) lorsqu’elle est correcte constitue toujours un indice pour le rébus final.</Typography>
           </AccordionDetails>
         </Accordion>
 
