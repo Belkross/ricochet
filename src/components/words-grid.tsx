@@ -21,7 +21,7 @@ export function WordsGrid({ appState, setAppState }: Props) {
 
       <Stack sx={style_instructions}>
         <Typography alignSelf="center">{grids[id].winConditions}</Typography>
-        <Tooltip title={tooltip}>
+        <Tooltip title={tooltip} placement="top" arrow>
           <Chip label="Aide" variant="filled" icon={<HelpIcon />} />
         </Tooltip>
       </Stack>
