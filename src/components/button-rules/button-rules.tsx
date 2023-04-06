@@ -31,8 +31,8 @@ export function ButtonRules() {
             </Typography>
             <Typography>
               Ce site est une version démo du jeu créé par Cyril Blondel et constitue un hommage à son travail. Il est
-              possible de se procurer la version physique du jeu sur le{" "}
-              <CustomLink href="https://www.flipflapeditions.fr/" anchor="site officiel" />.
+              possible de se procurer la version physique du jeu sur le site officiel:{" "}
+              <CustomLink href="https://www.flipflapeditions.fr/" anchor="www.flipflapeditions.fr" />
             </Typography>
           </AccordionDetails>
           <AccordionActions></AccordionActions>
@@ -92,8 +92,8 @@ export function ButtonRules() {
           <TitleAccordion>Solutions</TitleAccordion>
           <AccordionDetails sx={style_accordionDetails}>
             <Typography>
-              Les solutions des grilles se trouvent sur le{" "}
-              <CustomLink href="https://www.flipflapeditions.fr/comte-courant/" anchor="site officiel du jeu" />.
+              Les solutions des grilles se trouvent sur le site officiel du jeu:{" "}
+              <CustomLink href="https://www.flipflapeditions.fr/comte-courant/" anchor="www.flipflapeditions.fr" />
             </Typography>
           </AccordionDetails>
         </Accordion>
