@@ -43,7 +43,7 @@ export const grids: Grids = {
     ],
     id: 1,
     winConditions: "Rébus de 3 mots. Départ : Lune - Achille",
-    instruction: "Appuyez-vous sur l’indice contextuel donné par les galets 11 pour résoudre le rébus final.",
+    instruction: "Appuyez-vous sur l’indice donné par la paire de galet 11 pour résoudre le rébus final.",
     help: "Pensez aux synonymes, aux contraires, au sens propre, au sens figuré, aux liens directs et évidents.",
   },
   2: {
@@ -83,7 +83,7 @@ export const grids: Grids = {
     winConditions: "Rébus de 3 mots. Départ : Lettre - Goutte",
     instruction:
       "Plusieurs associations sont possibles pour un même mot, alors essayez-les toutes pour voir où elles vous mènent.",
-    help: "L’indice donné par les galets 11 peut être un rébus",
+    help: "L’indice donné par les galets 11 peut être un rébus.",
   },
   3: {
     dialogue: ["Bah tiens justement… Elle arrive.", "Houlala…", "Elle va peut être te déclarer sa flamme…"],
@@ -154,7 +154,7 @@ export const grids: Grids = {
     ],
     id: 4,
     winConditions: "Rébus de 3 mots. Départ : Mort - Blanc",
-    instruction: "Amusez-vous bien !",
+    instruction: "",
     help: "Avez-vous remarqué que d’une grille à une autre, les dialogues sont liés et racontent une histoire ?",
   },
   5: {
@@ -192,7 +192,7 @@ export const grids: Grids = {
     ],
     id: 5,
     winConditions: "Rébus de 3 mots. Départ : Brouillard - Pince",
-    instruction: "Amusez-vous bien !",
+    instruction: "",
     help: "Un adverbe est lié à un autre mot pour créer une expression avec un sens propre et particulier.",
   },
 }
