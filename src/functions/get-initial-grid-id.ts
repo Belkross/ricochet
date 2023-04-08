@@ -2,9 +2,8 @@ import { maxGridId, minGridId } from "../assets/grids.js"
 
 export function getInitialGridId(storageKey: string, defaultValue: number): number {
   const storedValue = localStorage.getItem(storageKey)
-  const storedValueNull = typeof storedValue === "object"
 
-  if (storedValueNull) {
+  if (storedValue === null) {
     return defaultValue
   } else {
     const storedValueIsValid = checkValidity(storedValue)

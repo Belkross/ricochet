@@ -1,10 +1,11 @@
-export function getInitialThemeMode(storageKey: string, defaultThemeMode: ThemeMode): ThemeMode {
+export function getInitialThemeMode(storageKey: string, defaultValue: ThemeMode): ThemeMode {
   const storedValue = localStorage.getItem(storageKey)
 
   if (storedValue === null) {
-    return defaultThemeMode
+    return defaultValue
   } else {
-    const storedValueIsValid = /^(dark|light)$/.test(storedValue)
-    return storedValueIsValid ? (storedValue as ThemeMode) : defaultThemeMode
+    const storedValueIsValid = storedValue === "dark" || storedValue === "light"
+    return storedValueIsValid ? storedValue  : defaultValue
   }
 }
+
