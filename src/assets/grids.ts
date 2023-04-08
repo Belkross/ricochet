@@ -196,3 +196,6 @@ export const grids: Grids = {
     help: "Un adverbe est lié à un autre mot pour créer une expression avec un sens propre et particulier.",
   },
 }
+
+export const minGridId = 1
+export const maxGridId = Object.keys(grids).length

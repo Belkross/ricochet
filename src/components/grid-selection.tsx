@@ -2,7 +2,7 @@ import { IconButton, Stack, SxProps, Typography } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
 import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
-import { grids } from "../assets/grids.js"
+import { maxGridId, minGridId } from "../assets/grids.js"
 import shape from "../theme/shape.js"
 import useTemporaryElement from "../functions/use-temporary-element.js"
 import { ModalAdvertisement } from "./modal-advertisement.js"
@@ -11,9 +11,6 @@ type Props = {
   appState: AppState
   setAppState: Dispatch<SetStateAction<AppState>>
 }
-
-const minGridId = 1
-const maxGridId = Object.keys(grids).length
 
 export function GridSelection({ appState, setAppState }: Props) {
   const modal = useTemporaryElement(false)
