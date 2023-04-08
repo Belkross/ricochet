@@ -6,6 +6,7 @@ import { maxGridId, minGridId } from "../assets/grids.js"
 import shape from "../theme/shape.js"
 import useTemporaryElement from "../functions/use-temporary-element.js"
 import { ModalAdvertisement } from "./modal-advertisement.js"
+import { localStorageKeys } from "../config/local-storage-keys.js"
 
 type Props = {
   appState: AppState
@@ -16,11 +17,19 @@ export function GridSelection({ appState, setAppState }: Props) {
   const modal = useTemporaryElement(false)
 
   const { selectedGrid } = appState
-  const handleClickLeft = () => setAppState((prevState) => ({ ...prevState, selectedGrid: --prevState.selectedGrid }))
+  
+  const handleClickLeft = () => {
+    const newSelectedGrid = selectedGrid - 1
+    localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
+    setAppState((prevState) => ({ ...prevState, selectedGrid: newSelectedGrid }))
+  }
   const handleClickRight = () =>
     setAppState((prevState) => {
-      if (selectedGrid < maxGridId) return { ...prevState, selectedGrid: ++prevState.selectedGrid }
-      else {
+      if (selectedGrid < maxGridId) {
+        const newSelectedGrid = selectedGrid + 1
+        localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
+        return { ...prevState, selectedGrid: newSelectedGrid }
+      } else {
         modal.display()
         return { ...prevState }
       }
