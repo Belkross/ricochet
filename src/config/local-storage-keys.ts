@@ -1,7 +1,7 @@
 //to set up a localStorage key, just add the name of the key in the storageKeys array
 //the localStorage key will have its own name as value
 
-const storageKeys = ["themeMode", "gridId"] as const
+const storageKeys = ["themeMode", "gridId", "wordSpots"] as const
 
 export const localStorageKeys = buildStorageKeys(storageKeys)
 

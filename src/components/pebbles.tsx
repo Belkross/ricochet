@@ -3,6 +3,9 @@ import { Dispatch, SetStateAction } from "react"
 import shape from "../theme/shape.js"
 import { PebbleList } from "./pebble-list.js"
 
+export const minPebble = 1
+export const maxPebble = 11
+
 type Props = {
   appState: AppState
   setAppState: Dispatch<SetStateAction<AppState>>

@@ -1,6 +1,7 @@
 import { Button, SxProps, Typography } from "@mui/material"
 import { Dispatch, SetStateAction } from "react"
 import { grids } from "../assets/grids.js"
+import { localStorageKeys } from "../config/local-storage-keys.js"
 
 type Props = {
   appState: AppState
@@ -22,6 +23,8 @@ export function WordsList({ appState, setAppState }: Props) {
       newWordSpots[index] = NaN
       setAppState((prevState) => ({ ...prevState, wordSpots: newWordSpots }))
     }
+
+    localStorage.setItem(localStorageKeys.wordSpots, newWordSpots.toLocaleString())
   }
 
   const list_words = words.map((word, index) => {
