@@ -5,13 +5,12 @@ import useTemporaryElement from "../functions/use-temporary-element.js"
 export function Footer() {
   const modal = useTemporaryElement(false)
   const copyright = `© ${new Date().getFullYear()} Ricochet - `
-  
 
   return (
     <>
       <Typography variant="caption" sx={style_typography}>
         {copyright}
-        <Link sx={style_link} onClick={modal.display}>
+        <Link component="span" sx={style_link} onClick={modal.display}>
           Mentions Légales
         </Link>
       </Typography>
