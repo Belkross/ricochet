@@ -56,5 +56,9 @@ const style_button = (pebbleId: number, appState: AppState): SxProps => {
       borderWidth: { xs: "1px", sm: "2px" },
       borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
     },
+    ":focus": {
+      backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
+      borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
+    },
   }
 }
