@@ -5,17 +5,25 @@ describe(`function: ${getInitialThemeMode.name}`, () => {
   const localStoragKey = "randomName"
 
   test("no value stored in localStorage", () => {
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(defaultValue)
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+    expect(themeModeProvided).toBe(defaultValue)
   })
 
   test("invalid value stored in localStorage", () => {
-    localStorage.setItem(localStoragKey, "invalidTheMode")
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(defaultValue)
+    const invalidKey = "invalidTheMode"
+    localStorage.setItem(localStoragKey, invalidKey)
+
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+
+    expect(themeModeProvided).toBe(defaultValue)
   })
 
   test("valid value and different than default value", () => {
     const validThemeMode = "light"
     localStorage.setItem(localStoragKey, validThemeMode)
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(validThemeMode)
+
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+
+    expect(themeModeProvided).toBe(validThemeMode)
   })
 })
