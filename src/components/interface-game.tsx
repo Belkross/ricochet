@@ -1,5 +1,4 @@
 import { Box, Stack, SxProps, Typography } from "@mui/material"
-import { Dispatch, SetStateAction } from "react"
 import { ButtonRules } from "./button-rules/button-rules.js"
 import { ButtonThemeMode } from "./button-theme-mode.js"
 import { Dialogue } from "./dialogue/dialogue.js"
@@ -10,10 +9,9 @@ import { Footer } from "./footer.js"
 
 type Props = {
   appState: AppState
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export function InterfaceGame({ appState, setAppState }: Props) {
+export function InterfaceGame({ appState }: Props) {
   return (
     <Box sx={style_container}>
       <Stack sx={style_header}>
@@ -26,8 +24,8 @@ export function InterfaceGame({ appState, setAppState }: Props) {
       </Stack>
 
       <Stack sx={style_grids}>
-        <WordsGrid appState={appState} setAppState={setAppState} />
-        <Pebbles appState={appState} setAppState={setAppState} />
+        <WordsGrid appState={appState} />
+        <Pebbles appState={appState} />
       </Stack>
 
       <Footer />

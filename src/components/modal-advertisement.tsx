@@ -2,16 +2,20 @@ import { Dialog, SxProps, Typography } from "@mui/material"
 import CustomLink from "./custom-link.js"
 import shape from "../theme/shape.js"
 import { ButtonCloseElement } from "./button-close-element.js"
+import { useAppStateDispatch } from "../config/contexts.js"
 
 type Props = {
   displayed: boolean
-  closeModal: FlowlessFunction
 }
 
-export function ModalAdvertisement({ displayed, closeModal }: Props) {
+export function ModalAdvertisement({ displayed }: Props) {
+  const dispatch = useAppStateDispatch()
+
+  const handleClick = () => dispatch({ type: "modal-advertisement-toggled", payload: false })
+
   return (
     <Dialog open={displayed} PaperProps={{ sx: style_container }}>
-      <ButtonCloseElement onClick={() => closeModal()} />
+      <ButtonCloseElement onClick={handleClick} />
       <Typography>
         Ce site n’est qu’une version démo et ne permet pas de d’accéder aux prochaines grilles. Pour se procurer une
         boîte du jeu complet, c’est par ici:{" "}
