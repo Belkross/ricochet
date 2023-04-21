@@ -1,6 +1,6 @@
 import { Button, SxProps, Typography } from "@mui/material"
 import { grids } from "../assets/grids.js"
-import { useAppStateDispatch } from "../config/contexts.js"
+import { useAppStateDispatch } from "../contexts/context-app-state.js"
 
 type Props = {
   appState: AppState
