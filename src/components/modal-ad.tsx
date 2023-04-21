@@ -8,10 +8,10 @@ type Props = {
   displayed: boolean
 }
 
-export function ModalAdvertisement({ displayed }: Props) {
+export function ModalAd({ displayed }: Props) {
   const dispatch = useAppStateDispatch()
 
-  const handleClick = () => dispatch({ type: "modal-advertisement-toggled", payload: false })
+  const handleClick = () => dispatch({ type: "modal-ad-toggled", payload: false })
 
   return (
     <Dialog open={displayed} PaperProps={{ sx: style_container }}>

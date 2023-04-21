@@ -19,7 +19,7 @@ type PebbleClick = {
 }
 
 type AdModalToggled = {
-  type: "modal-advertisement-toggled"
+  type: "modal-ad-toggled"
   payload: boolean
 }
 

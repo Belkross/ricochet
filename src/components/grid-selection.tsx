@@ -3,8 +3,8 @@ import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
 import { minGridId } from "../assets/grids.js"
 import shape from "../theme/shape.js"
-import { ModalAdvertisement } from "./modal-advertisement.js"
 import { useAppStateDispatch } from "../config/contexts.js"
+import { ModalAd } from "./modal-ad.js"
 
 type Props = {
   appState: AppState
@@ -33,7 +33,7 @@ export function GridSelection({ appState }: Props) {
           <ArrowRight />
         </IconButton>
       </Stack>
-      <ModalAdvertisement displayed={adDisplayed} />
+      <ModalAd displayed={adDisplayed} />
     </>
   )
 }

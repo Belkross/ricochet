@@ -39,7 +39,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
       else return state
     }
 
-    case "modal-advertisement-toggled": {
+    case "modal-ad-toggled": {
       return {
         ...state,
         adDisplayed: action.payload,
