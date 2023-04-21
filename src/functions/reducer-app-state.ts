@@ -22,7 +22,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
 
         return { ...state, selectedGrid: newSelectedGrid }
       } else {
-        return { ...state, advertisementDisplayed: true }
+        return { ...state, adDisplayed: true }
       }
     }
 
@@ -42,7 +42,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
     case "modal-advertisement-toggled": {
       return {
         ...state,
-        advertisementDisplayed: action.payload,
+        adDisplayed: action.payload,
       }
     }
 

@@ -2,7 +2,7 @@ type AppState = {
   selectedGrid: number
   selectedPebble: number
   wordSpots: number[]
-  advertisementDisplayed: boolean
+  adDisplayed: boolean
 }
 
 type GridIncrement = {

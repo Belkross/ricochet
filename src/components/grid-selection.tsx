@@ -12,7 +12,7 @@ type Props = {
 
 export function GridSelection({ appState }: Props) {
   const dispatch = useAppStateDispatch()
-  const { selectedGrid, advertisementDisplayed } = appState
+  const { selectedGrid, adDisplayed } = appState
 
   const handleClickLeft = () => dispatch({ type: "grid-decremented" })
   const handleClickRight = () => dispatch({ type: "grid-incremented" })
@@ -33,7 +33,7 @@ export function GridSelection({ appState }: Props) {
           <ArrowRight />
         </IconButton>
       </Stack>
-      <ModalAdvertisement displayed={advertisementDisplayed} />
+      <ModalAdvertisement displayed={adDisplayed} />
     </>
   )
 }

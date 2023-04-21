@@ -8,6 +8,6 @@ export function initializeAppState(): AppState {
     selectedGrid: getInitialGridId(localStorageKeys.gridId, minGridId),
     selectedPebble: NaN,
     wordSpots: getInitialWordSpots(localStorageKeys.wordSpots, Array(25).fill(NaN)),
-    advertisementDisplayed: false,
+    adDisplayed: false,
   }
 }
