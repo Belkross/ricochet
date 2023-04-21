@@ -1,39 +1,21 @@
 import { IconButton, Stack, SxProps, Typography } from "@mui/material"
-import { Dispatch, SetStateAction } from "react"
 import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
-import { maxGridId, minGridId } from "../assets/grids.js"
-import shape from "../theme/shape.js"
-import useTemporaryElement from "../functions/use-temporary-element.js"
-import { ModalAdvertisement } from "./modal-advertisement.js"
-import { localStorageKeys } from "../config/local-storage-keys.js"
+import { minGridId } from "../assets/grids"
+import { useAppStateDispatch } from "../contexts/context-app-state"
+import shape from "../theme/shape"
+import { ModalAd } from "./modal-ad"
 
 type Props = {
   appState: AppState
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export function GridSelection({ appState, setAppState }: Props) {
-  const modal = useTemporaryElement(false)
+export function GridSelection({ appState }: Props) {
+  const dispatch = useAppStateDispatch()
+  const { selectedGrid, adDisplayed } = appState
 
-  const { selectedGrid } = appState
-  
-  const handleClickLeft = () => {
-    const newSelectedGrid = selectedGrid - 1
-    localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
-    setAppState((prevState) => ({ ...prevState, selectedGrid: newSelectedGrid }))
-  }
-  const handleClickRight = () =>
-    setAppState((prevState) => {
-      if (selectedGrid < maxGridId) {
-        const newSelectedGrid = selectedGrid + 1
-        localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
-        return { ...prevState, selectedGrid: newSelectedGrid }
-      } else {
-        modal.display()
-        return { ...prevState }
-      }
-    })
+  const handleClickLeft = () => dispatch({ type: "grid-decremented" })
+  const handleClickRight = () => dispatch({ type: "grid-incremented" })
 
   return (
     <>
@@ -51,7 +33,7 @@ export function GridSelection({ appState, setAppState }: Props) {
           <ArrowRight />
         </IconButton>
       </Stack>
-      <ModalAdvertisement displayed={modal.displayed} closeModal={modal.remove} />
+      <ModalAd displayed={adDisplayed} />
     </>
   )
 }

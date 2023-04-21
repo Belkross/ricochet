@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
-import { ProviderMuiTheming } from "./provider-mui-theming.js"
-import { ProviderThemeMode } from "./provider-theme-mode.js"
+import { ProviderMuiTheming } from "./provider-mui-theming"
+import { ProviderThemeMode } from "./provider-theme-mode"
 
 type Props = {
   children: ReactElement

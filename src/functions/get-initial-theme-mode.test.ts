@@ -1,25 +1,29 @@
-import { getInitialThemeMode } from "./get-initial-theme-mode.js"
+import { getInitialThemeMode } from "./get-initial-theme-mode"
 
-describe(getInitialThemeMode.name, () => {
+describe(`function: ${getInitialThemeMode.name}`, () => {
   const defaultValue = "dark"
   const localStoragKey = "randomName"
 
-  test("nothing is stored", () => {
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(defaultValue)
+  test("no value stored in localStorage", () => {
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+    expect(themeModeProvided).toBe(defaultValue)
   })
 
-  test("localStorage key is invalid", () => {
-    expect(getInitialThemeMode("notValidKey", defaultValue)).toBe(defaultValue)
+  test("invalid value stored in localStorage", () => {
+    const invalidKey = "invalidTheMode"
+    localStorage.setItem(localStoragKey, invalidKey)
+
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+
+    expect(themeModeProvided).toBe(defaultValue)
   })
 
-  test("something invalid is stored", () => {
-    localStorage.setItem(localStoragKey, "invalidTheMode")
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(defaultValue)
-  })
-
-  test("something valid and different than defaultValue is stored", () => {
+  test("valid value and different than default value", () => {
     const validThemeMode = "light"
     localStorage.setItem(localStoragKey, validThemeMode)
-    expect(getInitialThemeMode(localStoragKey, defaultValue)).toBe(validThemeMode)
+
+    const themeModeProvided = getInitialThemeMode(localStoragKey, defaultValue)
+
+    expect(themeModeProvided).toBe(validThemeMode)
   })
 })

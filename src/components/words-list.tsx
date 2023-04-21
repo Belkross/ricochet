@@ -1,31 +1,17 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { Dispatch, SetStateAction } from "react"
-import { grids } from "../assets/grids.js"
-import { localStorageKeys } from "../config/local-storage-keys.js"
+import { grids } from "../assets/grids"
+import { useAppStateDispatch } from "../contexts/context-app-state"
 
 type Props = {
   appState: AppState
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export function WordsList({ appState, setAppState }: Props) {
+export function WordsList({ appState }: Props) {
   const { selectedGrid, selectedPebble, wordSpots } = appState
   const words = grids[selectedGrid].grid
+  const dispatch = useAppStateDispatch()
 
-  const handleClick = (index: number) => {
-    const spotHasAPebble = wordSpots[index]
-    const newWordSpots = [...wordSpots]
-
-    if (selectedPebble) {
-      newWordSpots[index] = selectedPebble
-      setAppState((prevState) => ({ ...prevState, wordSpots: newWordSpots, selectedPebble: NaN }))
-    } else if (spotHasAPebble) {
-      newWordSpots[index] = NaN
-      setAppState((prevState) => ({ ...prevState, wordSpots: newWordSpots }))
-    }
-
-    localStorage.setItem(localStorageKeys.wordSpots, newWordSpots.toLocaleString())
-  }
+  const handleClick = (index: number) => dispatch({ type: "word-clicked", payload: index })
 
   const list_words = words.map((word, index) => {
     const playedPebble = wordSpots[index]

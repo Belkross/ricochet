@@ -1,23 +1,20 @@
-import { useState } from "react"
-import { GlobalFeatures } from "./components/global-features.js"
-import { InterfaceGame } from "./components/interface-game.js"
-import { getInitialGridId } from "./functions/get-initial-grid-id.js"
-import { localStorageKeys } from "./config/local-storage-keys.js"
-import { minGridId } from "./assets/grids.js"
-import { getInitialWordSpots } from "./functions/get-initial-word-spots.js"
-
-const initialAppState: AppState = {
-  selectedGrid: getInitialGridId(localStorageKeys.gridId, minGridId),
-  selectedPebble: NaN,
-  wordSpots: getInitialWordSpots(localStorageKeys.wordSpots, Array(25).fill(NaN)),
-}
+import { useMemo, useReducer } from "react"
+import { GlobalFeatures } from "./components/global-features"
+import { InterfaceGame } from "./components/interface-game"
+import { AppStateDispatchContext } from "./contexts/context-app-state"
+import { initializeAppState } from "./functions/initialize-app-state"
+import { reducerAppState } from "./functions/reducer-app-state"
 
 export default function App() {
-  const [appState, setAppState] = useState(initialAppState)
+  const [appState, dispatch] = useReducer(reducerAppState, initializeAppState())
+
+  const dispatchMemoized = useMemo(() => dispatch, [])
 
   return (
     <GlobalFeatures>
-      <InterfaceGame appState={appState} setAppState={setAppState} />
+      <AppStateDispatchContext.Provider value={dispatchMemoized}>
+        <InterfaceGame appState={appState} />
+      </AppStateDispatchContext.Provider>
     </GlobalFeatures>
   )
 }

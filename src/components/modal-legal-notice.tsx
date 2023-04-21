@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, Typography, SxProps, Box } from "@mui/material"
-import shape from "../theme/shape.js"
+import shape from "../theme/shape"
 
 type Props = {
   displayed: boolean

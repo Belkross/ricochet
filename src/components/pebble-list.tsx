@@ -1,22 +1,16 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { Dispatch, SetStateAction } from "react"
-import { getPebbleInventory } from "../functions/get-pebble-inventory.js"
-import { RemainingPebbleVisual } from "./remaining-pebble-visual.js"
+import { getPebbleInventory } from "../functions/get-pebble-inventory"
+import { RemainingPebbleVisual } from "./remaining-pebble-visual"
+import { useAppStateDispatch } from "../contexts/context-app-state"
 
 type Props = {
   appState: AppState
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export function PebbleList({ appState, setAppState }: Props) {
-  const { selectedPebble, wordSpots } = appState
+export function PebbleList({ appState }: Props) {
+  const dispatch = useAppStateDispatch()
 
-  const handleClick = (id: number) => {
-    const pebbleAlreadySelected = id === selectedPebble
-    const somePebbleRemains = getPebbleInventory(wordSpots)[id - 1] > 0
-    if (pebbleAlreadySelected) setAppState((prevState) => ({ ...prevState, selectedPebble: NaN }))
-    else if (somePebbleRemains) setAppState((prevState) => ({ ...prevState, selectedPebble: id }))
-  }
+  const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })
 
   const list_pebbles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((pebbleId: number) => {
     return (

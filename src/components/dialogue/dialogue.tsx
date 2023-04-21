@@ -1,6 +1,6 @@
 import { SxProps, Typography } from "@mui/material"
 import { useRef } from "react"
-import { useTypingAnimation } from "./use-typing-animation.js"
+import { useTypingAnimation } from "./use-typing-animation"
 
 type Props = {
   appState: AppState

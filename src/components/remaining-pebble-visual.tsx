@@ -1,5 +1,5 @@
 import { SxProps, Typography } from "@mui/material"
-import { getPebbleInventory } from "../functions/get-pebble-inventory.js"
+import { getPebbleInventory } from "../functions/get-pebble-inventory"
 
 type Props = {
   pebbleId: number

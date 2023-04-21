@@ -1,20 +1,18 @@
 import { Box, SxProps } from "@mui/material"
-import { Dispatch, SetStateAction } from "react"
-import shape from "../theme/shape.js"
-import { PebbleList } from "./pebble-list.js"
+import shape from "../theme/shape"
+import { PebbleList } from "./pebble-list"
 
 export const minPebble = 1
 export const maxPebble = 11
 
 type Props = {
   appState: AppState
-  setAppState: Dispatch<SetStateAction<AppState>>
 }
 
-export function Pebbles({ appState, setAppState }: Props) {
+export function Pebbles({ appState }: Props) {
   return (
     <Box sx={style_container}>
-      <PebbleList appState={appState} setAppState={setAppState} />
+      <PebbleList appState={appState} />
     </Box>
   )
 }
