@@ -2,7 +2,7 @@ import { Dialog, SxProps, Typography } from "@mui/material"
 import CustomLink from "./custom-link.js"
 import shape from "../theme/shape.js"
 import { ButtonCloseElement } from "./button-close-element.js"
-import { useAppStateDispatch } from "../config/contexts.js"
+import { useAppStateDispatch } from "../contexts/context-app-state.js"
 
 type Props = {
   displayed: boolean

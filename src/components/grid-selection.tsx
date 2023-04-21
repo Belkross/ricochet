@@ -3,8 +3,8 @@ import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
 import { minGridId } from "../assets/grids.js"
 import shape from "../theme/shape.js"
-import { useAppStateDispatch } from "../config/contexts.js"
 import { ModalAd } from "./modal-ad.js"
+import { useAppStateDispatch } from "../contexts/context-app-state.js"
 
 type Props = {
   appState: AppState
