@@ -1,9 +1,9 @@
 import { useMemo, useReducer } from "react"
-import { GlobalFeatures } from "./components/global-features.js"
-import { InterfaceGame } from "./components/interface-game.js"
-import { initializeAppState } from "./functions/initialize-app-state.js"
-import { reducerAppState } from "./functions/reducer-app-state.js"
-import { AppStateDispatchContext } from "./contexts/context-app-state.js"
+import { GlobalFeatures } from "./components/global-features"
+import { InterfaceGame } from "./components/interface-game"
+import { AppStateDispatchContext } from "./contexts/context-app-state"
+import { initializeAppState } from "./functions/initialize-app-state"
+import { reducerAppState } from "./functions/reducer-app-state"
 
 export default function App() {
   const [appState, dispatch] = useReducer(reducerAppState, initializeAppState())

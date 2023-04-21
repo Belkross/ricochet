@@ -1,10 +1,10 @@
 import { IconButton, Stack, SxProps, Typography } from "@mui/material"
 import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
-import { minGridId } from "../assets/grids.js"
-import shape from "../theme/shape.js"
-import { ModalAd } from "./modal-ad.js"
-import { useAppStateDispatch } from "../contexts/context-app-state.js"
+import { minGridId } from "../assets/grids"
+import { useAppStateDispatch } from "../contexts/context-app-state"
+import shape from "../theme/shape"
+import { ModalAd } from "./modal-ad"
 
 type Props = {
   appState: AppState

@@ -1,6 +1,6 @@
 import { RefObject, useRef, useEffect } from "react"
-import { grids } from "../../assets/grids.js"
 import Typed from "typed.js"
+import { grids } from "../../assets/grids"
 
 export function useTypingAnimation(elementRef: RefObject<HTMLParagraphElement>, gridId: number) {
   const typed = useRef<Typed | null>(null)

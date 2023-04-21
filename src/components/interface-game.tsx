@@ -1,11 +1,11 @@
 import { Box, Stack, SxProps, Typography } from "@mui/material"
-import { ButtonRules } from "./button-rules/button-rules.js"
-import { ButtonThemeMode } from "./button-theme-mode.js"
-import { Dialogue } from "./dialogue/dialogue.js"
-import { Pebbles } from "./pebbles.js"
-import { WordsGrid } from "./words-grid.js"
-import shape from "../theme/shape.js"
-import { Footer } from "./footer.js"
+import shape from "../theme/shape"
+import { ButtonRules } from "./button-rules/button-rules"
+import { ButtonThemeMode } from "./button-theme-mode"
+import { Dialogue } from "./dialogue/dialogue"
+import { Footer } from "./footer"
+import { Pebbles } from "./pebbles"
+import { WordsGrid } from "./words-grid"
 
 type Props = {
   appState: AppState

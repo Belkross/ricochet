@@ -1,7 +1,7 @@
-import { minGridId } from "../assets/grids.js"
-import { localStorageKeys } from "../config/local-storage-keys.js"
-import { getInitialGridId } from "./get-initial-grid-id.js"
-import { getInitialWordSpots } from "./get-initial-word-spots.js"
+import { minGridId } from "../assets/grids"
+import { localStorageKeys } from "../config/local-storage-keys"
+import { getInitialGridId } from "./get-initial-grid-id"
+import { getInitialWordSpots } from "./get-initial-word-spots"
 
 export function initializeAppState(): AppState {
   return {

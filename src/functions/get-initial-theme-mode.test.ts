@@ -1,4 +1,4 @@
-import { getInitialThemeMode } from "./get-initial-theme-mode.js"
+import { getInitialThemeMode } from "./get-initial-theme-mode"
 
 describe(`function: ${getInitialThemeMode.name}`, () => {
   const defaultValue = "dark"

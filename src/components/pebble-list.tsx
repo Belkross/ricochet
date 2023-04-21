@@ -1,7 +1,7 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { getPebbleInventory } from "../functions/get-pebble-inventory.js"
-import { RemainingPebbleVisual } from "./remaining-pebble-visual.js"
-import { useAppStateDispatch } from "../contexts/context-app-state.js"
+import { getPebbleInventory } from "../functions/get-pebble-inventory"
+import { RemainingPebbleVisual } from "./remaining-pebble-visual"
+import { useAppStateDispatch } from "../contexts/context-app-state"
 
 type Props = {
   appState: AppState

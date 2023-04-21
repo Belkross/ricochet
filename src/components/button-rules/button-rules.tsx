@@ -1,11 +1,11 @@
 import { Accordion, AccordionActions, AccordionDetails, Button, Box, Stack, SxProps, Typography } from "@mui/material"
 import RuleIcon from "@mui/icons-material/TextSnippet"
-import useTemporaryElement from "../../functions/use-temporary-element.js"
-import CustomLink from "../custom-link.js"
-import shape from "../../theme/shape.js"
-import { ButtonCloseElement } from "../button-close-element.js"
-import { TitleAccordion } from "./title-accordion.js"
-import breakpoints from "../../theme/breakpoints.js"
+import useTemporaryElement from "../../functions/use-temporary-element"
+import breakpoints from "../../theme/breakpoints"
+import shape from "../../theme/shape"
+import { ButtonCloseElement } from "../button-close-element"
+import CustomLink from "../custom-link"
+import { TitleAccordion } from "./title-accordion"
 
 export function ButtonRules() {
   const drawer = useTemporaryElement(false)
@@ -74,7 +74,10 @@ export function ButtonRules() {
               Les liens entre les mots sont forcément forts et évidents. Il peut s’agir de synonymes, contraires ou de
               mots faisant part d’une même expression française par exemple.
             </Typography>
-            <Typography>La onzième paire de mot, (marron) lorsqu’elle est correcte constitue toujours un indice pour le rébus final.</Typography>
+            <Typography>
+              La onzième paire de mot, (marron) lorsqu’elle est correcte constitue toujours un indice pour le rébus
+              final.
+            </Typography>
           </AccordionDetails>
         </Accordion>
 

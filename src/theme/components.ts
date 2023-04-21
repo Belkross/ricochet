@@ -1,5 +1,5 @@
 import { Theme, ThemeOptions } from "@mui/material"
-import shape from "./shape.js"
+import shape from "./shape"
 
 export function createMuiComponents(theme: Theme): ThemeOptions {
   return {

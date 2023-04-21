@@ -1,4 +1,4 @@
-import { maxGridId, minGridId } from "../assets/grids.js"
+import { minGridId, maxGridId } from "../assets/grids"
 
 export function getInitialGridId(storageKey: string, defaultValue: number): number {
   const storedValue = localStorage.getItem(storageKey)

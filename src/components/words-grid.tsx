@@ -1,9 +1,9 @@
 import { Box, Chip, Stack, SxProps, Tooltip, Typography } from "@mui/material"
-import { grids } from "../assets/grids.js"
-import shape from "../theme/shape.js"
-import { GridSelection } from "./grid-selection.js"
-import { WordsList } from "./words-list.js"
 import HelpIcon from "@mui/icons-material/Help"
+import { grids } from "../assets/grids"
+import shape from "../theme/shape"
+import { GridSelection } from "./grid-selection"
+import { WordsList } from "./words-list"
 
 type Props = {
   appState: AppState

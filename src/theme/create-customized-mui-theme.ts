@@ -1,9 +1,9 @@
-import shape from "./shape.js"
-import palette from "./palette.js"
-import typography from "./typography.js"
 import { createTheme, responsiveFontSizes } from "@mui/material"
-import { createMuiComponents } from "./components.js"
-import breakpoints from "./breakpoints.js"
+import breakpoints from "./breakpoints"
+import { createMuiComponents } from "./components"
+import palette from "./palette"
+import shape from "./shape"
+import typography from "./typography"
 
 export function createCustomizedMuiTheme(mode: ThemeMode) {
   const theme = createTheme({

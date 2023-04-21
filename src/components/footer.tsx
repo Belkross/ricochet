@@ -1,6 +1,6 @@
 import { Link, SxProps, Typography } from "@mui/material"
-import { ModalLegalNotice } from "./modal-legal-notice.js"
-import useTemporaryElement from "../functions/use-temporary-element.js"
+import useTemporaryElement from "../functions/use-temporary-element"
+import { ModalLegalNotice } from "./modal-legal-notice"
 
 export function Footer() {
   const modal = useTemporaryElement(false)

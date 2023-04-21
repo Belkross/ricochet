@@ -1,6 +1,6 @@
 import { Box, SxProps } from "@mui/material"
-import shape from "../theme/shape.js"
-import { PebbleList } from "./pebble-list.js"
+import shape from "../theme/shape"
+import { PebbleList } from "./pebble-list"
 
 export const minPebble = 1
 export const maxPebble = 11

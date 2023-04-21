@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react"
-import { contextErrorMessage } from "./context-error-message.js"
+import { contextErrorMessage } from "./context-error-message"
 
 export const defaultThemeMode: ThemeMode = "light"
 
