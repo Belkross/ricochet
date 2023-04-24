@@ -1,7 +1,7 @@
 import { Box, Chip, Stack, SxProps, Tooltip, Typography } from "@mui/material"
 import HelpIcon from "@mui/icons-material/Help"
 import { grids } from "../assets/grids"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { GridSelection } from "./grid-selection"
 import { WordsList } from "./words-list"
 

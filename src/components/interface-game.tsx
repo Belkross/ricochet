@@ -1,5 +1,5 @@
 import { Box, Stack, SxProps, Typography } from "@mui/material"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { ButtonRules } from "./button-rules/button-rules"
 import { ButtonThemeMode } from "./button-theme-mode"
 import { Dialogue } from "./dialogue/dialogue"

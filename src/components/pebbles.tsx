@@ -1,5 +1,5 @@
 import { Box, SxProps } from "@mui/material"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { PebbleList } from "./pebble-list"
 
 export const minPebble = 1

@@ -1,6 +1,6 @@
 import { Dialog, SxProps, Typography } from "@mui/material"
-import { useAppStateDispatch } from "../contexts/context-app-state"
-import shape from "../theme/shape"
+import { useAppStateDispatch } from "../context/context-app-state"
+import shape from "../styles/shape"
 import { ButtonCloseElement } from "./button-close-element"
 import CustomLink from "./custom-link"
 
