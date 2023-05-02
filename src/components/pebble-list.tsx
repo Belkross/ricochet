@@ -1,13 +1,10 @@
 import { Button, SxProps, Typography } from "@mui/material"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
-import { useAppStateDispatch } from "../context/context-app-state"
+import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 
-type Props = {
-  appState: AppState
-}
-
-export function PebbleList({ appState }: Props) {
+export function PebbleList() {
+  const appState = useAppState()
   const dispatch = useAppStateDispatch()
 
   const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })

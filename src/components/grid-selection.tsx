@@ -2,17 +2,13 @@ import { IconButton, Stack, SxProps, Typography } from "@mui/material"
 import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
 import { minGridId } from "../assets/grids"
-import { useAppStateDispatch } from "../context/context-app-state"
+import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import shape from "../styles/shape"
 import { ModalAd } from "./modal-ad"
 
-type Props = {
-  appState: AppState
-}
-
-export function GridSelection({ appState }: Props) {
+export function GridSelection() {
+  const { selectedGrid, adDisplayed } = useAppState()
   const dispatch = useAppStateDispatch()
-  const { selectedGrid, adDisplayed } = appState
 
   const handleClickLeft = () => dispatch({ type: "grid-decremented" })
   const handleClickRight = () => dispatch({ type: "grid-incremented" })

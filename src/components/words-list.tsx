@@ -1,13 +1,9 @@
 import { Button, SxProps, Typography } from "@mui/material"
 import { grids } from "../assets/grids"
-import { useAppStateDispatch } from "../context/context-app-state"
+import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 
-type Props = {
-  appState: AppState
-}
-
-export function WordsList({ appState }: Props) {
-  const { selectedGrid, selectedPebble, wordSpots } = appState
+export function WordsList() {
+  const { selectedGrid, selectedPebble, wordSpots } = useAppState()
   const words = grids[selectedGrid].grid
   const dispatch = useAppStateDispatch()
 
