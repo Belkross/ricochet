@@ -1,6 +1,6 @@
 import { Accordion, AccordionActions, AccordionDetails, Button, Box, Stack, SxProps, Typography } from "@mui/material"
 import RuleIcon from "@mui/icons-material/TextSnippet"
-import useTemporaryElement from "../../functions/use-temporary-element"
+import useTemporaryElement from "../../hooks/use-temporary-element"
 import breakpoints from "../../styles/breakpoints"
 import shape from "../../styles/shape"
 import { ButtonCloseElement } from "../button-close-element"
