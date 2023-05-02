@@ -1,6 +1,6 @@
 import { maxGridId } from "../assets/grids"
 import { localStorageKeys } from "../config/local-storage-keys"
-import { getPebbleInventory } from "./get-pebble-inventory"
+import { getPebbleInventory } from "../functions/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {
   const { selectedGrid, selectedPebble, wordSpots } = state
