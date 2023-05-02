@@ -1,7 +1,7 @@
 import { CssBaseline, GlobalStyles, Theme, ThemeProvider, useMediaQuery } from "@mui/material"
 import { ReactElement } from "react"
-import { useThemeMode } from "../context/context-theme-mode"
-import { createCustomizedMuiTheme } from "../styles/create-customized-mui-theme"
+import { useThemeMode } from "../../context/context-theme-mode"
+import { createCustomizedMuiTheme } from "../../styles/create-customized-mui-theme"
 
 type Props = {
   children: ReactElement

@@ -1,5 +1,5 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { getPebbleInventory } from "../functions/get-pebble-inventory"
+import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
 import { useAppStateDispatch } from "../context/context-app-state"
 
