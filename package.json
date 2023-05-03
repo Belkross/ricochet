@@ -22,10 +22,11 @@
     "eslint-plugin-unicorn": "^46.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typed.js": "^2.0.14",
-    "vitest": "^0.30.0"
+    "typed.js": "^2.0.14"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-react": "^7.32.2",
     "jsdom": "^21.1.1",
     "typescript": "^4.9.3",
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "vitest": "^0.30.0"
   }
 }
