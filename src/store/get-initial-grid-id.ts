@@ -1,4 +1,4 @@
-import { minGridId, maxGridId } from "../assets/grids"
+import { MAX_GRID_ID, MIN_GRID_ID } from "../constants"
 
 export function getInitialGridId(storageKey: string, defaultValue: number): number {
   const storedValue = localStorage.getItem(storageKey)
@@ -13,6 +13,6 @@ export function getInitialGridId(storageKey: string, defaultValue: number): numb
 }
 
 function checkValidity(storedValue: string): boolean {
-  const regExp = new RegExp(`^[${minGridId}-${maxGridId}]$`)
+  const regExp = new RegExp(`^[${MIN_GRID_ID}-${MAX_GRID_ID}]$`)
   return regExp.test(storedValue)
 }

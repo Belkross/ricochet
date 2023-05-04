@@ -1,10 +1,10 @@
 import { IconButton, Stack, SxProps, Typography } from "@mui/material"
 import ArrowRight from "@mui/icons-material/ArrowForwardIos"
 import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
-import { minGridId } from "../assets/grids"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import shape from "../styles/shape"
 import { ModalAd } from "./modal-ad"
+import { MIN_GRID_ID } from "../constants"
 
 export function GridSelection() {
   const { selectedGrid, adDisplayed } = useAppState()
@@ -19,7 +19,7 @@ export function GridSelection() {
         <IconButton
           aria-label="grille précédente"
           onClick={handleClickLeft}
-          disabled={selectedGrid <= minGridId}
+          disabled={selectedGrid <= MIN_GRID_ID}
           size="small"
         >
           <ArrowLeft />
