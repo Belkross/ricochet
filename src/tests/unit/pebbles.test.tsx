@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event"
-import { Pebbles } from "./pebbles"
-import { render, screen } from "../tests/test-utils"
-import { pebbleColors } from "../styles/palette"
+import { Pebbles } from "../../components/pebbles"
+import { render, screen } from "../test-utils"
+import { pebbleColors } from "../../styles/palette"
 
 describe(`${Pebbles.name}.tsx`, () => {
   test("a pebble display its id", () => {

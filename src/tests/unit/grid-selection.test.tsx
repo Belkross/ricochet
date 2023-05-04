@@ -1,5 +1,5 @@
-import { GridSelection } from "./grid-selection"
-import { render, screen } from "../tests/test-utils"
+import { GridSelection } from "../../components/grid-selection"
+import { render, screen } from "../test-utils"
 import userEvent from "@testing-library/user-event"
 
 describe.only(GridSelection.name, () => {
