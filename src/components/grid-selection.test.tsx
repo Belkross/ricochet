@@ -13,9 +13,10 @@ describe.only(GridSelection.name, () => {
   test("cannot decrement selected grid if it’s number 1", async () => {
     render(<GridSelection />)
     const button = screen.getByLabelText("grille précédente")
+    const currentGridIsOne = screen.getByText(/n°1/)
 
-    expect(screen.getByText("Grille n°1")).toBeInTheDocument()
-    expect(button)
+    expect(currentGridIsOne).toBeInTheDocument()
+    expect(button).toBeDisabled()
   })
 
   it("should increment the grid when clicking the 'next grid' button", async () => {
