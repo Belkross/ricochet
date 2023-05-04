@@ -1,5 +1,5 @@
-import { maxGridId } from "../assets/grids"
 import { localStorageKeys } from "../config/local-storage-keys"
+import { MAX_GRID_ID } from "../constants"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {
@@ -16,7 +16,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
     }
 
     case "grid-incremented": {
-      if (selectedGrid < maxGridId) {
+      if (selectedGrid < MAX_GRID_ID) {
         const newSelectedGrid = selectedGrid + 1
         localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
 
