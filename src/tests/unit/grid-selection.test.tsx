@@ -1,34 +1,66 @@
 import { GridSelection } from "../../components/grid-selection"
+import { MAX_GRID_ID, MIN_GRID_ID, OFFICIAL_WEBSITE_NAME, OFFICIAL_WEBSITE_URL } from "../../constants"
+import { initializeAppState } from "../../store/initialize-app-state"
+import { ProviderAppState } from "../../store/provider-app-state"
 import { render, screen } from "../test-utils"
 import userEvent from "@testing-library/user-event"
 
-describe.only(GridSelection.name, () => {
-  it("should inform that the first grid is displayed at start", () => {
-    render(<GridSelection />)
+test("allows to navigate between grid 1 and some other grid", async () => {
+  const user = userEvent.setup()
+  renderComponent({ gridId: MIN_GRID_ID })
+  const buttonPreviousGrid = screen.getByRole("button", { name: "grille précédente" })
+  const buttonNextGrid = screen.getByRole("button", { name: "grille suivante" })
 
-    const information = screen.getByText(/n°1/)
-    expect(information).toBeInTheDocument()
-  })
+  //the component is initialized with the first grid
+  expect(screen.getByText("Grille n°1")).toBeInTheDocument()
 
-  test("cannot decrement selected grid if it’s number 1", async () => {
-    render(<GridSelection />)
-    const button = screen.getByLabelText("grille précédente")
-    const currentGridIsOne = screen.getByText(/n°1/)
+  //the user should not be able to go under grid 1
+  expect(buttonPreviousGrid).toBeDisabled()
 
-    expect(currentGridIsOne).toBeInTheDocument()
-    expect(button).toBeDisabled()
-  })
+  //when next grid button clicked, it displays the next grid
+  await user.click(buttonNextGrid)
+  expect(screen.getByText("Grille n°2")).toBeInTheDocument()
 
-  it("should increment the grid when clicking the 'next grid' button", async () => {
-    render(<GridSelection />)
-    const user = userEvent.setup()
-    const button = screen.getByLabelText("grille suivante")
+  //now the user should be able to go to a previous grid
+  expect(buttonPreviousGrid).toBeEnabled()
 
-    const firstView = screen.getByText(/n°1/)
-    expect(firstView).toBeInTheDocument()
+  //when previous grid button clicked, it displays the previous grid
+  await user.click(buttonPreviousGrid)
+  expect(screen.getByText("Grille n°1")).toBeInTheDocument()
 
-    await user.click(button)
-    const secondView = screen.getByText(/n°2/)
-    expect(secondView).toBeInTheDocument()
-  })
+  //the user should be not able to go under grid 1
+  expect(buttonPreviousGrid).toBeDisabled()
 })
+
+test("display a link to the official website when clicking next grid while current grid is the last one", async () => {
+  const user = userEvent.setup()
+  renderComponent({ gridId: MAX_GRID_ID })
+  const buttonNextGrid = screen.getByRole("button", { name: "grille suivante" })
+
+  //the component is initialized with the last grid
+  expect(screen.getByText(`Grille n°${MAX_GRID_ID}`))
+
+  //the next grid button is enabled even if the current grid is the last one
+  expect(buttonNextGrid).toBeEnabled()
+
+  //no link to the offical website displayed yet
+  expect(screen.queryByRole("link", { name: new RegExp(OFFICIAL_WEBSITE_NAME, "i") })).not.toBeInTheDocument()
+
+  //when next grid button clicked, the displayed grid should stay the last one
+  await user.click(buttonNextGrid)
+  expect(screen.getByText(`Grille n°${MAX_GRID_ID}`))
+
+  //a link to the official website is displayed
+  const linkWebsite = screen.getByRole("link", { name: new RegExp(OFFICIAL_WEBSITE_NAME, "i") })
+  expect(linkWebsite).toBeInTheDocument()
+  expect(linkWebsite).toHaveAttribute("href", OFFICIAL_WEBSITE_URL)
+})
+
+function renderComponent(initialState: { gridId: number }) {
+  const initialAppState = { ...initializeAppState(), selectedGrid: initialState.gridId }
+  render(
+    <ProviderAppState initialState={initialAppState}>
+      <GridSelection />
+    </ProviderAppState>
+  )
+}

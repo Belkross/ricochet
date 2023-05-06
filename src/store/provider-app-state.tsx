@@ -5,10 +5,11 @@ import { reducerAppState } from "./reducer-app-state"
 
 type Props = {
   children: ReactElement
+  initialState?: AppState
 }
 
-export function ProviderAppState({ children }: Props) {
-  const [appState, dispatch] = useReducer(reducerAppState, initializeAppState())
+export function ProviderAppState({ children, initialState }: Props) {
+  const [appState, dispatch] = useReducer(reducerAppState, initialState || initializeAppState())
 
   const dispatchMemoized = useMemo(() => dispatch, [])
 
