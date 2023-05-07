@@ -2,6 +2,7 @@ import { Button, SxProps, Typography } from "@mui/material"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
+import { getPebbleIds } from "../helpers/get-pebble-ids"
 
 export function PebbleList() {
   const appState = useAppState()
@@ -9,7 +10,7 @@ export function PebbleList() {
 
   const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })
 
-  const list_pebbles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((pebbleId: number) => {
+  const list_pebbles = getPebbleIds().map((pebbleId: number) => {
     return (
       <Button
         key={pebbleId}
