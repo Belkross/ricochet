@@ -1,13 +1,10 @@
 import { SxProps, Typography } from "@mui/material"
 import { useRef } from "react"
 import { useTypingAnimation } from "./use-typing-animation"
+import { useAppState } from "../../context/context-app-state"
 
-type Props = {
-  appState: AppState
-}
-
-export function Dialogue({ appState }: Props) {
-  const { selectedGrid: id } = appState
+export function Dialogue() {
+  const { selectedGrid: id } = useAppState()
   const element = useRef<HTMLParagraphElement>(null)
 
   useTypingAnimation(element, id)

@@ -1,7 +1,7 @@
 import DarkModeIcon from "@mui/icons-material/DarkMode"
 import LightModeIcon from "@mui/icons-material/LightMode"
 import { Button } from "@mui/material"
-import { useThemeMode, useToggleThemeMode } from "../contexts/context-theme-mode"
+import { useThemeMode, useToggleThemeMode } from "../context/context-theme-mode"
 
 export function ButtonThemeMode() {
   const themeMode = useThemeMode()

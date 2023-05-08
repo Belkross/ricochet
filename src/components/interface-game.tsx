@@ -1,5 +1,5 @@
 import { Box, Stack, SxProps, Typography } from "@mui/material"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { ButtonRules } from "./button-rules/button-rules"
 import { ButtonThemeMode } from "./button-theme-mode"
 import { Dialogue } from "./dialogue/dialogue"
@@ -7,11 +7,7 @@ import { Footer } from "./footer"
 import { Pebbles } from "./pebbles"
 import { WordsGrid } from "./words-grid"
 
-type Props = {
-  appState: AppState
-}
-
-export function InterfaceGame({ appState }: Props) {
+export function InterfaceGame() {
   return (
     <Box sx={style_container}>
       <Stack sx={style_header}>
@@ -20,12 +16,12 @@ export function InterfaceGame({ appState }: Props) {
           <ButtonRules />
           <ButtonThemeMode />
         </Stack>
-        <Dialogue appState={appState} />
+        <Dialogue />
       </Stack>
 
       <Stack sx={style_grids}>
-        <WordsGrid appState={appState} />
-        <Pebbles appState={appState} />
+        <WordsGrid />
+        <Pebbles />
       </Stack>
 
       <Footer />

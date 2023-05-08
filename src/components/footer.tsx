@@ -1,5 +1,5 @@
 import { Link, SxProps, Typography } from "@mui/material"
-import useTemporaryElement from "../functions/use-temporary-element"
+import useTemporaryElement from "../hooks/use-temporary-element"
 import { ModalLegalNotice } from "./modal-legal-notice"
 
 export function Footer() {

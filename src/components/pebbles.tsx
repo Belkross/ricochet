@@ -1,18 +1,14 @@
 import { Box, SxProps } from "@mui/material"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { PebbleList } from "./pebble-list"
 
 export const minPebble = 1
 export const maxPebble = 11
 
-type Props = {
-  appState: AppState
-}
-
-export function Pebbles({ appState }: Props) {
+export function Pebbles() {
   return (
     <Box sx={style_container}>
-      <PebbleList appState={appState} />
+      <PebbleList />
     </Box>
   )
 }

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test-gui": "vitest --ui"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -23,19 +24,26 @@
     "eslint-plugin-unicorn": "^46.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typed.js": "^2.0.14",
-    "vitest": "^0.30.0"
+    "typed.js": "^2.0.14"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "@vitest/ui": "^0.31.0",
     "eslint": "^8.36.0",
+    "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-testing-library": "^5.10.3",
     "jsdom": "^21.1.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0"
+    "typescript": "^5.0.4",
+    "vite": "^4.3.4",
+    "vitest": "^0.31.0"
   }
 }

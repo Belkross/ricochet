@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react"
-import { localStorageKeys } from "../config/local-storage-keys"
-import { defaultThemeMode, ThemeModeContext, ToggleThemeModeContext } from "../contexts/context-theme-mode"
-import { getInitialThemeMode } from "../functions/get-initial-theme-mode"
+import { localStorageKeys } from "../../../config/local-storage-keys"
+import { defaultThemeMode, ThemeModeContext, ToggleThemeModeContext } from "../../../context/context-theme-mode"
+import { getInitialThemeMode } from "./get-initial-theme-mode"
 
 type Props = {
   children: ReactElement

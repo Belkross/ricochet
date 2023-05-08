@@ -1,20 +1,23 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { getPebbleInventory } from "../functions/get-pebble-inventory"
+import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
-import { useAppStateDispatch } from "../contexts/context-app-state"
+import { useAppState, useAppStateDispatch } from "../context/context-app-state"
+import { getPebbleIds } from "../helpers/get-pebble-ids"
 
-type Props = {
-  appState: AppState
-}
-
-export function PebbleList({ appState }: Props) {
+export function PebbleList() {
+  const appState = useAppState()
   const dispatch = useAppStateDispatch()
 
   const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })
 
-  const list_pebbles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((pebbleId: number) => {
+  const list_pebbles = getPebbleIds().map((pebbleId: number) => {
     return (
-      <Button key={pebbleId} sx={style_button(pebbleId, appState)} onClick={() => handleClick(pebbleId)}>
+      <Button
+        key={pebbleId}
+        sx={style_button(pebbleId, appState)}
+        onClick={() => handleClick(pebbleId)}
+        aria-label={`galet ${pebbleId}`}
+      >
         <Typography>{pebbleId}</Typography>
         <RemainingPebbleVisual pebbleId={pebbleId} appState={appState} />
       </Button>

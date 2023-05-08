@@ -1,21 +1,19 @@
 import { Box, Chip, Stack, SxProps, Tooltip, Typography } from "@mui/material"
 import HelpIcon from "@mui/icons-material/Help"
 import { grids } from "../assets/grids"
-import shape from "../theme/shape"
+import shape from "../styles/shape"
 import { GridSelection } from "./grid-selection"
 import { WordsList } from "./words-list"
+import { useAppState } from "../context/context-app-state"
 
-type Props = {
-  appState: AppState
-}
+export function WordsGrid() {
+  const { selectedGrid: id } = useAppState()
 
-export function WordsGrid({ appState }: Props) {
-  const { selectedGrid: id } = appState
   const tooltip = <Typography sx={style_typo}>{`${grids[id].help}\n${grids[id].instruction}`}</Typography>
 
   return (
     <Stack sx={style_container}>
-      <GridSelection appState={appState} />
+      <GridSelection />
 
       <Stack sx={style_instructions}>
         <Typography alignSelf="center">{grids[id].winConditions}</Typography>
@@ -25,7 +23,7 @@ export function WordsGrid({ appState }: Props) {
       </Stack>
 
       <Box sx={style_wordsGrid}>
-        <WordsList appState={appState} />
+        <WordsList />
       </Box>
     </Stack>
   )

@@ -3,6 +3,20 @@ import { orange, deepPurple, deepOrange, red } from "@mui/material/colors"
 const smoothWhiteText = "rgba(255, 255, 255, .85)"
 const smoothBlackText = "rgba(0, 0, 0, .85)"
 
+export const pebbleColors = {
+  1: "#e53935",
+  2: "#f06292",
+  3: "#9575cd",
+  4: "#5a6abf",
+  5: "#64b5f6",
+  6: "#26a69a",
+  7: "#388e3c",
+  8: "#9ccc65",
+  9: "#fff176",
+  10: "#ffb74d",
+  11: "#9c786c",
+}
+
 const darkModePalette = {
   primary: { main: "#7d61af" },
   text: {
@@ -25,19 +39,7 @@ const darkModePalette = {
     disabledBackground: "rgba(0, 0, 0, 0.12)",
   },
   error: { main: red[400] },
-  pebbles: {
-    1: "#e53935",
-    2: "#f06292",
-    3: "#9575cd",
-    4: "#5a6abf",
-    5: "#64b5f6",
-    6: "#26a69a",
-    7: "#388e3c",
-    8: "#9ccc65",
-    9: "#fff176",
-    10: "#ffb74d",
-    11: "#9c786c",
-  },
+  pebbles: pebbleColors,
 }
 
 const lightModePalette = {
