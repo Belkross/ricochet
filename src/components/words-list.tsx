@@ -11,9 +11,15 @@ export function WordsList() {
 
   const list_words = words.map((word, index) => {
     const playedPebble = wordSpots[index]
+    const wordId = index + 1
 
     return (
-      <Button key={index} sx={style_buttonWord(playedPebble, selectedPebble)} onClick={() => handleClick(index)}>
+      <Button
+        key={index}
+        sx={style_buttonWord(playedPebble, selectedPebble)}
+        onClick={() => handleClick(index)}
+        aria-label={`mot ${wordId}`}
+      >
         <Typography sx={style_wordString}>{word[0].toUpperCase() + word.slice(1)}</Typography>
         <Typography>{playedPebble || "-"}</Typography>
       </Button>

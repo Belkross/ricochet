@@ -5,6 +5,31 @@ import { getPebbleIds } from "../../helpers/get-pebble-ids"
 import { initializeAppState } from "../../store/initialize-app-state"
 import { ProviderAppState } from "../../store/provider-app-state"
 import { WordsGrid } from "../../components/words-grid"
+import { pebbleColors } from "../../styles/palette"
+
+test.each(getPebbleIds())("putting pebble %i in a word", async (id) => {
+  const user = userEvent.setup()
+  renderComponent()
+  const pebble = screen.getByLabelText(new RegExp(`^galet ${id}$`, "i"))
+  const word = screen.getByRole("button", { name: /^mot\s1$/ })
+
+  //pebble should show it’s id
+  expect(pebble).toHaveTextContent(new RegExp(`^${id}`))
+
+  //when hold, should show a visual difference
+  const initialBorderColor = `border-color: ${pebbleColors[id]}`
+  expect(pebble).toHaveStyle(initialBorderColor)
+  await user.click(pebble)
+  expect(pebble).not.toHaveStyle(initialBorderColor)
+
+  //when clicked in a word while holding a pebble, the word should show the pebble put on him and take its color
+  const pebblePutVisual = `background-color: ${pebbleColors[id]}`
+  expect(word).toHaveTextContent(/-$/)
+  expect(word).not.toHaveStyle(pebblePutVisual)
+  await user.click(word)
+  expect(word).toHaveTextContent(new RegExp(`${id}$`))
+  expect(word).toHaveStyle(pebblePutVisual)
+})
 
 test.each(getPebbleIds())("pebble %i stock management", async (id) => {
   const user = userEvent.setup()
