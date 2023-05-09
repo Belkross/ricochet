@@ -7,16 +7,19 @@ import { getPebbleIds } from "../helpers/get-pebble-ids"
 export function PebbleList() {
   const appState = useAppState()
   const dispatch = useAppStateDispatch()
+  const pebbleInventory = getPebbleInventory(appState.wordSpots)
 
   const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })
 
   const list_pebbles = getPebbleIds().map((pebbleId: number) => {
+    const whileDisabled = pebbleInventory[pebbleId - 1] <= 0
     return (
       <Button
         key={pebbleId}
         sx={style_button(pebbleId, appState)}
         onClick={() => handleClick(pebbleId)}
         aria-label={`galet ${pebbleId}`}
+        disabled={whileDisabled}
       >
         <Typography>{pebbleId}</Typography>
         <RemainingPebbleVisual pebbleId={pebbleId} appState={appState} />
@@ -28,8 +31,7 @@ export function PebbleList() {
 }
 
 const style_button = (pebbleId: number, appState: AppState): SxProps => {
-  const { selectedPebble, wordSpots } = appState
-  const somePebbleAvailable = getPebbleInventory(wordSpots)[pebbleId - 1]
+  const { selectedPebble } = appState
   const selectedPebbleColor = `pebbles.${pebbleId}`
 
   return {
@@ -43,18 +45,18 @@ const style_button = (pebbleId: number, appState: AppState): SxProps => {
     height: "100%",
     padding: { xs: 0, sm: 0.5 },
 
-    backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
-    color: somePebbleAvailable ? "text.pebbles" : "text.pebbleEmpty",
+    backgroundColor: selectedPebbleColor,
+    color: "text.pebbles",
     borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
     borderWidth: { xs: "1px", sm: "2px" },
     ":hover": {
-      backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
+      backgroundColor: selectedPebbleColor,
       color: "white",
       borderWidth: { xs: "1px", sm: "2px" },
       borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
     },
     ":focus": {
-      backgroundColor: somePebbleAvailable ? selectedPebbleColor : "background.paper",
+      backgroundColor: selectedPebbleColor,
       borderColor: selectedPebble === pebbleId ? "white" : selectedPebbleColor,
     },
   }
