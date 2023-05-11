@@ -20,3 +20,14 @@ You need to speak french and have some knowledge about french culture to play th
 - [Typescript](https://www.typescriptlang.org/) - Javascript language superset
 - [React](https://en.reactjs.org/) - user interface Javascript library
 - [Mui](https://mui.com/) - components and styling React library
+
+## Deployment
+
+To run this project in your local machine, use the following commands in your terminal:
+
+1. clone the project: `git clone <Github’s repository URL>`
+2. move to the project folder: `cd ricochet`
+3. install dependencies: `pnpm install`
+4. launch the app locally: `pnpm run dev`
+
+The app is now available in your web navigator here: http://localhost:5173

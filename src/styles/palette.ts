@@ -3,7 +3,7 @@ import { orange, deepPurple, deepOrange, red } from "@mui/material/colors"
 const smoothWhiteText = "rgba(255, 255, 255, .85)"
 const smoothBlackText = "rgba(0, 0, 0, .85)"
 
-export const pebbleColors = {
+export const pebbleColors: { [pebbleId: number]: string } = {
   1: "#e53935",
   2: "#f06292",
   3: "#9575cd",
