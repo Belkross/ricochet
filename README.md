@@ -1,3 +1,5 @@
+![App screenshoot](./src//assets//app-screenshoot.png)
+
 # Ricochet
 
 Ricochet is a board game where you need associate words together to progress and finally find the secret end of a dialogue.
