@@ -1,5 +1,5 @@
 import { localStorageKeys } from "../config/local-storage-keys"
-import { MAX_GRID_ID } from "../constants"
+import { MAX_GRID_ID, MAX_WORD_ID } from "../constants"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {
@@ -12,6 +12,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
       return {
         ...state,
         selectedGrid: newSelectedGrid,
+        wordSpots: new Array(MAX_WORD_ID).fill(NaN),
       }
     }
 
@@ -20,7 +21,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
         const newSelectedGrid = selectedGrid + 1
         localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
 
-        return { ...state, selectedGrid: newSelectedGrid }
+        return { ...state, selectedGrid: newSelectedGrid, wordSpots: new Array(MAX_WORD_ID).fill(NaN) }
       } else {
         return { ...state, adDisplayed: true }
       }
