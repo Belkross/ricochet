@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "test-gui": "vitest --ui"
+    "test-gui": "vitest --ui",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -27,6 +28,7 @@
     "typed.js": "^2.0.14"
   },
   "devDependencies": {
+    "@belkross/commitlint-config": "^1.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -37,10 +39,12 @@
     "@typescript-eslint/parser": "^5.56.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "@vitest/ui": "^0.31.0",
+    "commitlint": "^19.2.1",
     "eslint": "^8.36.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-testing-library": "^5.10.3",
+    "husky": "^9.0.11",
     "jsdom": "^21.1.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",

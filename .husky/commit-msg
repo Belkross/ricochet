@@ -1,0 +1,2 @@
+echo "\n*** Checking commit message with commitlint\n"  
+npx --no -- commitlint --edit $1
