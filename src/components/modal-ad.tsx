@@ -18,8 +18,8 @@ export function ModalAd({ displayed }: Props) {
     <Dialog open={displayed} PaperProps={{ sx: style_container }}>
       <ButtonCloseElement onClick={handleClick} />
       <Typography>
-        Ce site n’est qu’une version démo et ne permet pas de d’accéder aux prochaines grilles. Pour se procurer une
-        boîte du jeu complet, c’est par ici:
+        {`Ce site n’est qu’une version démo et ne permet pas de d’accéder aux prochaines grilles. Pour se procurer une
+        boîte du jeu complet, c’est par ici: `}
         <CustomLink href={OFFICIAL_WEBSITE_URL} anchor="www.flipflapeditions.fr" />
       </Typography>
     </Dialog>
