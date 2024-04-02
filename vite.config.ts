@@ -12,4 +12,9 @@ export default defineConfig({
     setupFiles: "./src/tests/setup.ts",
     css: true,
   },
+  /* resolve: {
+    alias: {
+      "#type": path.resolve(__dirname, "./src/type"),
+    },
+  }, */
 })

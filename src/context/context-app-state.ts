@@ -1,5 +1,6 @@
 import { createContext, Dispatch, useContext } from "react"
 import { contextErrorMessage } from "./error-message"
+import { AppState, AppStateActions } from "#type"
 
 export const AppStateDispatchContext = createContext<Dispatch<AppStateActions> | undefined>(undefined)
 export const useAppStateDispatch = () => {

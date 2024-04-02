@@ -2,6 +2,7 @@ import { ReactElement, useMemo, useReducer } from "react"
 import { AppStateContext, AppStateDispatchContext } from "../context/context-app-state"
 import { initializeAppState } from "./initialize-app-state"
 import { reducerAppState } from "./reducer-app-state"
+import { AppState } from "#type"
 
 type Props = {
   children: ReactElement

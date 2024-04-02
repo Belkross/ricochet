@@ -1,4 +1,4 @@
-type AppState = {
+export type AppState = {
   selectedGrid: number
   selectedPebble: number
   wordSpots: number[]
@@ -28,4 +28,4 @@ type WordClick = {
   payload: number
 }
 
-type AppStateActions = GridIncrement | GridDecrement | PebbleClick | AdModalToggled | WordClick
+export type AppStateActions = GridIncrement | GridDecrement | PebbleClick | AdModalToggled | WordClick

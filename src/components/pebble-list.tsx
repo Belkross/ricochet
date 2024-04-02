@@ -3,6 +3,7 @@ import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import { getPebbleIds } from "../helpers/get-pebble-ids"
+import { AppState } from "#type"
 
 export function PebbleList() {
   const appState = useAppState()
