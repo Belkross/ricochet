@@ -1,13 +1,14 @@
 import { Button, SxProps, Typography } from "@mui/material"
 import { grids } from "../assets/grids"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
+import { ActionType } from "#type"
 
 export function WordsList() {
   const { selectedGrid, selectedPebble, wordSpots } = useAppState()
   const words = grids[selectedGrid].grid
   const dispatch = useAppStateDispatch()
 
-  const handleClick = (index: number) => dispatch({ type: "word-clicked", payload: index })
+  const handleClick = (index: number) => dispatch({ type: ActionType.click_word, payload: index })
 
   const list_words = words.map((word, index) => {
     const playedPebble = wordSpots[index]

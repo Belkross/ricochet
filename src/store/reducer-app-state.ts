@@ -1,4 +1,4 @@
-import { AppState, AppStateActions } from "#type"
+import { ActionType, AppState, AppStateActions } from "#type"
 import { localStorageKeys } from "../config/local-storage-keys"
 import { MAX_GRID_ID, MAX_WORD_ID } from "../constants"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
@@ -7,7 +7,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
   const { selectedGrid, selectedPebble, wordSpots } = state
 
   switch (action.type) {
-    case "grid-decremented": {
+    case ActionType.decrement_grid: {
       const newSelectedGrid = selectedGrid - 1
       localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
       return {
@@ -17,7 +17,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
       }
     }
 
-    case "grid-incremented": {
+    case ActionType.increment_grid: {
       if (selectedGrid < MAX_GRID_ID) {
         const newSelectedGrid = selectedGrid + 1
         localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
@@ -28,7 +28,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
       }
     }
 
-    case "pebble-clicked": {
+    case ActionType.click_pebble: {
       const pebbleId = action.payload
       const pebbleAlreadySelected = pebbleId === selectedPebble
 
@@ -41,14 +41,7 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
       else return state
     }
 
-    case "modal-ad-toggled": {
-      return {
-        ...state,
-        adDisplayed: action.payload,
-      }
-    }
-
-    case "word-clicked": {
+    case ActionType.click_word: {
       const index = action.payload
 
       const spotHasAPebble = wordSpots[index]
@@ -59,6 +52,13 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
 
       localStorage.setItem(localStorageKeys.wordSpots, newWordSpots.toLocaleString())
       return { ...state, wordSpots: newWordSpots, selectedPebble: NaN }
+    }
+
+    case ActionType.toggle_ad_modal: {
+      return {
+        ...state,
+        adDisplayed: action.payload,
+      }
     }
 
     default: {

@@ -3,14 +3,14 @@ import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import { getPebbleIds } from "../helpers/get-pebble-ids"
-import { AppState } from "#type"
+import { ActionType, AppState } from "#type"
 
 export function PebbleList() {
   const appState = useAppState()
   const dispatch = useAppStateDispatch()
   const pebbleInventory = getPebbleInventory(appState.wordSpots)
 
-  const handleClick = (id: number) => dispatch({ type: "pebble-clicked", payload: id })
+  const handleClick = (id: number) => dispatch({ type: ActionType.click_pebble, payload: id })
 
   const list_pebbles = getPebbleIds().map((pebbleId: number) => {
     const whileDisabled = pebbleInventory[pebbleId - 1] <= 0

@@ -4,6 +4,7 @@ import shape from "../styles/shape"
 import { ButtonCloseElement } from "./button-close-element"
 import CustomLink from "./custom-link"
 import { OFFICIAL_WEBSITE_URL } from "../constants"
+import { ActionType } from "#type"
 
 type Props = {
   displayed: boolean
@@ -12,7 +13,7 @@ type Props = {
 export function ModalAd({ displayed }: Props) {
   const dispatch = useAppStateDispatch()
 
-  const handleClick = () => dispatch({ type: "modal-ad-toggled", payload: false })
+  const handleClick = () => dispatch({ type: ActionType.toggle_ad_modal, payload: false })
 
   return (
     <Dialog open={displayed} PaperProps={{ sx: style_container }}>

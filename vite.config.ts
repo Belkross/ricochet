@@ -2,6 +2,7 @@
 
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react-swc"
+import path from "node:path"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,5 +12,10 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/tests/setup.ts",
     css: true,
+  },
+  resolve: {
+    alias: {
+      "#type": path.resolve(__dirname, "./src/type"),
+    },
   },
 })

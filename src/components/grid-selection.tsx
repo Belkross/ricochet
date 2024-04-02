@@ -5,13 +5,14 @@ import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import shape from "../styles/shape"
 import { ModalAd } from "./modal-ad"
 import { MIN_GRID_ID } from "../constants"
+import { ActionType } from "#type"
 
 export function GridSelection() {
   const { selectedGrid, adDisplayed } = useAppState()
   const dispatch = useAppStateDispatch()
 
-  const handleClickLeft = () => dispatch({ type: "grid-decremented" })
-  const handleClickRight = () => dispatch({ type: "grid-incremented" })
+  const handleClickLeft = () => dispatch({ type: ActionType.decrement_grid })
+  const handleClickRight = () => dispatch({ type: ActionType.increment_grid })
 
   return (
     <>
