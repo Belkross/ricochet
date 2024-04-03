@@ -1,8 +1,8 @@
-import { GridSelection } from "../../component/grid-selection"
-import { MAX_GRID_ID, MIN_GRID_ID, OFFICIAL_WEBSITE_NAME, OFFICIAL_WEBSITE_URL } from "../../constants"
-import { initializeAppState } from "../../store/initialize-app-state"
-import { ProviderAppState } from "../../store/provider-app-state"
-import { render, screen } from "../test-utils"
+import { GridSelection } from "../component/grid-selection"
+import { MAX_GRID_ID, MIN_GRID_ID, OFFICIAL_WEBSITE_NAME, OFFICIAL_WEBSITE_URL } from "../constants"
+import { initializeAppState } from "../store/initialize-app-state"
+import { ProviderAppState } from "../store/provider-app-state"
+import { render, screen } from "./test-utils"
 import userEvent from "@testing-library/user-event"
 
 test("allows to navigate between grid 1 and some other grid", async () => {

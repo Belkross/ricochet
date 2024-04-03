@@ -1,11 +1,11 @@
 import userEvent from "@testing-library/user-event"
-import { Pebbles } from "../../component/pebbles"
-import { render, screen } from "../test-utils"
-import { getPebbleIds } from "../../helpers/get-pebble-ids"
-import { initializeAppState } from "../../store/initialize-app-state"
-import { ProviderAppState } from "../../store/provider-app-state"
-import { WordsGrid } from "../../component/words-grid"
-import { pebbleColors } from "../../styles/palette"
+import { Pebbles } from "../component/pebbles"
+import { render, screen } from "./test-utils"
+import { getPebbleIds } from "../helpers/get-pebble-ids"
+import { initializeAppState } from "../store/initialize-app-state"
+import { ProviderAppState } from "../store/provider-app-state"
+import { WordsGrid } from "../component/words-grid"
+import { pebbleColors } from "../styles/palette"
 
 test.each(getPebbleIds())("putting pebble %i in a word", async (id) => {
   const user = userEvent.setup()
