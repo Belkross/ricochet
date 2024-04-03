@@ -1,4 +1,4 @@
-import { GridSelection } from "../../components/grid-selection"
+import { GridSelection } from "../../component/grid-selection"
 import { MAX_GRID_ID, MIN_GRID_ID, OFFICIAL_WEBSITE_NAME, OFFICIAL_WEBSITE_URL } from "../../constants"
 import { initializeAppState } from "../../store/initialize-app-state"
 import { ProviderAppState } from "../../store/provider-app-state"

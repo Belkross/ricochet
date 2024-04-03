@@ -1,10 +1,5 @@
-import { GlobalFeatures } from "./components/global-features"
-import { InterfaceGame } from "./components/interface-game"
+import { InterfaceGame } from "#component/interface-game"
 
 export default function App() {
-  return (
-    <GlobalFeatures>
-      <InterfaceGame />
-    </GlobalFeatures>
-  )
+  return <InterfaceGame />
 }

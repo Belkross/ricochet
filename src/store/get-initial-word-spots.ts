@@ -1,4 +1,4 @@
-import { minPebble, maxPebble } from "../components/pebbles"
+import { minPebble, maxPebble } from "../component/pebbles"
 
 export function getInitialWordSpots(storageKey: string, defaultValue: Array<number>): Array<number> {
   const storedValue = localStorage.getItem(storageKey)

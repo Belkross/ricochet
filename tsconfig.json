@@ -18,7 +18,8 @@
     "types": ["@testing-library/jest-dom", "vitest/globals"],
 
     "paths": {
-      "#type": ["./src/type/index.ts"]
+      "#type": ["./src/type/index.ts"],
+      "#component/*": ["./src/component/*"]
     }
   },
   "include": ["src"],

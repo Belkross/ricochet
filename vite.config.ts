@@ -16,6 +16,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "#type": path.resolve(__dirname, "./src/type"),
+      "#component": path.resolve(__dirname, "./src/component"),
     },
   },
 })

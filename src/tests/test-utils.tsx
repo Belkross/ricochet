@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import { render, RenderOptions } from "@testing-library/react"
-import { GlobalFeatures } from "../components/global-features.js"
+import { GlobalFeatures } from "../component/global-features.js"
 
 const AllTheProviders = ({ children }: { children: React.ReactElement }) => {
   return <GlobalFeatures>{children}</GlobalFeatures>
