@@ -8,8 +8,6 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:sonarjs/recommended",
-    "plugin:unicorn/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jest-dom/recommended",
     "plugin:testing-library/react"
@@ -19,23 +17,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "sonarjs", "unicorn", "react-hooks", "jest-dom", "testing-library"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "jest-dom", "testing-library"],
   "rules": {
-    "unicorn/switch-case-braces": "off",
-    "unicorn/no-null": "off",
-    "unicorn/prevent-abbreviations": "off",
-    "unicorn/prefer-number-properties": "off",
-    "unicorn/new-for-builtins": "off",
-    "sonarjs/no-duplicate-string": "off",
-    "react/react-in-jsx-scope": "off",
-    "unicorn/no-new-array": "off"
-  },
-  "overrides": [
-    {
-      "files": "src/App.tsx",
-      "rules": {
-        "unicorn/filename-case": "off"
-      }
-    }
-  ]
+    "react/react-in-jsx-scope": "off" //avoid to import react each time
+  }
 }
