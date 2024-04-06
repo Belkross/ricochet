@@ -19,7 +19,7 @@ export function WordsList() {
         key={index}
         sx={style_buttonWord(playedPebble, selectedPebble)}
         onClick={() => handleClick(index)}
-        aria-label={`mot ${wordId}`}
+        aria-label={`mot n°${wordId}`}
       >
         <Typography sx={style_wordString}>{word[0].toUpperCase() + word.slice(1)}</Typography>
         <Typography>{playedPebble || "-"}</Typography>

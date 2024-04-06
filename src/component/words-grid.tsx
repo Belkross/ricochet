@@ -16,8 +16,10 @@ export function WordsGrid() {
       <GridSelection />
 
       <Stack sx={style_instructions}>
-        <Typography alignSelf="center">{grids[id].winConditions}</Typography>
-        <Tooltip title={tooltip} placement="top" arrow>
+        <Typography data-testid="win_conditions" alignSelf="center">
+          {grids[id].winConditions}
+        </Typography>
+        <Tooltip data-testid="advices" title={tooltip} placement="top" arrow>
           <Chip label="Aide" variant="filled" icon={<HelpIcon />} />
         </Tooltip>
       </Stack>

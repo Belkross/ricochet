@@ -19,7 +19,7 @@ export function PebbleList() {
         key={pebbleId}
         sx={style_button(pebbleId, appState)}
         onClick={() => handleClick(pebbleId)}
-        aria-label={`galet ${pebbleId}`}
+        aria-label={`galet n°${pebbleId}`}
         disabled={whileDisabled}
       >
         <Typography>{pebbleId}</Typography>

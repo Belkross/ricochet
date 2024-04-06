@@ -9,7 +9,7 @@ export function Dialogue() {
 
   useTypingAnimation(element, id)
 
-  return <Typography ref={element} sx={style_dialogue} />
+  return <Typography data-testid="grid_dialogue" ref={element} sx={style_dialogue} />
 }
 
 const style_dialogue: SxProps = {

@@ -1,5 +1,5 @@
-import { InterfaceGame } from "#component/interface-game"
+import { GamePage } from "#component/game.page"
 
 export default function App() {
-  return <InterfaceGame />
+  return <GamePage />
 }

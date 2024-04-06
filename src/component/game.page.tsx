@@ -7,7 +7,7 @@ import { Footer } from "./footer"
 import { Pebbles } from "./pebbles"
 import { WordsGrid } from "./words-grid"
 
-export function InterfaceGame() {
+export function GamePage() {
   return (
     <Box sx={style_container}>
       <Stack sx={style_header}>
