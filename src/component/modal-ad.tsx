@@ -16,7 +16,7 @@ export function ModalAd({ displayed }: Props) {
   const handleClick = () => dispatch({ type: ActionType.toggle_ad_modal, payload: false })
 
   return (
-    <Dialog open={displayed} PaperProps={{ sx: style_container }}>
+    <Dialog data-testid="ad_modal" open={displayed} PaperProps={{ sx: style_container }}>
       <ButtonCloseElement onClick={handleClick} />
       <Typography>
         {`Ce site n’est qu’une version démo et ne permet pas de d’accéder aux prochaines grilles. Pour se procurer une

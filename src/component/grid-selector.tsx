@@ -7,7 +7,7 @@ import { ModalAd } from "./modal-ad"
 import { MIN_GRID_ID } from "../constants"
 import { ActionType } from "#type"
 
-export function GridSelection() {
+export function GridSelector() {
   const { selectedGrid, adDisplayed } = useAppState()
   const dispatch = useAppStateDispatch()
 

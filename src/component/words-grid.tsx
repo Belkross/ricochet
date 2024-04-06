@@ -2,7 +2,7 @@ import { Box, Chip, Stack, SxProps, Tooltip, Typography } from "@mui/material"
 import HelpIcon from "@mui/icons-material/Help"
 import { grids } from "../assets/grids"
 import shape from "../styles/shape"
-import { GridSelection } from "./grid-selection"
+import { GridSelector } from "./grid-selector"
 import { WordsList } from "./words-list"
 import { useAppState } from "../context/context-app-state"
 
@@ -13,7 +13,7 @@ export function WordsGrid() {
 
   return (
     <Stack sx={style_container}>
-      <GridSelection />
+      <GridSelector />
 
       <Stack sx={style_instructions}>
         <Typography data-testid="win_conditions" alignSelf="center">
