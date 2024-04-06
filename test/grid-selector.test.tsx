@@ -1,7 +1,6 @@
 import { GridSelector } from "../src/component/grid-selector"
 import { MAX_GRID_ID } from "../src/constants"
-import { render, screen } from "./test-utils"
-import userEvent from "@testing-library/user-event"
+import { render, screen, userEvent } from "./test-utils"
 
 test("increment and decrement the selected grid", async () => {
   render(<GridSelector />)
