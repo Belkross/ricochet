@@ -1,76 +1,70 @@
-test("nothing")
-/* import userEvent from "@testing-library/user-event"
 import { Pebbles } from "../src/component/pebbles"
-import { render, screen } from "./test-utils"
-import { getPebbleIds } from "../src/helpers/get-pebble-ids"
-import { initializeAppState } from "../src/store/initialize-app-state"
-import { ProviderAppState } from "../src/store/provider-app-state"
+import { render, screen, userEvent } from "./test-utils"
 import { WordsGrid } from "../src/component/words-grid"
 import { pebbleColors } from "../src/styles/palette"
 
-test.each(getPebbleIds())("putting pebble %i in a word", async (id) => {
-  const user = userEvent.setup()
-  renderComponent()
-  const pebble = screen.getByLabelText(new RegExp(`^galet ${id}$`, "i"))
-  const word = screen.getByRole("button", { name: /^mot\s1$/ })
-
-  //pebble should show it’s id
-  expect(pebble).toHaveTextContent(new RegExp(`^${id}`))
-
-  //when hold, should show a visual difference
-  const initialBorderColor = `border-color: ${pebbleColors[id]}`
-  expect(pebble).toHaveStyle(initialBorderColor)
-  await user.click(pebble),
-  expect(pebble).not.toHaveStyle(initialBorderColor)
-
-  //when clicked in a word while holding a pebble, the word should show the pebble put on him and take its color
-  const pebblePutVisual = `background-color: ${pebbleColors[id]}`
-  expect(word).toHaveTextContent(/-$/)
-  expect(word).not.toHaveStyle(pebblePutVisual)
-  await user.click(word)
-  expect(word).toHaveTextContent(new RegExp(`${id}$`))
-  expect(word).toHaveStyle(pebblePutVisual)
-})
-
-test.each(getPebbleIds())("pebble %i stock management", async (id) => {
-  const user = userEvent.setup()
-  renderComponent()
-  const pebbleQuantityRegExp = (quantity: number) => new RegExp(`·{${quantity}}$`)
-  const pebble = screen.getByLabelText(new RegExp(`^galet ${id}$`, "i"))
-  const word1 = screen.getByRole("button", { name: /^mot\s1$/ })
-  const word2 = screen.getByRole("button", { name: /^mot\s2$/ })
-
-  //should show a visual for a quantity of two
-  expect(pebble).toHaveTextContent(pebbleQuantityRegExp(2))
-
-  //when first pebble hold and put on a word, should show one less pebble
-  await user.click(pebble)
-  await user.click(word1)
-
-  expect(pebble).toHaveTextContent(pebbleQuantityRegExp(1))
-
-  //when second pebble hold and put on same word, should show no difference
-  await user.click(pebble)
-  await user.click(word1)
-  expect(pebble).toHaveTextContent(pebbleQuantityRegExp(1))
-
-  //when second pebble hold and put on another word, should show one less pebble
-  //and become disabled
-  await user.click(pebble)
-  await user.click(word2)
-  expect(pebble).toHaveTextContent(pebbleQuantityRegExp(0))
-  expect(pebble).toBeDisabled()
-})
-
-const initialState = initializeAppState()
 function renderComponent() {
   render(
-    <ProviderAppState initialState={initialState}>
-      <>
-        <WordsGrid />
-        <Pebbles />
-      </>
-    </ProviderAppState>
+    <>
+      <WordsGrid />
+      <Pebbles />
+    </>
   )
 }
- */
+
+test("each pebble should show its id", () => {
+  renderComponent()
+
+  const pebbles = screen.getAllByRole("button", { name: /galet n°/ })
+
+  for (const [index, pebble] of pebbles.entries()) {
+    const pebbleId = index + 1
+
+    //the pebble should show it’s id
+    expect(pebble).toHaveTextContent(new RegExp(String(pebbleId)))
+  }
+})
+
+test("putting a pebble in a word", async () => {
+  renderComponent()
+  const user = userEvent.setup()
+
+  const pebbleId = 1
+  const pebble1 = screen.getByRole("button", { name: `galet n°${pebbleId}` })
+  const word1 = screen.getByRole("button", { name: "mot n°1" })
+
+  //when holding the pebble, it should show a visual difference
+  const initialBorderColor = `border-color: ${pebbleColors[pebbleId]}`
+  expect(pebble1).toHaveStyle(initialBorderColor)
+  await user.click(pebble1)
+  expect(pebble1).not.toHaveStyle(initialBorderColor)
+
+  //when clicking in a word while holding a pebble, the word should show the pebble id
+  expect(word1).not.toHaveTextContent(new RegExp(String(pebbleId)))
+  await user.click(word1)
+  expect(word1).toHaveTextContent(new RegExp(String(pebbleId)))
+})
+
+test("pebble stock management", async () => {
+  renderComponent()
+  const user = userEvent.setup()
+
+  const pebble = screen.getByRole("button", { name: /^galet n°1$/ })
+  const word1 = screen.getByRole("button", { name: /^mot n°1$/ })
+  const word2 = screen.getByRole("button", { name: /^mot n°2$/ })
+
+  //putting a pebble on a word should decrement the quantity
+  expect(pebble).toBeEnabled()
+  await user.click(pebble)
+  await user.click(word1)
+  expect(pebble).toBeEnabled()
+
+  //putting a second pebble in another word should disable the pebble
+  await user.click(pebble)
+  await user.click(word2)
+  expect(pebble).toBeDisabled()
+
+  //clicking on a word that contains a pebble should increment the quantity
+  await user.click(word2)
+  expect(pebble).toBeEnabled()
+})

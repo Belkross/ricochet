@@ -2,7 +2,7 @@ import { Button, SxProps, Typography } from "@mui/material"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 import { RemainingPebbleVisual } from "./remaining-pebble-visual"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
-import { getPebbleIds } from "../helpers/get-pebble-ids"
+import { getPebbleIdsdArray } from "../helpers/get-pebble-ids"
 import { ActionType, AppState } from "#type"
 
 export function PebbleList() {
@@ -12,7 +12,7 @@ export function PebbleList() {
 
   const handleClick = (id: number) => dispatch({ type: ActionType.click_pebble, payload: id })
 
-  const list_pebbles = getPebbleIds().map((pebbleId: number) => {
+  const list_pebbles = getPebbleIdsdArray().map((pebbleId: number) => {
     const whileDisabled = pebbleInventory[pebbleId - 1] <= 0
     return (
       <Button
