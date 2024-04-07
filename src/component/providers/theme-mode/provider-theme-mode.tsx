@@ -1,5 +1,4 @@
 import { ReactElement, useState } from "react"
-import { localStorageKeys } from "../../../config/local-storage-keys"
 import { defaultThemeMode, ThemeModeContext, ToggleThemeModeContext } from "../../../context/context-theme-mode"
 import { getInitialThemeMode } from "./get-initial-theme-mode"
 
@@ -7,13 +6,15 @@ type Props = {
   children: ReactElement
 }
 
+const localStorageKey = "themeMode"
+
 export function ProviderThemeMode({ children }: Props) {
-  const [themeMode, setThemeMode] = useState(getInitialThemeMode(localStorageKeys.themeMode, defaultThemeMode))
+  const [themeMode, setThemeMode] = useState(getInitialThemeMode(localStorageKey, defaultThemeMode))
 
   const toggleThemeMode = () => {
     const newState = themeMode === "dark" ? "light" : "dark"
     setThemeMode(newState)
-    localStorage.setItem(localStorageKeys.themeMode, newState)
+    localStorage.setItem(localStorageKey, newState)
   }
 
   return (

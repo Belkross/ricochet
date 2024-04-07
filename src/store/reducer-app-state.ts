@@ -1,6 +1,5 @@
 import { ActionType, AppState, AppStateActions } from "#type"
-import { localStorageKeys } from "../config/local-storage-keys"
-import { MAX_GRID_ID, MAX_WORD_ID } from "#domain"
+import { MAX_GRID_ID, boardRepository } from "#domain"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {
@@ -9,22 +8,25 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
   switch (action.type) {
     case ActionType.decrement_grid: {
       const newSelectedGrid = selectedGrid - 1
-      localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
+      boardRepository.setSelectedGrid(newSelectedGrid)
+
       return {
         ...state,
         selectedGrid: newSelectedGrid,
-        wordSpots: new Array(MAX_WORD_ID).fill(NaN),
+        wordSpots: boardRepository.getResettedWordSpots(),
       }
     }
 
     case ActionType.increment_grid: {
-      if (selectedGrid < MAX_GRID_ID) {
-        const newSelectedGrid = selectedGrid + 1
-        localStorage.setItem(localStorageKeys.gridId, newSelectedGrid.toString(10))
+      if (selectedGrid >= MAX_GRID_ID) return { ...state, adDisplayed: true }
 
-        return { ...state, selectedGrid: newSelectedGrid, wordSpots: new Array(MAX_WORD_ID).fill(NaN) }
-      } else {
-        return { ...state, adDisplayed: true }
+      const newSelectedGrid = selectedGrid + 1
+      boardRepository.setSelectedGrid(newSelectedGrid)
+
+      return {
+        ...state,
+        selectedGrid: newSelectedGrid,
+        wordSpots: boardRepository.getResettedWordSpots(),
       }
     }
 
@@ -44,14 +46,20 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
     case ActionType.click_word: {
       const index = action.payload
 
-      const spotHasAPebble = wordSpots[index]
+      const spotHasAPebble = !isNaN(wordSpots[index])
+      const holdingAPebble = !isNaN(selectedPebble)
       const newWordSpots = [...wordSpots]
 
-      if (selectedPebble) newWordSpots[index] = selectedPebble
+      if (holdingAPebble) newWordSpots[index] = selectedPebble
       else if (spotHasAPebble) newWordSpots[index] = NaN
 
-      localStorage.setItem(localStorageKeys.wordSpots, newWordSpots.toLocaleString())
-      return { ...state, wordSpots: newWordSpots, selectedPebble: NaN }
+      boardRepository.setWordSpots(newWordSpots)
+
+      return {
+        ...state,
+        wordSpots: newWordSpots,
+        selectedPebble: NaN,
+      }
     }
 
     case ActionType.toggle_ad_modal: {
