@@ -1,5 +1,5 @@
 import { GridSelector } from "../src/component/grid-selector"
-import { MAX_GRID_ID, MIN_GRID_ID } from "#domain"
+import { MAX_GRID_ID } from "#domain"
 import { render, screen, userEvent } from "./test-utils"
 
 test("increment and decrement the selected grid", async () => {
