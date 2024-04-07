@@ -2,7 +2,7 @@ import { ReactElement, useMemo, useReducer } from "react"
 import { AppStateContext, AppStateDispatchContext } from "../context/context-app-state"
 import { reducerAppState } from "./reducer-app-state"
 import { AppState } from "#type"
-import { MAX_WORD_ID, MIN_GRID_ID } from "../constants"
+import { MAX_WORD_ID, MIN_GRID_ID } from "#domain"
 
 type Props = {
   children: ReactElement

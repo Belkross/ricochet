@@ -1,6 +1,6 @@
 import { ActionType, AppState, AppStateActions } from "#type"
 import { localStorageKeys } from "../config/local-storage-keys"
-import { MAX_GRID_ID, MAX_WORD_ID } from "../constants"
+import { MAX_GRID_ID, MAX_WORD_ID } from "#domain"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {

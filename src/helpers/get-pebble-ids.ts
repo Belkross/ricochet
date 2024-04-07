@@ -1,4 +1,4 @@
-import { MAX_PEBBLE_ID } from "../constants"
+import { MAX_PEBBLE_ID } from "#domain"
 
 export function getPebbleIdsdArray() {
   const array = new Array(MAX_PEBBLE_ID).fill(NaN)

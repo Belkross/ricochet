@@ -4,8 +4,8 @@ import ArrowLeft from "@mui/icons-material/ArrowBackIosNew"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import shape from "../styles/shape"
 import { ModalAd } from "./modal-ad"
-import { MIN_GRID_ID } from "../constants"
 import { ActionType } from "#type"
+import { MIN_GRID_ID } from "#domain"
 
 export function GridSelector() {
   const { selectedGrid, adDisplayed } = useAppState()

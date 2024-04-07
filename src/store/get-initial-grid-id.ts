@@ -1,4 +1,4 @@
-import { MAX_GRID_ID, MIN_GRID_ID } from "../constants"
+import { MIN_GRID_ID, MAX_GRID_ID } from "#domain"
 
 export function getInitialGridId(storageKey: string, defaultValue: number): number {
   const storedValue = localStorage.getItem(storageKey)

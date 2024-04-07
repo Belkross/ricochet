@@ -3,7 +3,7 @@ import { useAppStateDispatch } from "../context/context-app-state"
 import shape from "../styles/shape"
 import { ButtonCloseElement } from "./button-close-element"
 import CustomLink from "./custom-link"
-import { OFFICIAL_WEBSITE_URL } from "../constants"
+import { OFFICIAL_WEBSITE_URL } from "#domain"
 import { ActionType } from "#type"
 
 type Props = {
