@@ -1,17 +1,17 @@
 import { createContext, Dispatch, useContext } from "react"
-import { contextErrorMessage } from "./error-message"
 import { AppState, AppStateActions } from "#type"
+import { OutOfProviderContextError } from "./context.error"
 
 export const AppStateDispatchContext = createContext<Dispatch<AppStateActions> | undefined>(undefined)
 export const useAppStateDispatch = () => {
   const context = useContext(AppStateDispatchContext)
-  if (!context) throw new Error(contextErrorMessage)
+  if (!context) throw new OutOfProviderContextError()
   return context
 }
 
 export const AppStateContext = createContext<AppState | undefined>(undefined)
 export const useAppState = () => {
   const context = useContext(AppStateContext)
-  if (!context) throw new Error(contextErrorMessage)
+  if (!context) throw new OutOfProviderContextError()
   return context
 }

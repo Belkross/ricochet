@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react"
-import { contextErrorMessage } from "./error-message"
+import { OutOfProviderContextError } from "./context.error"
 
 export const defaultThemeMode: ThemeMode = "light"
 
@@ -9,6 +9,6 @@ export const useThemeMode = () => useContext(ThemeModeContext)
 export const ToggleThemeModeContext = createContext<FlowlessFunction | null>(null)
 export const useToggleThemeMode = () => {
   const context = useContext(ToggleThemeModeContext)
-  if (!context) throw new Error(contextErrorMessage)
+  if (!context) throw new OutOfProviderContextError()
   return context
 }
