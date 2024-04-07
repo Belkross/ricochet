@@ -1,6 +1,6 @@
 import { RefObject, useRef, useEffect } from "react"
 import Typed from "typed.js"
-import { grids } from "../../assets/grids"
+import { grids } from "#domain"
 
 const TYPE_SPEED = 50
 

@@ -1,10 +1,10 @@
 import { Box, Chip, Stack, SxProps, Tooltip, Typography } from "@mui/material"
 import HelpIcon from "@mui/icons-material/Help"
-import { grids } from "../assets/grids"
 import shape from "../styles/shape"
 import { GridSelector } from "./grid-selector"
 import { WordsList } from "./words-list"
 import { useAppState } from "../context/context-app-state"
+import { grids } from "#domain"
 
 export function WordsGrid() {
   const { selectedGrid: id } = useAppState()

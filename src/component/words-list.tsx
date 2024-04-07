@@ -1,5 +1,5 @@
 import { Button, SxProps, Typography } from "@mui/material"
-import { grids } from "../assets/grids"
+import { grids } from "#domain"
 import { useAppState, useAppStateDispatch } from "../context/context-app-state"
 import { ActionType } from "#type"
 
