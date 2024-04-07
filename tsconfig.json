@@ -19,7 +19,8 @@
 
     "paths": {
       "#type": ["./src/type/index.ts"],
-      "#component/*": ["./src/component/*"]
+      "#component/*": ["./src/component/*"],
+      "#domain": ["./src/domain/index.ts"]
     }
   },
   "include": ["src", "test"],

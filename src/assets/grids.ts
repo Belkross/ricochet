@@ -1,14 +1,7 @@
-type GridData = {
-  readonly dialogue: string[]
-  readonly grid: string[]
-  readonly id: number
-  readonly winConditions: string
-  readonly instruction: string
-  readonly help: string
-}
+import { Grid } from "#domain"
 
 type Grids = {
-  readonly [index: number]: GridData
+  readonly [index: number]: Grid
 }
 
 export const grids: Grids = {
