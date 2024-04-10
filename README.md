@@ -1,4 +1,4 @@
-![App screenshoot](./assets/app-screenshoot.png)
+![App screenshoot](./asset/app-screenshoot.png)
 
 # Ricochet
 
@@ -6,8 +6,8 @@ Ricochet is a board game where you need associate words together to progress and
 
 This project is a reproduction of a real board game created by Cyril Blondel. It intends to be a tribute to his work and I hope some people will have as much fun as I had playing this game.
 
-![Ricochet physical boxes](./assets/readme-illustration.jpg)
-![Ricochet’s board game](./assets/readme-illustration-2.jpg)
+![Ricochet physical boxes](./asset/readme-illustration.jpg)
+![Ricochet’s board game](./asset/readme-illustration-2.jpg)
 
 ## Try the game
 
