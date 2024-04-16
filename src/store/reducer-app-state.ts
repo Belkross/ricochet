@@ -1,5 +1,5 @@
 import { ActionType, AppState, AppStateActions } from "#type"
-import { MAX_GRID_ID, boardRepository } from "#domain"
+import { MAX_GRID_ID, MIN_GRID_ID, boardRepository } from "#domain"
 import { getPebbleInventory } from "../helpers/get-pebble-inventory"
 
 export function reducerAppState(state: AppState, action: AppStateActions): AppState {
@@ -7,6 +7,8 @@ export function reducerAppState(state: AppState, action: AppStateActions): AppSt
 
   switch (action.type) {
     case ActionType.decrement_grid: {
+      if (selectedGrid === MIN_GRID_ID) return { ...state }
+
       const newSelectedGrid = selectedGrid - 1
       boardRepository.setSelectedGrid(newSelectedGrid)
 
