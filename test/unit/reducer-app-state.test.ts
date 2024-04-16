@@ -1,7 +1,7 @@
 import { MAX_GRID_ID, MIN_GRID_ID } from "#domain"
-import { initializeAppState } from "../src/store/initialize-app-state"
-import { reducerAppState } from "../src/store/reducer-app-state"
-import { ActionType } from "../src/type/app-state.type"
+import { initializeAppState } from "../../src/store/initialize-app-state"
+import { reducerAppState } from "../../src/store/reducer-app-state"
+import { ActionType } from "../../src/type/app-state.type"
 
 describe("decrementing the grid", () => {
   test("when the current grid is the first one it should keep it", () => {

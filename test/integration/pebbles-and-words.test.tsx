@@ -1,7 +1,7 @@
-import { Pebbles } from "../src/component/pebbles"
-import { render, screen, userEvent } from "./test-utils"
-import { WordsGrid } from "../src/component/words-grid"
-import { pebbleColors } from "../src/styles/palette"
+import { Pebbles } from "../../src/component/pebbles"
+import { render, screen, userEvent } from "../test-utils"
+import { WordsGrid } from "../../src/component/words-grid"
+import { pebbleColors } from "../../src/styles/palette"
 
 function renderComponent() {
   render(

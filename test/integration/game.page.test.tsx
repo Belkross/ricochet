@@ -1,6 +1,6 @@
 import { GamePage } from "#component/game.page"
 import { MAX_PEBBLE_ID, MAX_WORD_ID } from "#domain"
-import { render, screen } from "./test-utils"
+import { render, screen } from "../test-utils"
 
 test("the game board view should contain these elements", () => {
   render(<GamePage />)
